@@ -67,7 +67,12 @@
 #include <net/if_var.h>
 #include <net/if_dl.h>
 #include <net/if_types.h>
+#include "TargetConditionals.h"
+#if (TARGET_OS_SIMULATOR)
 #include <net/route.h>
+#else
+#include <net/route_ios.h>
+#endif
 #include <net/radix.h>
 
 #include <netinet/in.h>
