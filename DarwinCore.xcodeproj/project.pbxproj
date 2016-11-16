@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6918833D1DDCA36A0051DAAE /* STTraffic.h in Headers */ = {isa = PBXBuildFile; fileRef = 6918833B1DDCA36A0051DAAE /* STTraffic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6918833E1DDCA36A0051DAAE /* STTraffic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6918833C1DDCA36A0051DAAE /* STTraffic.m */; };
 		69FC1ACB1DDBF25400EF8AAC /* DarwinCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1AC91DDBF25400EF8AAC /* DarwinCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69FC1AD31DDBF27C00EF8AAC /* DNS.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1AD11DDBF27C00EF8AAC /* DNS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69FC1AD41DDBF27C00EF8AAC /* DNS.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FC1AD21DDBF27C00EF8AAC /* DNS.m */; };
@@ -47,6 +49,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6918833B1DDCA36A0051DAAE /* STTraffic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTraffic.h; sourceTree = "<group>"; };
+		6918833C1DDCA36A0051DAAE /* STTraffic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTraffic.m; sourceTree = "<group>"; };
 		69FC1AC61DDBF25400EF8AAC /* DarwinCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DarwinCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69FC1AC91DDBF25400EF8AAC /* DarwinCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DarwinCore.h; sourceTree = "<group>"; };
 		69FC1ACA1DDBF25400EF8AAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 		69FC1AC81DDBF25400EF8AAC /* DarwinCore */ = {
 			isa = PBXGroup;
 			children = (
+				6918833B1DDCA36A0051DAAE /* STTraffic.h */,
+				6918833C1DDCA36A0051DAAE /* STTraffic.m */,
 				69FC1ADA1DDBF69300EF8AAC /* Route.h */,
 				69FC1ADB1DDBF69300EF8AAC /* Route.m */,
 				69FC1AD81DDBF4F800EF8AAC /* route.c */,
@@ -149,6 +155,7 @@
 				69FC1ADC1DDBF69300EF8AAC /* Route.h in Headers */,
 				69FC1AD31DDBF27C00EF8AAC /* DNS.h in Headers */,
 				69FC1ACB1DDBF25400EF8AAC /* DarwinCore.h in Headers */,
+				6918833D1DDCA36A0051DAAE /* STTraffic.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6918833E1DDCA36A0051DAAE /* STTraffic.m in Sources */,
 				69FC1ADD1DDBF69300EF8AAC /* Route.m in Sources */,
 				69FC1AD41DDBF27C00EF8AAC /* DNS.m in Sources */,
 				69FC1AD91DDBF4F800EF8AAC /* route.c in Sources */,
@@ -409,6 +417,7 @@
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/include/";
 				INFOPLIST_FILE = DarwinCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.DarwinCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -427,6 +436,7 @@
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/include/";
 				INFOPLIST_FILE = DarwinCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.DarwinCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -482,6 +492,7 @@
 				69FC1AD01DDBF25400EF8AAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		69FC1AF11DDBF77300EF8AAC /* Build configuration list for PBXNativeTarget "DarwinCoreTest" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +501,7 @@
 				69FC1AF31DDBF77300EF8AAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
