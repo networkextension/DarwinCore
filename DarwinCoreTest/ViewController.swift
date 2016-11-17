@@ -9,7 +9,7 @@
 import UIKit
 import DarwinCore
 class ViewController: UIViewController {
-
+    let r = DNSResolver()
     override func viewDidLoad() {
         super.viewDidLoad()
         test()
@@ -19,6 +19,23 @@ class ViewController: UIViewController {
         DNS.loadSystemDNSServer()
         let string = Route.currntRouter() as String
         print(string)
+        testReolover(host: "www.freebsdchina.org")
+        
+    }
+    func testReolover(host:String) {
+        r.hostname = "www.freebsdchina.org"
+        r.querey(host) { (record) in
+            
+            if let record = record {
+                print(record.ipaddress)
+            }else {
+                print("error")
+            }
+        }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

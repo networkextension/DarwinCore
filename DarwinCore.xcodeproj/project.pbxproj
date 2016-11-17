@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6918833D1DDCA36A0051DAAE /* STTraffic.h in Headers */ = {isa = PBXBuildFile; fileRef = 6918833B1DDCA36A0051DAAE /* STTraffic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6918833E1DDCA36A0051DAAE /* STTraffic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6918833C1DDCA36A0051DAAE /* STTraffic.m */; };
-		691883411DDD44AB0051DAAE /* DNSResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 6918833F1DDD44AB0051DAAE /* DNSResolver.h */; };
+		691883411DDD44AB0051DAAE /* DNSResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 6918833F1DDD44AB0051DAAE /* DNSResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		691883421DDD44AB0051DAAE /* DNSResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 691883401DDD44AB0051DAAE /* DNSResolver.m */; };
 		69FC1ACB1DDBF25400EF8AAC /* DarwinCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1AC91DDBF25400EF8AAC /* DarwinCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69FC1AD31DDBF27C00EF8AAC /* DNS.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1AD11DDBF27C00EF8AAC /* DNS.h */; settings = {ATTRIBUTES = (Public, ); }; };
