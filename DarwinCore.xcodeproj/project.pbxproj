@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6918833D1DDCA36A0051DAAE /* STTraffic.h in Headers */ = {isa = PBXBuildFile; fileRef = 6918833B1DDCA36A0051DAAE /* STTraffic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6918833E1DDCA36A0051DAAE /* STTraffic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6918833C1DDCA36A0051DAAE /* STTraffic.m */; };
+		691883411DDD44AB0051DAAE /* DNSResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 6918833F1DDD44AB0051DAAE /* DNSResolver.h */; };
+		691883421DDD44AB0051DAAE /* DNSResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 691883401DDD44AB0051DAAE /* DNSResolver.m */; };
 		69FC1ACB1DDBF25400EF8AAC /* DarwinCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1AC91DDBF25400EF8AAC /* DarwinCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69FC1AD31DDBF27C00EF8AAC /* DNS.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1AD11DDBF27C00EF8AAC /* DNS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69FC1AD41DDBF27C00EF8AAC /* DNS.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FC1AD21DDBF27C00EF8AAC /* DNS.m */; };
@@ -51,6 +53,8 @@
 /* Begin PBXFileReference section */
 		6918833B1DDCA36A0051DAAE /* STTraffic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTraffic.h; sourceTree = "<group>"; };
 		6918833C1DDCA36A0051DAAE /* STTraffic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTraffic.m; sourceTree = "<group>"; };
+		6918833F1DDD44AB0051DAAE /* DNSResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNSResolver.h; sourceTree = "<group>"; };
+		691883401DDD44AB0051DAAE /* DNSResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNSResolver.m; sourceTree = "<group>"; };
 		69FC1AC61DDBF25400EF8AAC /* DarwinCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DarwinCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69FC1AC91DDBF25400EF8AAC /* DarwinCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DarwinCore.h; sourceTree = "<group>"; };
 		69FC1ACA1DDBF25400EF8AAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 		69FC1AC81DDBF25400EF8AAC /* DarwinCore */ = {
 			isa = PBXGroup;
 			children = (
+				6918833F1DDD44AB0051DAAE /* DNSResolver.h */,
+				691883401DDD44AB0051DAAE /* DNSResolver.m */,
 				6918833B1DDCA36A0051DAAE /* STTraffic.h */,
 				6918833C1DDCA36A0051DAAE /* STTraffic.m */,
 				69FC1ADA1DDBF69300EF8AAC /* Route.h */,
@@ -153,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69FC1ADC1DDBF69300EF8AAC /* Route.h in Headers */,
+				691883411DDD44AB0051DAAE /* DNSResolver.h in Headers */,
 				69FC1AD31DDBF27C00EF8AAC /* DNS.h in Headers */,
 				69FC1ACB1DDBF25400EF8AAC /* DarwinCore.h in Headers */,
 				6918833D1DDCA36A0051DAAE /* STTraffic.h in Headers */,
@@ -265,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6918833E1DDCA36A0051DAAE /* STTraffic.m in Sources */,
+				691883421DDD44AB0051DAAE /* DNSResolver.m in Sources */,
 				69FC1ADD1DDBF69300EF8AAC /* Route.m in Sources */,
 				69FC1AD41DDBF27C00EF8AAC /* DNS.m in Sources */,
 				69FC1AD91DDBF4F800EF8AAC /* route.c in Sources */,
