@@ -68,11 +68,13 @@
 #include <net/if_dl.h>
 #include <net/if_types.h>
 #include "TargetConditionals.h"
-#if (TARGET_OS_SIMULATOR)
+#if !TARGET_OS_IPHONE && !TARGET_OS_SIMULATOR && !TARGET_OS_EMBEDDED
+// macOS-only code
 #include <net/route.h>
 #else
 #include <net/route_ios.h>
 #endif
+
 #include <net/radix.h>
 
 #include <netinet/in.h>
