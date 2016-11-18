@@ -69,8 +69,8 @@ extern void routepr(char *p);
     nflag = 1;
     aflag = 1;
     af = AF_INET;
-    char  buffer[8196];
-    memset(buffer, 0, 8196);
+    char  buffer[8196*10];
+    memset(buffer, 0, 8196*10);
     routepr(buffer);
     NSString *result = [NSString stringWithCString:buffer encoding:NSASCIIStringEncoding];
     if (result == nil) {
