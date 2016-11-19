@@ -64,7 +64,7 @@
 		6918833C1DDCA36A0051DAAE /* STTraffic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTraffic.m; sourceTree = "<group>"; };
 		6918833F1DDD44AB0051DAAE /* DNSResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNSResolver.h; sourceTree = "<group>"; };
 		691883401DDD44AB0051DAAE /* DNSResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNSResolver.m; sourceTree = "<group>"; };
-		69B954D81DDF7D3F006AF669 /* DarwinCoreOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DarwinCoreOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		69B954D81DDF7D3F006AF669 /* DarwinCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DarwinCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B954DA1DDF7D3F006AF669 /* DarwinCoreOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DarwinCoreOSX.h; sourceTree = "<group>"; };
 		69B954DB1DDF7D3F006AF669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69B954E91DDF7EA6006AF669 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/lib/libresolv.tbd; sourceTree = DEVELOPER_DIR; };
@@ -139,7 +139,7 @@
 			children = (
 				69FC1AC61DDBF25400EF8AAC /* DarwinCore.framework */,
 				69FC1AE21DDBF77300EF8AAC /* DarwinCoreTest.app */,
-				69B954D81DDF7D3F006AF669 /* DarwinCoreOSX.framework */,
+				69B954D81DDF7D3F006AF669 /* DarwinCore.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -229,7 +229,7 @@
 			);
 			name = DarwinCoreOSX;
 			productName = DarwinCoreOSX;
-			productReference = 69B954D81DDF7D3F006AF669 /* DarwinCoreOSX.framework */;
+			productReference = 69B954D81DDF7D3F006AF669 /* DarwinCore.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		69FC1AC51DDBF25400EF8AAC /* DarwinCore */ = {
@@ -420,8 +420,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.DarwinCoreOSX;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.DarwinCore;
+				PRODUCT_NAME = DarwinCore;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -446,8 +446,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.DarwinCoreOSX;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.DarwinCore;
+				PRODUCT_NAME = DarwinCore;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -628,6 +628,7 @@
 				69B954DE1DDF7D3F006AF669 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		69FC1AC01DDBF25400EF8AAC /* Build configuration list for PBXProject "DarwinCore" */ = {
 			isa = XCConfigurationList;
