@@ -11,12 +11,17 @@
 		6918833E1DDCA36A0051DAAE /* STTraffic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6918833C1DDCA36A0051DAAE /* STTraffic.m */; };
 		691883411DDD44AB0051DAAE /* DNSResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 6918833F1DDD44AB0051DAAE /* DNSResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		691883421DDD44AB0051DAAE /* DNSResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 691883401DDD44AB0051DAAE /* DNSResolver.m */; };
-		69B954DC1DDF7D3F006AF669 /* DarwinCoreOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 69B954DA1DDF7D3F006AF669 /* DarwinCoreOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6949404F1DE0AE2200F67DF0 /* DarwinCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B954D81DDF7D3F006AF669 /* DarwinCore.framework */; };
+		694940501DE0AE2200F67DF0 /* DarwinCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69B954D81DDF7D3F006AF669 /* DarwinCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		69784D911DE0AB4A007E32C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69784D901DE0AB4A007E32C2 /* AppDelegate.swift */; };
+		69784D931DE0AB4A007E32C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69784D921DE0AB4A007E32C2 /* ViewController.swift */; };
+		69784D951DE0AB4A007E32C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69784D941DE0AB4A007E32C2 /* Assets.xcassets */; };
+		69784D981DE0AB4A007E32C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69784D961DE0AB4A007E32C2 /* Main.storyboard */; };
+		69A684A11DE0AF7D00ED80D1 /* DarwinCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 69B954DA1DDF7D3F006AF669 /* DarwinCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69B954E01DDF7D4D006AF669 /* DNSResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 691883401DDD44AB0051DAAE /* DNSResolver.m */; };
 		69B954E11DDF7D51006AF669 /* STTraffic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6918833C1DDCA36A0051DAAE /* STTraffic.m */; };
 		69B954E41DDF7D5E006AF669 /* DNS.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FC1AD21DDBF27C00EF8AAC /* DNS.m */; };
 		69B954E51DDF7D62006AF669 /* DNS.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1AD11DDBF27C00EF8AAC /* DNS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		69B954E61DDF7D69006AF669 /* Route.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1ADA1DDBF69300EF8AAC /* Route.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69B954E71DDF7D74006AF669 /* STTraffic.h in Headers */ = {isa = PBXBuildFile; fileRef = 6918833B1DDCA36A0051DAAE /* STTraffic.h */; };
 		69B954E81DDF7D7A006AF669 /* DNSResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 6918833F1DDD44AB0051DAAE /* DNSResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69B954EA1DDF7EA6006AF669 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B954E91DDF7EA6006AF669 /* libresolv.tbd */; };
@@ -37,6 +42,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		69784D9E1DE0ABE4007E32C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69FC1ABD1DDBF25400EF8AAC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69B954D71DDF7D3F006AF669;
+			remoteInfo = DarwinCoreOSX;
+		};
 		69FC1AF41DDBF7C000EF8AAC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 69FC1ABD1DDBF25400EF8AAC /* Project object */;
@@ -47,6 +59,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		694940511DE0AE2200F67DF0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				694940501DE0AE2200F67DF0 /* DarwinCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69FC1AF71DDBF7D400EF8AAC /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -64,8 +87,14 @@
 		6918833C1DDCA36A0051DAAE /* STTraffic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTraffic.m; sourceTree = "<group>"; };
 		6918833F1DDD44AB0051DAAE /* DNSResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNSResolver.h; sourceTree = "<group>"; };
 		691883401DDD44AB0051DAAE /* DNSResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNSResolver.m; sourceTree = "<group>"; };
+		69784D8E1DE0AB4A007E32C2 /* macOSTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macOSTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		69784D901DE0AB4A007E32C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		69784D921DE0AB4A007E32C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		69784D941DE0AB4A007E32C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		69784D971DE0AB4A007E32C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		69784D991DE0AB4A007E32C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69B954D81DDF7D3F006AF669 /* DarwinCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DarwinCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		69B954DA1DDF7D3F006AF669 /* DarwinCoreOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DarwinCoreOSX.h; sourceTree = "<group>"; };
+		69B954DA1DDF7D3F006AF669 /* DarwinCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DarwinCore.h; sourceTree = "<group>"; };
 		69B954DB1DDF7D3F006AF669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69B954E91DDF7EA6006AF669 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/lib/libresolv.tbd; sourceTree = DEVELOPER_DIR; };
 		69FC1AC61DDBF25400EF8AAC /* DarwinCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DarwinCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +116,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		69784D8B1DE0AB4A007E32C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6949404F1DE0AE2200F67DF0 /* DarwinCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69B954D41DDF7D3F006AF669 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -114,10 +151,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		69784D8F1DE0AB4A007E32C2 /* macOSTest */ = {
+			isa = PBXGroup;
+			children = (
+				69784D901DE0AB4A007E32C2 /* AppDelegate.swift */,
+				69784D921DE0AB4A007E32C2 /* ViewController.swift */,
+				69784D941DE0AB4A007E32C2 /* Assets.xcassets */,
+				69784D961DE0AB4A007E32C2 /* Main.storyboard */,
+				69784D991DE0AB4A007E32C2 /* Info.plist */,
+			);
+			path = macOSTest;
+			sourceTree = "<group>";
+		};
 		69B954D91DDF7D3F006AF669 /* DarwinCoreOSX */ = {
 			isa = PBXGroup;
 			children = (
-				69B954DA1DDF7D3F006AF669 /* DarwinCoreOSX.h */,
+				69B954DA1DDF7D3F006AF669 /* DarwinCore.h */,
 				69B954DB1DDF7D3F006AF669 /* Info.plist */,
 			);
 			path = DarwinCoreOSX;
@@ -129,6 +178,7 @@
 				69FC1AC81DDBF25400EF8AAC /* DarwinCore */,
 				69FC1AE31DDBF77300EF8AAC /* DarwinCoreTest */,
 				69B954D91DDF7D3F006AF669 /* DarwinCoreOSX */,
+				69784D8F1DE0AB4A007E32C2 /* macOSTest */,
 				69FC1AC71DDBF25400EF8AAC /* Products */,
 				69FC1AD51DDBF48F00EF8AAC /* Frameworks */,
 			);
@@ -140,6 +190,7 @@
 				69FC1AC61DDBF25400EF8AAC /* DarwinCore.framework */,
 				69FC1AE21DDBF77300EF8AAC /* DarwinCoreTest.app */,
 				69B954D81DDF7D3F006AF669 /* DarwinCore.framework */,
+				69784D8E1DE0AB4A007E32C2 /* macOSTest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -191,11 +242,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69B954E61DDF7D69006AF669 /* Route.h in Headers */,
 				69B954E81DDF7D7A006AF669 /* DNSResolver.h in Headers */,
 				69B954E51DDF7D62006AF669 /* DNS.h in Headers */,
-				69B954DC1DDF7D3F006AF669 /* DarwinCoreOSX.h in Headers */,
 				69B954E71DDF7D74006AF669 /* STTraffic.h in Headers */,
+				69A684A11DE0AF7D00ED80D1 /* DarwinCore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +264,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		69784D8D1DE0AB4A007E32C2 /* macOSTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69784D9C1DE0AB4A007E32C2 /* Build configuration list for PBXNativeTarget "macOSTest" */;
+			buildPhases = (
+				69784D8A1DE0AB4A007E32C2 /* Sources */,
+				69784D8B1DE0AB4A007E32C2 /* Frameworks */,
+				69784D8C1DE0AB4A007E32C2 /* Resources */,
+				694940511DE0AE2200F67DF0 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69784D9F1DE0ABE4007E32C2 /* PBXTargetDependency */,
+			);
+			name = macOSTest;
+			productName = macOSTest;
+			productReference = 69784D8E1DE0AB4A007E32C2 /* macOSTest.app */;
+			productType = "com.apple.product-type.application";
+		};
 		69B954D71DDF7D3F006AF669 /* DarwinCoreOSX */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 69B954DF1DDF7D3F006AF669 /* Build configuration list for PBXNativeTarget "DarwinCoreOSX" */;
@@ -279,6 +348,11 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Kong XiangBo";
 				TargetAttributes = {
+					69784D8D1DE0AB4A007E32C2 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = 745WQDK4L7;
+						ProvisioningStyle = Automatic;
+					};
 					69B954D71DDF7D3F006AF669 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = 745WQDK4L7;
@@ -311,11 +385,21 @@
 				69FC1AC51DDBF25400EF8AAC /* DarwinCore */,
 				69FC1AE11DDBF77300EF8AAC /* DarwinCoreTest */,
 				69B954D71DDF7D3F006AF669 /* DarwinCoreOSX */,
+				69784D8D1DE0AB4A007E32C2 /* macOSTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		69784D8C1DE0AB4A007E32C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69784D951DE0AB4A007E32C2 /* Assets.xcassets in Resources */,
+				69784D981DE0AB4A007E32C2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69B954D61DDF7D3F006AF669 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -343,6 +427,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		69784D8A1DE0AB4A007E32C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69784D931DE0AB4A007E32C2 /* ViewController.swift in Sources */,
+				69784D911DE0AB4A007E32C2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69B954D31DDF7D3F006AF669 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -377,6 +470,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		69784D9F1DE0ABE4007E32C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69B954D71DDF7D3F006AF669 /* DarwinCoreOSX */;
+			targetProxy = 69784D9E1DE0ABE4007E32C2 /* PBXContainerItemProxy */;
+		};
 		69FC1AF51DDBF7C000EF8AAC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 69FC1AC51DDBF25400EF8AAC /* DarwinCore */;
@@ -385,6 +483,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		69784D961DE0AB4A007E32C2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69784D971DE0AB4A007E32C2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		69FC1AE81DDBF77300EF8AAC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -404,9 +510,47 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		69784D9A1DE0AB4A007E32C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 745WQDK4L7;
+				INFOPLIST_FILE = macOSTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.macOSTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		69784D9B1DE0AB4A007E32C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 745WQDK4L7;
+				INFOPLIST_FILE = macOSTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.macOSTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		69B954DD1DDF7D3F006AF669 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -419,7 +563,7 @@
 				INFOPLIST_FILE = DarwinCoreOSX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.DarwinCore;
 				PRODUCT_NAME = DarwinCore;
 				SDKROOT = macosx;
@@ -433,6 +577,7 @@
 		69B954DE1DDF7D3F006AF669 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -445,7 +590,7 @@
 				INFOPLIST_FILE = DarwinCoreOSX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.DarwinCore;
 				PRODUCT_NAME = DarwinCore;
 				SDKROOT = macosx;
@@ -621,6 +766,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		69784D9C1DE0AB4A007E32C2 /* Build configuration list for PBXNativeTarget "macOSTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69784D9A1DE0AB4A007E32C2 /* Debug */,
+				69784D9B1DE0AB4A007E32C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		69B954DF1DDF7D3F006AF669 /* Build configuration list for PBXNativeTarget "DarwinCoreOSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

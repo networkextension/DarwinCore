@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+    //#import <Foundation/Foundation.h>
 
 //! Project version number for DarwinCore.
 FOUNDATION_EXPORT double DarwinCoreVersionNumber;
