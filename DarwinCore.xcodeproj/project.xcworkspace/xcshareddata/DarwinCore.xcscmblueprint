@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4FD7898F36C1BE98AD70FFC8ED0692B1BC119B68",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "AACA9EEA20FE12DA3331147805C5AB3BDC660A1A" : 9223372036854775807,
+    "4FD7898F36C1BE98AD70FFC8ED0692B1BC119B68" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "1B30D01B-2BB7-4C33-A31A-96BB2D0A1549",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "AACA9EEA20FE12DA3331147805C5AB3BDC660A1A" : "..",
+    "4FD7898F36C1BE98AD70FFC8ED0692B1BC119B68" : "DarwinCore\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "DarwinCore",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "DarwinCore.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/networkextension\/DarwinCore",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4FD7898F36C1BE98AD70FFC8ED0692B1BC119B68"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "bitbucket.org:yarshure\/surf.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AACA9EEA20FE12DA3331147805C5AB3BDC660A1A"
+    }
+  ]
+}
