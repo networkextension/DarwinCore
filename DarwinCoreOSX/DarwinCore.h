@@ -19,5 +19,5 @@ FOUNDATION_EXPORT const unsigned char DarwinCoreOSXVersionString[];
 #import <DarwinCore/DNS.h>
 //
 //#import <DarwinCore/Route.h>
-//#import <DarwinCore/STTraffic.h>
+#import <DarwinCore/STTraffic.h>
 #import <DarwinCore/DNSResolver.h>
