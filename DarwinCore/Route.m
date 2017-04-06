@@ -101,6 +101,7 @@ ip_sum(
     
     return (sum > 65535 ? sum - 65535 : sum);
 }
+#import <netinet/ip.h>
 NSData* ipHeader(int len,__uint32_t src,__uint32_t dst,__uint16_t iden, u_char p)
 {
     char buffer[20];
