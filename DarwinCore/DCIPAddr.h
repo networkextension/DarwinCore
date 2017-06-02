@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface IPAddr : NSObject
+@interface DCIPAddr : NSObject
 +(NSDictionary *)cellAddress;
 @end

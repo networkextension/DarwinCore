@@ -13,7 +13,7 @@
 #include <sys/socket.h>
 
 #include <ifaddrs.h>
-@implementation IPAddr
+@implementation DCIPAddr
 +(NSDictionary *)cellAddress
 {
     // On iPhone, 3G is "pdp_ipX", where X is usually 0, but may possibly be 0-3 (i'm guessing...)
