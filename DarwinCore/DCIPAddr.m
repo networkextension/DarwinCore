@@ -6,7 +6,7 @@
 //  Copyright © 2017年 yarshure. All rights reserved.
 //
 
-#import "IPAddr.h"
+#import "DCIPAddr.h"
 
 #include <arpa/inet.h>
 
