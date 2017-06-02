@@ -22,3 +22,4 @@ FOUNDATION_EXPORT const unsigned char DarwinCoreVersionString[];
 #import <DarwinCore/DNSResolver.h>
 
 #import <DarwinCore/DCIPAddr.h>
+#import <DarwinCore/IPSum.h>

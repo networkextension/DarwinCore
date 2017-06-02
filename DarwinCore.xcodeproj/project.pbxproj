@@ -17,6 +17,10 @@
 		691883421DDD44AB0051DAAE /* DNSResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 691883401DDD44AB0051DAAE /* DNSResolver.m */; };
 		6949404F1DE0AE2200F67DF0 /* DarwinCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B954D81DDF7D3F006AF669 /* DarwinCore.framework */; };
 		694940501DE0AE2200F67DF0 /* DarwinCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69B954D81DDF7D3F006AF669 /* DarwinCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		69639C1D1EE1B2EF00893D18 /* IPSum.h in Headers */ = {isa = PBXBuildFile; fileRef = 69639C1B1EE1B2EF00893D18 /* IPSum.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69639C1E1EE1B2EF00893D18 /* IPSum.h in Headers */ = {isa = PBXBuildFile; fileRef = 69639C1B1EE1B2EF00893D18 /* IPSum.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69639C1F1EE1B2EF00893D18 /* IPSum.m in Sources */ = {isa = PBXBuildFile; fileRef = 69639C1C1EE1B2EF00893D18 /* IPSum.m */; };
+		69639C201EE1B2EF00893D18 /* IPSum.m in Sources */ = {isa = PBXBuildFile; fileRef = 69639C1C1EE1B2EF00893D18 /* IPSum.m */; };
 		69784D911DE0AB4A007E32C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69784D901DE0AB4A007E32C2 /* AppDelegate.swift */; };
 		69784D931DE0AB4A007E32C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69784D921DE0AB4A007E32C2 /* ViewController.swift */; };
 		69784D951DE0AB4A007E32C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69784D941DE0AB4A007E32C2 /* Assets.xcassets */; };
@@ -93,6 +97,8 @@
 		6918833C1DDCA36A0051DAAE /* STTraffic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTraffic.m; sourceTree = "<group>"; };
 		6918833F1DDD44AB0051DAAE /* DNSResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNSResolver.h; sourceTree = "<group>"; };
 		691883401DDD44AB0051DAAE /* DNSResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNSResolver.m; sourceTree = "<group>"; };
+		69639C1B1EE1B2EF00893D18 /* IPSum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPSum.h; sourceTree = "<group>"; };
+		69639C1C1EE1B2EF00893D18 /* IPSum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPSum.m; sourceTree = "<group>"; };
 		69784D8E1DE0AB4A007E32C2 /* macOSTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macOSTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69784D901DE0AB4A007E32C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69784D921DE0AB4A007E32C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +223,8 @@
 				69FC1ACA1DDBF25400EF8AAC /* Info.plist */,
 				69FC1AD11DDBF27C00EF8AAC /* DNS.h */,
 				69FC1AD21DDBF27C00EF8AAC /* DNS.m */,
+				69639C1B1EE1B2EF00893D18 /* IPSum.h */,
+				69639C1C1EE1B2EF00893D18 /* IPSum.m */,
 			);
 			path = DarwinCore;
 			sourceTree = "<group>";
@@ -253,6 +261,7 @@
 				690B41181EE13CF800007E26 /* DCIPAddr.h in Headers */,
 				69B954E81DDF7D7A006AF669 /* DNSResolver.h in Headers */,
 				69B954E51DDF7D62006AF669 /* DNS.h in Headers */,
+				69639C1E1EE1B2EF00893D18 /* IPSum.h in Headers */,
 				69B954E71DDF7D74006AF669 /* STTraffic.h in Headers */,
 				69A684A11DE0AF7D00ED80D1 /* DarwinCore.h in Headers */,
 			);
@@ -263,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69FC1ADC1DDBF69300EF8AAC /* Route.h in Headers */,
+				69639C1D1EE1B2EF00893D18 /* IPSum.h in Headers */,
 				691883411DDD44AB0051DAAE /* DNSResolver.h in Headers */,
 				69FC1AD31DDBF27C00EF8AAC /* DNS.h in Headers */,
 				69FC1ACB1DDBF25400EF8AAC /* DarwinCore.h in Headers */,
@@ -452,6 +462,7 @@
 			files = (
 				690B411A1EE13CF800007E26 /* DCIPAddr.m in Sources */,
 				69B954E41DDF7D5E006AF669 /* DNS.m in Sources */,
+				69639C201EE1B2EF00893D18 /* IPSum.m in Sources */,
 				69B954E11DDF7D51006AF669 /* STTraffic.m in Sources */,
 				69B954E01DDF7D4D006AF669 /* DNSResolver.m in Sources */,
 			);
@@ -463,6 +474,7 @@
 			files = (
 				6918833E1DDCA36A0051DAAE /* STTraffic.m in Sources */,
 				691883421DDD44AB0051DAAE /* DNSResolver.m in Sources */,
+				69639C1F1EE1B2EF00893D18 /* IPSum.m in Sources */,
 				690B41191EE13CF800007E26 /* DCIPAddr.m in Sources */,
 				69FC1ADD1DDBF69300EF8AAC /* Route.m in Sources */,
 				69FC1AD41DDBF27C00EF8AAC /* DNS.m in Sources */,

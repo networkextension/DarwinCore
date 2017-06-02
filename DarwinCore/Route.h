@@ -11,4 +11,4 @@
 @interface Route : NSObject
 + (NSString*) currntRouter;
 @end
-NSData* ipHeader(int len,__uint32_t src,__uint32_t dst,__uint16_t iden, u_char p);
+
