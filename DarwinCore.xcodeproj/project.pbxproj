@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		690B41171EE13CF800007E26 /* IPAddr.h in Headers */ = {isa = PBXBuildFile; fileRef = 690B41151EE13CF800007E26 /* IPAddr.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		690B41181EE13CF800007E26 /* IPAddr.h in Headers */ = {isa = PBXBuildFile; fileRef = 690B41151EE13CF800007E26 /* IPAddr.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		690B41191EE13CF800007E26 /* IPAddr.m in Sources */ = {isa = PBXBuildFile; fileRef = 690B41161EE13CF800007E26 /* IPAddr.m */; };
+		690B411A1EE13CF800007E26 /* IPAddr.m in Sources */ = {isa = PBXBuildFile; fileRef = 690B41161EE13CF800007E26 /* IPAddr.m */; };
 		6918833D1DDCA36A0051DAAE /* STTraffic.h in Headers */ = {isa = PBXBuildFile; fileRef = 6918833B1DDCA36A0051DAAE /* STTraffic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6918833E1DDCA36A0051DAAE /* STTraffic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6918833C1DDCA36A0051DAAE /* STTraffic.m */; };
 		691883411DDD44AB0051DAAE /* DNSResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 6918833F1DDD44AB0051DAAE /* DNSResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -83,6 +87,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		690B41151EE13CF800007E26 /* IPAddr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAddr.h; sourceTree = "<group>"; };
+		690B41161EE13CF800007E26 /* IPAddr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPAddr.m; sourceTree = "<group>"; };
 		6918833B1DDCA36A0051DAAE /* STTraffic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTraffic.h; sourceTree = "<group>"; };
 		6918833C1DDCA36A0051DAAE /* STTraffic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTraffic.m; sourceTree = "<group>"; };
 		6918833F1DDD44AB0051DAAE /* DNSResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNSResolver.h; sourceTree = "<group>"; };
@@ -198,6 +204,8 @@
 		69FC1AC81DDBF25400EF8AAC /* DarwinCore */ = {
 			isa = PBXGroup;
 			children = (
+				690B41151EE13CF800007E26 /* IPAddr.h */,
+				690B41161EE13CF800007E26 /* IPAddr.m */,
 				6918833F1DDD44AB0051DAAE /* DNSResolver.h */,
 				691883401DDD44AB0051DAAE /* DNSResolver.m */,
 				6918833B1DDCA36A0051DAAE /* STTraffic.h */,
@@ -242,6 +250,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				690B41181EE13CF800007E26 /* IPAddr.h in Headers */,
 				69B954E81DDF7D7A006AF669 /* DNSResolver.h in Headers */,
 				69B954E51DDF7D62006AF669 /* DNS.h in Headers */,
 				69B954E71DDF7D74006AF669 /* STTraffic.h in Headers */,
@@ -258,6 +267,7 @@
 				69FC1AD31DDBF27C00EF8AAC /* DNS.h in Headers */,
 				69FC1ACB1DDBF25400EF8AAC /* DarwinCore.h in Headers */,
 				6918833D1DDCA36A0051DAAE /* STTraffic.h in Headers */,
+				690B41171EE13CF800007E26 /* IPAddr.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				690B411A1EE13CF800007E26 /* IPAddr.m in Sources */,
 				69B954E41DDF7D5E006AF669 /* DNS.m in Sources */,
 				69B954E11DDF7D51006AF669 /* STTraffic.m in Sources */,
 				69B954E01DDF7D4D006AF669 /* DNSResolver.m in Sources */,
@@ -452,6 +463,7 @@
 			files = (
 				6918833E1DDCA36A0051DAAE /* STTraffic.m in Sources */,
 				691883421DDD44AB0051DAAE /* DNSResolver.m in Sources */,
+				690B41191EE13CF800007E26 /* IPAddr.m in Sources */,
 				69FC1ADD1DDBF69300EF8AAC /* Route.m in Sources */,
 				69FC1AD41DDBF27C00EF8AAC /* DNS.m in Sources */,
 				69FC1AD91DDBF4F800EF8AAC /* route.c in Sources */,

@@ -21,4 +21,4 @@ FOUNDATION_EXPORT const unsigned char DarwinCoreVersionString[];
 #import <DarwinCore/STTraffic.h>
 #import <DarwinCore/DNSResolver.h>
 
-
+#import <DarwinCore/IPAddr.h>
