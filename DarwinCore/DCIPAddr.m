@@ -28,7 +28,7 @@
         cursor = addrs;
         while (cursor != NULL)
         {
-            NSLog(@"cursor->ifa_name = %s", cursor->ifa_name);
+            //NSLog(@"cursor->ifa_name = %s", cursor->ifa_name);
             
 //            if (strncmp(cursor->ifa_name, "pdp_ip", 6) == 0)
 //            {
@@ -37,7 +37,7 @@
             if (cursor->ifa_addr->sa_family == AF_INET)
             {
                 struct sockaddr_in *addr = (struct sockaddr_in *)cursor->ifa_addr;
-                NSLog(@"cursor->ifa_addr = %s", inet_ntoa(addr->sin_addr));
+                //NSLog(@"cursor->ifa_addr = %s", inet_ntoa(addr->sin_addr));
                 
                 result = [NSData dataWithBytes:addr length:sizeof(struct sockaddr_in)];
                 

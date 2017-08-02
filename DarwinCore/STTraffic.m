@@ -12,7 +12,7 @@
 #include <ifaddrs.h>
 #include <net/if_dl.h>
 
-NSString *tunname()
+NSString *tunname(NSString *ipaddress)
 {
     
     struct ifaddrs *addrs;
@@ -33,21 +33,22 @@ NSString *tunname()
             if (cursor->ifa_addr->sa_family == AF_INET) //AF_INET 取IP 没问题
             {
                 //cursor->ifa_addr
+
+                
+                
+                
+                NSString *address = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)cursor->ifa_addr)->sin_addr)];
+                NSString *name = [NSString stringWithFormat:@"%s",cursor->ifa_name];
 #ifdef DEBUG
                 const struct if_data *ifa_data = (struct if_data *)cursor->ifa_data;
                 if(ifa_data != NULL)
                 {
                     NSLog(@"1111 Interface name %s: sent %tu received %tu",cursor->ifa_name,ifa_data->ifi_obytes,ifa_data->ifi_ibytes);
                 }
+                NSLog(@"%@ %@",name,address);
 #endif
                 
-                
-                
-                NSString *address = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)cursor->ifa_addr)->sin_addr)];
-                NSString *name = [NSString stringWithFormat:@"%s",cursor->ifa_name];
-                
-                NSLog(@"%@ %@",name,address);
-                if ([name hasPrefix:@"utun"] && [address isEqualToString:@"240.7.1.9"])
+                if ([name hasPrefix:@"utun"] && [address isEqualToString:ipaddress])
                 {
                     tunname = name;
                 }
@@ -62,12 +63,12 @@ NSString *tunname()
     return tunname;
 }
 
-STTraffic *DataCounters()
+STTraffic *DataCounters(NSString *ipaddress)
 {
     
     struct ifaddrs *addrs;
     const struct ifaddrs *cursor;
-    NSString *tun = tunname();
+    NSString *tun = tunname(ipaddress);
     
     STTraffic *current = [[STTraffic alloc] init];
     if (tun  == nil) {
