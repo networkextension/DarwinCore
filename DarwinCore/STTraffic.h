@@ -24,5 +24,5 @@ static NSString *const DataCounterKeyTunReceived = @"TunReceived";
 @property (nonatomic) NSUInteger    TunReceived;
 @property (nonatomic) BOOL show;
 @end
-NSString *tunname();
-STTraffic *DataCounters();
+NSString *tunname(NSString *ipaddress);
+STTraffic *DataCounters(NSString *ipaddress);
