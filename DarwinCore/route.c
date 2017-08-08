@@ -73,11 +73,7 @@
 // macOS-only code
 #include <net/route.h>
 #else
-#if TARGET_OS_SIMULATOR
-#include <net/route.h>
-#else 
 #include <net/route_ios.h>
-#endif
 #endif
 
 #include <net/radix.h>

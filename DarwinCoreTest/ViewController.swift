@@ -9,25 +9,29 @@
 import UIKit
 import DarwinCore
 class ViewController: UIViewController {
-    let r = DNSResolver()
+    //let r = DNSResolver()
     override func viewDidLoad() {
         super.viewDidLoad()
         test()
+        print_free_memory()
         // Do any additional setup after loading the view, typically from a nib.
     }
     func test()  {
         DNS.loadSystemDNSServer()
         let string = Route.currntRouter() as String
         print(string)
-        testReolover(host: "www.freebsdchina.org")
+        for _ in 0..<1000{
+            testReolover(host: "www.freebsdchina.org",r:DNSResolver())
+        }
+        
         
     }
-    func testReolover(host:String) {
-        r.hostname = "www.freebsdchina.org"
+    func testReolover(host:String,r:DNSResolver) {
+        r.hostname = host
         r.querey(host) { (record) in
             
             if let record = record {
-                print(record.ipaddress)
+                print("#####++++" + record.ipaddress)
             }else {
                 print("error")
             }
