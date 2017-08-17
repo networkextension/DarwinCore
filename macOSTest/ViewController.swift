@@ -13,6 +13,7 @@ class ViewController: NSViewController,ClientDelegate {
     let r = DNSResolver()
     var clients:[Client] = []
     let que = DispatchQueue.init(label: "server")
+    var clientTree:AVLTree = AVLTree<Int32,Client>()
     override func viewDidLoad() {
         super.viewDidLoad()
         test()
@@ -20,32 +21,43 @@ class ViewController: NSViewController,ClientDelegate {
         // Do any additional setup after loading the view.
     }
     func clientDead(c:Client){
+        let fd = c.fd
+        close(fd)
+        
         
     }
 
     func testServer(){
         if let server = GCDSocketServer.shared(){
             server.accept = { fd,addr,port in
-                let c = Client.init(sfd: fd, delegate: self, q: self.que)
-                self.clients.append(c);
+                let c = Client.init(sfd: fd, delegate: self, q: DispatchQueue.main)
+                //self.clients.append(c);
+                self.clientTree.insert(key: fd, payload: c)
                 c.connect()
                 print("\(fd) \(String(describing: addr)) \(port)")
             }
             server.colse = { fd in
                 print("\(fd) close")
-                
+                //self.clientTree.delete(key: fd)
+                if let c = self.clientTree.search(input: fd){
+                    c.forceClose()
+                    self.clientTree.delete(key: fd)
+                }
             }
             server.incoming  = { fd ,data in
                 print("\(fd) \(String(describing: data))")
-                for c in self.clients {
-                    if c.fd == fd {
-                        c.incoming(data: data!)
-                    }
+//                for c in self.clients {
+//                    if c.fd == fd {
+//                        c.incoming(data: data!)
+//                    }
+//                }
+                if let c = self.clientTree.search(input: fd){
+                    c.incoming(data: data!)
                 }
                 //server.server_write_request(fd, buffer: "wello come\n", total: 11);
             }
-            let q = DispatchQueue.init(label: "dispatch queue")
-            server.start(10081, queue: q)
+            //let q = DispatchQueue.init(label: "dispatch queue")
+            server.start(10081, queue: DispatchQueue.main)
         }
     }
     func test()  {

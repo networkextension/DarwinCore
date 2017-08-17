@@ -45,6 +45,8 @@
 		69E40EDC1F454D5500C1DDC3 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EDB1F454D5500C1DDC3 /* Client.swift */; };
 		69E40EDD1F45538300C1DDC3 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E40ED91F454D3C00C1DDC3 /* CocoaAsyncSocket.framework */; };
 		69E40EDE1F45538300C1DDC3 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69E40ED91F454D3C00C1DDC3 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		69E40EE01F455ED200C1DDC3 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EDF1F455ED200C1DDC3 /* Tree.swift */; };
+		69E40EE21F45669500C1DDC3 /* AVLTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EE11F45669500C1DDC3 /* AVLTree.swift */; };
 		69FC1ACB1DDBF25400EF8AAC /* DarwinCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1AC91DDBF25400EF8AAC /* DarwinCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69FC1AD31DDBF27C00EF8AAC /* DNS.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1AD11DDBF27C00EF8AAC /* DNS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69FC1AD41DDBF27C00EF8AAC /* DNS.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FC1AD21DDBF27C00EF8AAC /* DNS.m */; };
@@ -128,6 +130,8 @@
 		69E40EA41F45282800C1DDC3 /* GCDSocketServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDSocketServer.m; sourceTree = "<group>"; };
 		69E40ED91F454D3C00C1DDC3 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CocoaAsyncSocket.framework; sourceTree = "<group>"; };
 		69E40EDB1F454D5500C1DDC3 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		69E40EDF1F455ED200C1DDC3 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
+		69E40EE11F45669500C1DDC3 /* AVLTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVLTree.swift; sourceTree = "<group>"; };
 		69FC1AC61DDBF25400EF8AAC /* DarwinCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DarwinCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69FC1AC91DDBF25400EF8AAC /* DarwinCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DarwinCore.h; sourceTree = "<group>"; };
 		69FC1ACA1DDBF25400EF8AAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -189,7 +193,9 @@
 			children = (
 				69E40ED91F454D3C00C1DDC3 /* CocoaAsyncSocket.framework */,
 				69784D901DE0AB4A007E32C2 /* AppDelegate.swift */,
+				69E40EE11F45669500C1DDC3 /* AVLTree.swift */,
 				69784D921DE0AB4A007E32C2 /* ViewController.swift */,
+				69E40EDF1F455ED200C1DDC3 /* Tree.swift */,
 				69E40EDB1F454D5500C1DDC3 /* Client.swift */,
 				69784D941DE0AB4A007E32C2 /* Assets.xcassets */,
 				69784D961DE0AB4A007E32C2 /* Main.storyboard */,
@@ -485,8 +491,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				69784D931DE0AB4A007E32C2 /* ViewController.swift in Sources */,
+				69E40EE01F455ED200C1DDC3 /* Tree.swift in Sources */,
 				69784D911DE0AB4A007E32C2 /* AppDelegate.swift in Sources */,
 				69E40EDC1F454D5500C1DDC3 /* Client.swift in Sources */,
+				69E40EE21F45669500C1DDC3 /* AVLTree.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

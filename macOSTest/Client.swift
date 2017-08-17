@@ -7,12 +7,13 @@
 //
 
 import Foundation
-
+import Darwin
 protocol ClientDelegate {
     func clientDead(c:Client);
 }
 import DarwinCore
 import CocoaAsyncSocket
+import os.log
 class Client: NSObject,GCDAsyncSocketDelegate {
 
     var fd:Int32 = 0
@@ -41,7 +42,11 @@ class Client: NSObject,GCDAsyncSocketDelegate {
         ss.write(data, withTimeout: 1, tag: 0)
     }
     func forceClose(){
-        
+        if let s = self.socket, s.isConnected {
+            s.delegate = nil
+            s.disconnectAfterWriting()
+        }
+        //self.delegate.clientDead(c: self)
     }
     public func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16){
         guard let s = self.socket else {return}
@@ -53,5 +58,17 @@ class Client: NSObject,GCDAsyncSocketDelegate {
         s?.server_write_request(self.fd, buffer: nsd.bytes, total: data.count)
         guard let ss = self.socket else {return}
         ss.readData(withTimeout: 10, tag: 1);
+    }
+    public func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?){
+        if let e = err {
+            os_log("socketDidDisconnect %@" ,e.localizedDescription)
+        }
+        
+        self.delegate.clientDead(c: self)
+    }
+}
+extension Client:Comparable{
+    public static func <(lhs: Client, rhs: Client) -> Bool {
+        return lhs.fd < rhs.fd
     }
 }
