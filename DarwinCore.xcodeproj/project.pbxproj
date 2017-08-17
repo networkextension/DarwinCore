@@ -41,6 +41,10 @@
 		69E40EA61F45282800C1DDC3 /* GCDSocketServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E40EA31F45282800C1DDC3 /* GCDSocketServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69E40EA71F45282800C1DDC3 /* GCDSocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EA41F45282800C1DDC3 /* GCDSocketServer.m */; };
 		69E40EA81F45282800C1DDC3 /* GCDSocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EA41F45282800C1DDC3 /* GCDSocketServer.m */; };
+		69E40EDA1F454D3C00C1DDC3 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E40ED91F454D3C00C1DDC3 /* CocoaAsyncSocket.framework */; };
+		69E40EDC1F454D5500C1DDC3 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EDB1F454D5500C1DDC3 /* Client.swift */; };
+		69E40EDD1F45538300C1DDC3 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E40ED91F454D3C00C1DDC3 /* CocoaAsyncSocket.framework */; };
+		69E40EDE1F45538300C1DDC3 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69E40ED91F454D3C00C1DDC3 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69FC1ACB1DDBF25400EF8AAC /* DarwinCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1AC91DDBF25400EF8AAC /* DarwinCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69FC1AD31DDBF27C00EF8AAC /* DNS.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1AD11DDBF27C00EF8AAC /* DNS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69FC1AD41DDBF27C00EF8AAC /* DNS.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FC1AD21DDBF27C00EF8AAC /* DNS.m */; };
@@ -81,6 +85,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				69E40EDE1F45538300C1DDC3 /* CocoaAsyncSocket.framework in Embed Frameworks */,
 				694940501DE0AE2200F67DF0 /* DarwinCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -121,6 +126,8 @@
 		69E40EA01F45255600C1DDC3 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		69E40EA31F45282800C1DDC3 /* GCDSocketServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDSocketServer.h; sourceTree = "<group>"; };
 		69E40EA41F45282800C1DDC3 /* GCDSocketServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDSocketServer.m; sourceTree = "<group>"; };
+		69E40ED91F454D3C00C1DDC3 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CocoaAsyncSocket.framework; sourceTree = "<group>"; };
+		69E40EDB1F454D5500C1DDC3 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		69FC1AC61DDBF25400EF8AAC /* DarwinCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DarwinCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69FC1AC91DDBF25400EF8AAC /* DarwinCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DarwinCore.h; sourceTree = "<group>"; };
 		69FC1ACA1DDBF25400EF8AAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -144,6 +151,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69E40EDD1F45538300C1DDC3 /* CocoaAsyncSocket.framework in Frameworks */,
+				69E40EDA1F454D3C00C1DDC3 /* CocoaAsyncSocket.framework in Frameworks */,
 				6949404F1DE0AE2200F67DF0 /* DarwinCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,8 +187,10 @@
 		69784D8F1DE0AB4A007E32C2 /* macOSTest */ = {
 			isa = PBXGroup;
 			children = (
+				69E40ED91F454D3C00C1DDC3 /* CocoaAsyncSocket.framework */,
 				69784D901DE0AB4A007E32C2 /* AppDelegate.swift */,
 				69784D921DE0AB4A007E32C2 /* ViewController.swift */,
+				69E40EDB1F454D5500C1DDC3 /* Client.swift */,
 				69784D941DE0AB4A007E32C2 /* Assets.xcassets */,
 				69784D961DE0AB4A007E32C2 /* Main.storyboard */,
 				69784D991DE0AB4A007E32C2 /* Info.plist */,
@@ -475,6 +486,7 @@
 			files = (
 				69784D931DE0AB4A007E32C2 /* ViewController.swift in Sources */,
 				69784D911DE0AB4A007E32C2 /* AppDelegate.swift in Sources */,
+				69E40EDC1F454D5500C1DDC3 /* Client.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,6 +577,10 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 745WQDK4L7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/macOSTest",
+				);
 				INFOPLIST_FILE = macOSTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
@@ -584,6 +600,10 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 745WQDK4L7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/macOSTest",
+				);
 				INFOPLIST_FILE = macOSTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
