@@ -33,6 +33,14 @@
 		69B954E71DDF7D74006AF669 /* STTraffic.h in Headers */ = {isa = PBXBuildFile; fileRef = 6918833B1DDCA36A0051DAAE /* STTraffic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69B954E81DDF7D7A006AF669 /* DNSResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 6918833F1DDD44AB0051DAAE /* DNSResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69B954EA1DDF7EA6006AF669 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B954E91DDF7EA6006AF669 /* libresolv.tbd */; };
+		69E40E9E1F45251E00C1DDC3 /* shared.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E40E9D1F45251E00C1DDC3 /* shared.h */; };
+		69E40E9F1F45251E00C1DDC3 /* shared.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E40E9D1F45251E00C1DDC3 /* shared.h */; };
+		69E40EA11F45255600C1DDC3 /* common.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E40EA01F45255600C1DDC3 /* common.h */; };
+		69E40EA21F45255600C1DDC3 /* common.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E40EA01F45255600C1DDC3 /* common.h */; };
+		69E40EA51F45282800C1DDC3 /* GCDSocketServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E40EA31F45282800C1DDC3 /* GCDSocketServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69E40EA61F45282800C1DDC3 /* GCDSocketServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E40EA31F45282800C1DDC3 /* GCDSocketServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69E40EA71F45282800C1DDC3 /* GCDSocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EA41F45282800C1DDC3 /* GCDSocketServer.m */; };
+		69E40EA81F45282800C1DDC3 /* GCDSocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EA41F45282800C1DDC3 /* GCDSocketServer.m */; };
 		69FC1ACB1DDBF25400EF8AAC /* DarwinCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1AC91DDBF25400EF8AAC /* DarwinCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69FC1AD31DDBF27C00EF8AAC /* DNS.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1AD11DDBF27C00EF8AAC /* DNS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69FC1AD41DDBF27C00EF8AAC /* DNS.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FC1AD21DDBF27C00EF8AAC /* DNS.m */; };
@@ -109,6 +117,10 @@
 		69B954DA1DDF7D3F006AF669 /* DarwinCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DarwinCore.h; sourceTree = "<group>"; };
 		69B954DB1DDF7D3F006AF669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69B954E91DDF7EA6006AF669 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/lib/libresolv.tbd; sourceTree = DEVELOPER_DIR; };
+		69E40E9D1F45251E00C1DDC3 /* shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shared.h; sourceTree = "<group>"; };
+		69E40EA01F45255600C1DDC3 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		69E40EA31F45282800C1DDC3 /* GCDSocketServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDSocketServer.h; sourceTree = "<group>"; };
+		69E40EA41F45282800C1DDC3 /* GCDSocketServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDSocketServer.m; sourceTree = "<group>"; };
 		69FC1AC61DDBF25400EF8AAC /* DarwinCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DarwinCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69FC1AC91DDBF25400EF8AAC /* DarwinCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DarwinCore.h; sourceTree = "<group>"; };
 		69FC1ACA1DDBF25400EF8AAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -210,7 +222,10 @@
 		69FC1AC81DDBF25400EF8AAC /* DarwinCore */ = {
 			isa = PBXGroup;
 			children = (
+				69E40EA01F45255600C1DDC3 /* common.h */,
 				690B41151EE13CF800007E26 /* DCIPAddr.h */,
+				69E40EA31F45282800C1DDC3 /* GCDSocketServer.h */,
+				69E40EA41F45282800C1DDC3 /* GCDSocketServer.m */,
 				690B41161EE13CF800007E26 /* DCIPAddr.m */,
 				6918833F1DDD44AB0051DAAE /* DNSResolver.h */,
 				691883401DDD44AB0051DAAE /* DNSResolver.m */,
@@ -225,6 +240,7 @@
 				69FC1AD21DDBF27C00EF8AAC /* DNS.m */,
 				69639C1B1EE1B2EF00893D18 /* IPSum.h */,
 				69639C1C1EE1B2EF00893D18 /* IPSum.m */,
+				69E40E9D1F45251E00C1DDC3 /* shared.h */,
 			);
 			path = DarwinCore;
 			sourceTree = "<group>";
@@ -259,9 +275,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				690B41181EE13CF800007E26 /* DCIPAddr.h in Headers */,
+				69E40EA61F45282800C1DDC3 /* GCDSocketServer.h in Headers */,
+				69E40EA21F45255600C1DDC3 /* common.h in Headers */,
 				69B954E81DDF7D7A006AF669 /* DNSResolver.h in Headers */,
 				69B954E51DDF7D62006AF669 /* DNS.h in Headers */,
 				69639C1E1EE1B2EF00893D18 /* IPSum.h in Headers */,
+				69E40E9F1F45251E00C1DDC3 /* shared.h in Headers */,
 				69B954E71DDF7D74006AF669 /* STTraffic.h in Headers */,
 				69A684A11DE0AF7D00ED80D1 /* DarwinCore.h in Headers */,
 			);
@@ -272,12 +291,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				69FC1ADC1DDBF69300EF8AAC /* Route.h in Headers */,
+				69E40EA11F45255600C1DDC3 /* common.h in Headers */,
 				69639C1D1EE1B2EF00893D18 /* IPSum.h in Headers */,
 				691883411DDD44AB0051DAAE /* DNSResolver.h in Headers */,
 				69FC1AD31DDBF27C00EF8AAC /* DNS.h in Headers */,
+				69E40EA51F45282800C1DDC3 /* GCDSocketServer.h in Headers */,
 				69FC1ACB1DDBF25400EF8AAC /* DarwinCore.h in Headers */,
 				6918833D1DDCA36A0051DAAE /* STTraffic.h in Headers */,
 				690B41171EE13CF800007E26 /* DCIPAddr.h in Headers */,
+				69E40E9E1F45251E00C1DDC3 /* shared.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +484,7 @@
 			files = (
 				690B411A1EE13CF800007E26 /* DCIPAddr.m in Sources */,
 				69B954E41DDF7D5E006AF669 /* DNS.m in Sources */,
+				69E40EA81F45282800C1DDC3 /* GCDSocketServer.m in Sources */,
 				69639C201EE1B2EF00893D18 /* IPSum.m in Sources */,
 				69B954E11DDF7D51006AF669 /* STTraffic.m in Sources */,
 				69B954E01DDF7D4D006AF669 /* DNSResolver.m in Sources */,
@@ -478,6 +501,7 @@
 				690B41191EE13CF800007E26 /* DCIPAddr.m in Sources */,
 				69FC1ADD1DDBF69300EF8AAC /* Route.m in Sources */,
 				69FC1AD41DDBF27C00EF8AAC /* DNS.m in Sources */,
+				69E40EA71F45282800C1DDC3 /* GCDSocketServer.m in Sources */,
 				69FC1AD91DDBF4F800EF8AAC /* route.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
