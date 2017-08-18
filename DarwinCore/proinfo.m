@@ -11,11 +11,11 @@
 //#include <sys/proc_info.h>
 #include <libproc.h>
 #include <string.h>
-int proPath(int ppid,char *pathBuffer) {
+NSString *proPath(int ppid) {
     // insert code here...
     
     pid_t pid = ppid;
-    //char pathBuffer [PROC_PIDPATHINFO_MAXSIZE];
+    char pathBuffer [PROC_PIDPATHINFO_MAXSIZE];
     proc_pidpath(pid, pathBuffer, sizeof(pathBuffer));
 //    
 //    char nameBuffer[256];
@@ -30,5 +30,6 @@ int proPath(int ppid,char *pathBuffer) {
     
 //    printf("path: %s\n\nname:%s\n\n", pathBuffer, nameBuffer);
 //    printf("Hello, World!\n");
-    return 0;
+    
+    return [NSString stringWithUTF8String:pathBuffer];
 }

@@ -18,6 +18,12 @@ class ViewController: NSViewController,ClientDelegate {
         super.viewDidLoad()
         test()
         testServer()
+        
+        
+        if let path = proPath(52453){
+            print(path)
+        }
+        
         // Do any additional setup after loading the view.
     }
     func clientDead(c:Client){

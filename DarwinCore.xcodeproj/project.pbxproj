@@ -47,10 +47,9 @@
 		69E40EDE1F45538300C1DDC3 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69E40ED91F454D3C00C1DDC3 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69E40EE01F455ED200C1DDC3 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EDF1F455ED200C1DDC3 /* Tree.swift */; };
 		69E40EE21F45669500C1DDC3 /* AVLTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EE11F45669500C1DDC3 /* AVLTree.swift */; };
-		69E40EF91F467EFF00C1DDC3 /* proinfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EF61F467EFE00C1DDC3 /* proinfo.c */; };
+		69E40EF91F467EFF00C1DDC3 /* proinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EF61F467EFE00C1DDC3 /* proinfo.m */; };
 		69E40EFA1F467EFF00C1DDC3 /* proinfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E40EF71F467EFE00C1DDC3 /* proinfo.h */; };
-		69E40EFB1F467EFF00C1DDC3 /* proinfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E40EF71F467EFE00C1DDC3 /* proinfo.h */; };
-		69E40EFC1F4681CA00C1DDC3 /* proinfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EF61F467EFE00C1DDC3 /* proinfo.c */; };
+		69E40F031F46846700C1DDC3 /* proinfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E40EF71F467EFE00C1DDC3 /* proinfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69FC1ACB1DDBF25400EF8AAC /* DarwinCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1AC91DDBF25400EF8AAC /* DarwinCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69FC1AD31DDBF27C00EF8AAC /* DNS.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1AD11DDBF27C00EF8AAC /* DNS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69FC1AD41DDBF27C00EF8AAC /* DNS.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FC1AD21DDBF27C00EF8AAC /* DNS.m */; };
@@ -136,8 +135,10 @@
 		69E40EDB1F454D5500C1DDC3 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		69E40EDF1F455ED200C1DDC3 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		69E40EE11F45669500C1DDC3 /* AVLTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVLTree.swift; sourceTree = "<group>"; };
-		69E40EF61F467EFE00C1DDC3 /* proinfo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = proinfo.c; sourceTree = "<group>"; };
+		69E40EF61F467EFE00C1DDC3 /* proinfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = proinfo.m; sourceTree = "<group>"; };
 		69E40EF71F467EFE00C1DDC3 /* proinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = proinfo.h; sourceTree = "<group>"; };
+		69E40EFD1F46830400C1DDC3 /* libproc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = libproc.c; sourceTree = "<group>"; };
+		69E40EFE1F46830400C1DDC3 /* libproc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libproc.h; sourceTree = "<group>"; };
 		69FC1AC61DDBF25400EF8AAC /* DarwinCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DarwinCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69FC1AC91DDBF25400EF8AAC /* DarwinCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DarwinCore.h; sourceTree = "<group>"; };
 		69FC1ACA1DDBF25400EF8AAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -246,7 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				69E40EA01F45255600C1DDC3 /* common.h */,
-				69E40EF61F467EFE00C1DDC3 /* proinfo.c */,
+				69E40EF61F467EFE00C1DDC3 /* proinfo.m */,
 				69E40EF71F467EFE00C1DDC3 /* proinfo.h */,
 				690B41151EE13CF800007E26 /* DCIPAddr.h */,
 				69E40EA31F45282800C1DDC3 /* GCDSocketServer.h */,
@@ -266,6 +267,8 @@
 				69639C1B1EE1B2EF00893D18 /* IPSum.h */,
 				69639C1C1EE1B2EF00893D18 /* IPSum.m */,
 				69E40E9D1F45251E00C1DDC3 /* shared.h */,
+				69E40EFD1F46830400C1DDC3 /* libproc.c */,
+				69E40EFE1F46830400C1DDC3 /* libproc.h */,
 			);
 			path = DarwinCore;
 			sourceTree = "<group>";
@@ -299,7 +302,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69E40EFB1F467EFF00C1DDC3 /* proinfo.h in Headers */,
+				69E40F031F46846700C1DDC3 /* proinfo.h in Headers */,
 				690B41181EE13CF800007E26 /* DCIPAddr.h in Headers */,
 				69E40EA61F45282800C1DDC3 /* GCDSocketServer.h in Headers */,
 				69E40EA21F45255600C1DDC3 /* common.h in Headers */,
@@ -518,7 +521,7 @@
 				69639C201EE1B2EF00893D18 /* IPSum.m in Sources */,
 				69B954E11DDF7D51006AF669 /* STTraffic.m in Sources */,
 				69B954E01DDF7D4D006AF669 /* DNSResolver.m in Sources */,
-				69E40EF91F467EFF00C1DDC3 /* proinfo.c in Sources */,
+				69E40EF91F467EFF00C1DDC3 /* proinfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,7 +534,6 @@
 				69639C1F1EE1B2EF00893D18 /* IPSum.m in Sources */,
 				690B41191EE13CF800007E26 /* DCIPAddr.m in Sources */,
 				69FC1ADD1DDBF69300EF8AAC /* Route.m in Sources */,
-				69E40EFC1F4681CA00C1DDC3 /* proinfo.c in Sources */,
 				69FC1AD41DDBF27C00EF8AAC /* DNS.m in Sources */,
 				69E40EA71F45282800C1DDC3 /* GCDSocketServer.m in Sources */,
 				69FC1AD91DDBF4F800EF8AAC /* route.c in Sources */,

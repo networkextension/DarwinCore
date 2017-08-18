@@ -10,7 +10,7 @@
 #define proinfo_h
 
 #include <stdio.h>
+#import <Foundation/Foundation.h>
 
-
-int proPath(int ppid,char *pathBuffer);
+NSString *proPath(int ppid);
 #endif /* proinfo_h */

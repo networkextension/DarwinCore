@@ -23,4 +23,5 @@ FOUNDATION_EXPORT const unsigned char DarwinCoreOSXVersionString[];
 #import <DarwinCore/DNSResolver.h>
 #import <DarwinCore/DCIPAddr.h>
 #import <DarwinCore/IPSum.h>
+#import <DarwinCore/proinfo.h>
 #import <DarwinCore/GCDSocketServer.h>
