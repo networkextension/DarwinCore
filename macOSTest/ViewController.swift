@@ -11,7 +11,7 @@ import DarwinCore
 
 class ViewController: NSViewController,ClientDelegate {
     let r = DNSResolver()
-    var clients:[Client] = []
+    //var clients:[Client] = []
     let que = DispatchQueue.init(label: "server")
     var clientTree:AVLTree = AVLTree<Int32,Client>()
     override func viewDidLoad() {

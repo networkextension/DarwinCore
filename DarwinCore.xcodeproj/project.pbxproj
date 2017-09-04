@@ -15,6 +15,7 @@
 		6918833E1DDCA36A0051DAAE /* STTraffic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6918833C1DDCA36A0051DAAE /* STTraffic.m */; };
 		691883411DDD44AB0051DAAE /* DNSResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 6918833F1DDD44AB0051DAAE /* DNSResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		691883421DDD44AB0051DAAE /* DNSResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 691883401DDD44AB0051DAAE /* DNSResolver.m */; };
+		694674781F5CE58500C011B7 /* route.c in Sources */ = {isa = PBXBuildFile; fileRef = 69FC1AD81DDBF4F800EF8AAC /* route.c */; };
 		6949404F1DE0AE2200F67DF0 /* DarwinCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B954D81DDF7D3F006AF669 /* DarwinCore.framework */; };
 		694940501DE0AE2200F67DF0 /* DarwinCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69B954D81DDF7D3F006AF669 /* DarwinCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69639C1D1EE1B2EF00893D18 /* IPSum.h in Headers */ = {isa = PBXBuildFile; fileRef = 69639C1B1EE1B2EF00893D18 /* IPSum.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -54,7 +55,6 @@
 		69FC1AD31DDBF27C00EF8AAC /* DNS.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1AD11DDBF27C00EF8AAC /* DNS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69FC1AD41DDBF27C00EF8AAC /* DNS.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FC1AD21DDBF27C00EF8AAC /* DNS.m */; };
 		69FC1AD71DDBF48F00EF8AAC /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 69FC1AD61DDBF48F00EF8AAC /* libresolv.tbd */; };
-		69FC1AD91DDBF4F800EF8AAC /* route.c in Sources */ = {isa = PBXBuildFile; fileRef = 69FC1AD81DDBF4F800EF8AAC /* route.c */; };
 		69FC1ADC1DDBF69300EF8AAC /* Route.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1ADA1DDBF69300EF8AAC /* Route.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69FC1ADD1DDBF69300EF8AAC /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FC1ADB1DDBF69300EF8AAC /* Route.m */; };
 		69FC1AE51DDBF77300EF8AAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FC1AE41DDBF77300EF8AAC /* AppDelegate.swift */; };
@@ -536,7 +536,7 @@
 				69FC1ADD1DDBF69300EF8AAC /* Route.m in Sources */,
 				69FC1AD41DDBF27C00EF8AAC /* DNS.m in Sources */,
 				69E40EA71F45282800C1DDC3 /* GCDSocketServer.m in Sources */,
-				69FC1AD91DDBF4F800EF8AAC /* route.c in Sources */,
+				694674781F5CE58500C011B7 /* route.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
