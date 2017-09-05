@@ -73,7 +73,9 @@
 // macOS-only code
 #include <net/route.h>
 #else
-//#include <net/route_ios.h>
+#if !(TARGET_IPHONE_SIMULATOR)
+#include <net/route_ios.h>
+#else
 #include <net/route.h>
 #endif
 
