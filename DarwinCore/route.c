@@ -78,6 +78,7 @@
 #else
 #include <net/route.h>
 #endif
+#endif
 
 #include <net/radix.h>
 
