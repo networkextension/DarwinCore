@@ -72,13 +72,17 @@
 #if !TARGET_OS_IPHONE && !TARGET_OS_SIMULATOR && !TARGET_OS_EMBEDDED
 // macOS-only code
 #include <net/route.h>
+#include <Kernel/net/radix.h>
 #else
 #if !(TARGET_IPHONE_SIMULATOR)
 #include <net/route_ios.h>
+#include <net/radix.h>
 #else
+#include <net/radix.h>
 #include <net/route.h>
 #endif
 #endif
+
 
 #include <net/radix.h>
 

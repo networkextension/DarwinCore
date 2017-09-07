@@ -51,6 +51,8 @@
 		69E40EF91F467EFF00C1DDC3 /* proinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EF61F467EFE00C1DDC3 /* proinfo.m */; };
 		69E40EFA1F467EFF00C1DDC3 /* proinfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E40EF71F467EFE00C1DDC3 /* proinfo.h */; };
 		69E40F031F46846700C1DDC3 /* proinfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E40EF71F467EFE00C1DDC3 /* proinfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69EEA8FA1F6118E000DDFC90 /* route.c in Sources */ = {isa = PBXBuildFile; fileRef = 69FC1AD81DDBF4F800EF8AAC /* route.c */; };
+		69EEA8FB1F6118E500DDFC90 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FC1ADB1DDBF69300EF8AAC /* Route.m */; };
 		69FC1ACB1DDBF25400EF8AAC /* DarwinCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1AC91DDBF25400EF8AAC /* DarwinCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69FC1AD31DDBF27C00EF8AAC /* DNS.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1AD11DDBF27C00EF8AAC /* DNS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69FC1AD41DDBF27C00EF8AAC /* DNS.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FC1AD21DDBF27C00EF8AAC /* DNS.m */; };
@@ -518,10 +520,12 @@
 				690B411A1EE13CF800007E26 /* DCIPAddr.m in Sources */,
 				69B954E41DDF7D5E006AF669 /* DNS.m in Sources */,
 				69E40EA81F45282800C1DDC3 /* GCDSocketServer.m in Sources */,
+				69EEA8FB1F6118E500DDFC90 /* Route.m in Sources */,
 				69639C201EE1B2EF00893D18 /* IPSum.m in Sources */,
 				69B954E11DDF7D51006AF669 /* STTraffic.m in Sources */,
 				69B954E01DDF7D4D006AF669 /* DNSResolver.m in Sources */,
 				69E40EF91F467EFF00C1DDC3 /* proinfo.m in Sources */,
+				69EEA8FA1F6118E000DDFC90 /* route.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,7 +653,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/include/";
 				INFOPLIST_FILE = DarwinCoreOSX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
@@ -676,7 +680,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/include/";
 				INFOPLIST_FILE = DarwinCoreOSX/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
