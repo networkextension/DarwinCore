@@ -11,6 +11,7 @@
 		690B41181EE13CF800007E26 /* DCIPAddr.h in Headers */ = {isa = PBXBuildFile; fileRef = 690B41151EE13CF800007E26 /* DCIPAddr.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		690B41191EE13CF800007E26 /* DCIPAddr.m in Sources */ = {isa = PBXBuildFile; fileRef = 690B41161EE13CF800007E26 /* DCIPAddr.m */; };
 		690B411A1EE13CF800007E26 /* DCIPAddr.m in Sources */ = {isa = PBXBuildFile; fileRef = 690B41161EE13CF800007E26 /* DCIPAddr.m */; };
+		69169BE41F67D8BB00795664 /* Route.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1ADA1DDBF69300EF8AAC /* Route.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6918833D1DDCA36A0051DAAE /* STTraffic.h in Headers */ = {isa = PBXBuildFile; fileRef = 6918833B1DDCA36A0051DAAE /* STTraffic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6918833E1DDCA36A0051DAAE /* STTraffic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6918833C1DDCA36A0051DAAE /* STTraffic.m */; };
 		691883411DDD44AB0051DAAE /* DNSResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 6918833F1DDD44AB0051DAAE /* DNSResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -312,6 +313,7 @@
 				69B954E51DDF7D62006AF669 /* DNS.h in Headers */,
 				69639C1E1EE1B2EF00893D18 /* IPSum.h in Headers */,
 				69E40E9F1F45251E00C1DDC3 /* shared.h in Headers */,
+				69169BE41F67D8BB00795664 /* Route.h in Headers */,
 				69B954E71DDF7D74006AF669 /* STTraffic.h in Headers */,
 				69A684A11DE0AF7D00ED80D1 /* DarwinCore.h in Headers */,
 			);
