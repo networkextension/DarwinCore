@@ -94,6 +94,7 @@ void DNSSD_API callback
 @implementation DNSResolver
 - (void)record:(const struct  SDRecord*)theRecord onInterface:(uint32_t)theIndex
 {
+    self.startDate = [NSDate date];
     if (theRecord->rrtype == kDNSServiceType_A) {
         
         char result[32] = "";

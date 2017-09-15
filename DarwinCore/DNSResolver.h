@@ -22,6 +22,7 @@ typedef void (^DNSCallback)(DNSResultRecord *r);
 
 
 @interface DNSResolver : NSObject
+@property (nonatomic,strong) NSDate *startDate;
 @property (nonatomic,strong) NSString *hostname;
 
 @property (nonatomic,copy) DNSCallback dnsRequestCompleted;

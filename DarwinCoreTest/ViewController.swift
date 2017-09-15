@@ -39,6 +39,8 @@ class ViewController: UIViewController {
             
             if let record = record {
                 print("#####++++" + record.ipaddress)
+                let esp = Date().timeIntervalSince(r.startDate)*1000
+                print(esp)
             }else {
                 print("error")
             }

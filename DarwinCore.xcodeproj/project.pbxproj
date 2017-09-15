@@ -31,6 +31,8 @@
 		69726D891F6B7E5E003375CA /* XTLS.h in Headers */ = {isa = PBXBuildFile; fileRef = 69726D831F6B7CD4003375CA /* XTLS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69726D8A1F6B7E6E003375CA /* XTLS.m in Sources */ = {isa = PBXBuildFile; fileRef = 69726D841F6B7CD5003375CA /* XTLS.m */; };
 		69726D8B1F6B7F61003375CA /* ioSock.c in Sources */ = {isa = PBXBuildFile; fileRef = 69726D731F6B5E56003375CA /* ioSock.c */; };
+		69726D8E1F6BA97A003375CA /* QHex.h in Headers */ = {isa = PBXBuildFile; fileRef = 69726D8D1F6BA960003375CA /* QHex.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69726D8F1F6BA97B003375CA /* QHex.h in Headers */ = {isa = PBXBuildFile; fileRef = 69726D8D1F6BA960003375CA /* QHex.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69784D911DE0AB4A007E32C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69784D901DE0AB4A007E32C2 /* AppDelegate.swift */; };
 		69784D931DE0AB4A007E32C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69784D921DE0AB4A007E32C2 /* ViewController.swift */; };
 		69784D951DE0AB4A007E32C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69784D941DE0AB4A007E32C2 /* Assets.xcassets */; };
@@ -135,6 +137,8 @@
 		69726D831F6B7CD4003375CA /* XTLS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XTLS.h; sourceTree = "<group>"; };
 		69726D841F6B7CD5003375CA /* XTLS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XTLS.m; sourceTree = "<group>"; };
 		69726D871F6B7DE3003375CA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		69726D8C1F6BA95F003375CA /* QHex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QHex.m; sourceTree = "<group>"; };
+		69726D8D1F6BA960003375CA /* QHex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QHex.h; sourceTree = "<group>"; };
 		69784D8E1DE0AB4A007E32C2 /* macOSTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macOSTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69784D901DE0AB4A007E32C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69784D921DE0AB4A007E32C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -277,6 +281,8 @@
 				690B41161EE13CF800007E26 /* DCIPAddr.m */,
 				6918833F1DDD44AB0051DAAE /* DNSResolver.h */,
 				691883401DDD44AB0051DAAE /* DNSResolver.m */,
+				69726D8D1F6BA960003375CA /* QHex.h */,
+				69726D8C1F6BA95F003375CA /* QHex.m */,
 				6918833B1DDCA36A0051DAAE /* STTraffic.h */,
 				6918833C1DDCA36A0051DAAE /* STTraffic.m */,
 				69FC1ADA1DDBF69300EF8AAC /* Route.h */,
@@ -333,6 +339,7 @@
 				69E40F031F46846700C1DDC3 /* proinfo.h in Headers */,
 				690B41181EE13CF800007E26 /* DCIPAddr.h in Headers */,
 				69E40EA61F45282800C1DDC3 /* GCDSocketServer.h in Headers */,
+				69726D8F1F6BA97B003375CA /* QHex.h in Headers */,
 				69E40EA21F45255600C1DDC3 /* common.h in Headers */,
 				69B954E81DDF7D7A006AF669 /* DNSResolver.h in Headers */,
 				69B954E51DDF7D62006AF669 /* DNS.h in Headers */,
@@ -349,6 +356,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69726D8E1F6BA97A003375CA /* QHex.h in Headers */,
 				69E40EFA1F467EFF00C1DDC3 /* proinfo.h in Headers */,
 				69FC1ADC1DDBF69300EF8AAC /* Route.h in Headers */,
 				69E40EA11F45255600C1DDC3 /* common.h in Headers */,
