@@ -37,12 +37,12 @@
 		69784D931DE0AB4A007E32C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69784D921DE0AB4A007E32C2 /* ViewController.swift */; };
 		69784D951DE0AB4A007E32C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69784D941DE0AB4A007E32C2 /* Assets.xcassets */; };
 		69784D981DE0AB4A007E32C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69784D961DE0AB4A007E32C2 /* Main.storyboard */; };
-		69962D7D1F7A33BE006D2B19 /* SocketServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D7B1F7A33BE006D2B19 /* SocketServer.h */; };
-		69962D7E1F7A33BE006D2B19 /* SocketServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D7B1F7A33BE006D2B19 /* SocketServer.h */; };
+		69962D7D1F7A33BE006D2B19 /* SocketServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D7B1F7A33BE006D2B19 /* SocketServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69962D7E1F7A33BE006D2B19 /* SocketServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D7B1F7A33BE006D2B19 /* SocketServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69962D7F1F7A33BE006D2B19 /* SocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69962D7C1F7A33BE006D2B19 /* SocketServer.m */; };
 		69962D801F7A33BE006D2B19 /* SocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69962D7C1F7A33BE006D2B19 /* SocketServer.m */; };
-		69962D831F7A34DD006D2B19 /* GCDSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D811F7A34DD006D2B19 /* GCDSocket.h */; };
-		69962D841F7A34DD006D2B19 /* GCDSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D811F7A34DD006D2B19 /* GCDSocket.h */; };
+		69962D831F7A34DD006D2B19 /* GCDSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D811F7A34DD006D2B19 /* GCDSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69962D841F7A34DD006D2B19 /* GCDSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D811F7A34DD006D2B19 /* GCDSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69962D851F7A34DD006D2B19 /* GCDSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 69962D821F7A34DD006D2B19 /* GCDSocket.m */; };
 		69962D861F7A34DD006D2B19 /* GCDSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 69962D821F7A34DD006D2B19 /* GCDSocket.m */; };
 		69962D891F7A3B7B006D2B19 /* xsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 69962D871F7A3B7B006D2B19 /* xsocket.m */; };

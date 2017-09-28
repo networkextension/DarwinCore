@@ -53,7 +53,7 @@ static bool g_accepting_requests = true;
     (void)fcntl(fd, F_SETFL, O_NONBLOCK);
     dispatch_source_t as = dispatch_source_create(DISPATCH_SOURCE_TYPE_READ, fd, 0, queue);
     assert(as != NULL);
-    self.as = as;
+    
     dispatch_source_set_event_handler(as, ^(void){
         struct sockaddr_storage saddr;
         socklen_t        slen    = sizeof(saddr);
@@ -117,6 +117,7 @@ static bool g_accepting_requests = true;
     
     dispatch_resume( as );
     os_log_info(OS_LOG_DEFAULT, "server - dispatch_main" );
+    self.as = as;
     self.sfd = fd;
     
 }

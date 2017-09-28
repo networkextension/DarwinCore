@@ -12,6 +12,7 @@
 #include <os/log.h>
 #include <stdatomic.h>
 #include <libkern/OSAtomic.h>
+#import "GCDSocketServer.h"
 //#define SNOW(format, ...)  os_log_info(OS_LOG_DEFAULT, format, ...)
 int server_check_in(int port)
 {
@@ -82,10 +83,10 @@ bool server_read( int fd, unsigned char *buff, size_t buff_sz, void** msgStart, 
         
         
 //fixme
-//        GCDSocketServer *server = [GCDSocketServer shared];
-//        dispatch_async(server.dispatchQueue, ^{
-//            server.incoming(fd, data);
-//        });
+        GCDSocketServer *server = [GCDSocketServer shared];
+        dispatch_async(server.dispatchQueue, ^{
+            server.incoming(fd, data);
+        });
         
     }
     
