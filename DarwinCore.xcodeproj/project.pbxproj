@@ -37,6 +37,18 @@
 		69784D931DE0AB4A007E32C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69784D921DE0AB4A007E32C2 /* ViewController.swift */; };
 		69784D951DE0AB4A007E32C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69784D941DE0AB4A007E32C2 /* Assets.xcassets */; };
 		69784D981DE0AB4A007E32C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69784D961DE0AB4A007E32C2 /* Main.storyboard */; };
+		69962D7D1F7A33BE006D2B19 /* SocketServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D7B1F7A33BE006D2B19 /* SocketServer.h */; };
+		69962D7E1F7A33BE006D2B19 /* SocketServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D7B1F7A33BE006D2B19 /* SocketServer.h */; };
+		69962D7F1F7A33BE006D2B19 /* SocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69962D7C1F7A33BE006D2B19 /* SocketServer.m */; };
+		69962D801F7A33BE006D2B19 /* SocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69962D7C1F7A33BE006D2B19 /* SocketServer.m */; };
+		69962D831F7A34DD006D2B19 /* GCDSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D811F7A34DD006D2B19 /* GCDSocket.h */; };
+		69962D841F7A34DD006D2B19 /* GCDSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D811F7A34DD006D2B19 /* GCDSocket.h */; };
+		69962D851F7A34DD006D2B19 /* GCDSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 69962D821F7A34DD006D2B19 /* GCDSocket.m */; };
+		69962D861F7A34DD006D2B19 /* GCDSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 69962D821F7A34DD006D2B19 /* GCDSocket.m */; };
+		69962D891F7A3B7B006D2B19 /* xsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 69962D871F7A3B7B006D2B19 /* xsocket.m */; };
+		69962D8A1F7A3B7B006D2B19 /* xsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 69962D871F7A3B7B006D2B19 /* xsocket.m */; };
+		69962D8B1F7A3B7B006D2B19 /* xsocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D881F7A3B7B006D2B19 /* xsocket.h */; };
+		69962D8C1F7A3B7B006D2B19 /* xsocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D881F7A3B7B006D2B19 /* xsocket.h */; };
 		69A684A11DE0AF7D00ED80D1 /* DarwinCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 69B954DA1DDF7D3F006AF669 /* DarwinCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69B954E01DDF7D4D006AF669 /* DNSResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 691883401DDD44AB0051DAAE /* DNSResolver.m */; };
 		69B954E11DDF7D51006AF669 /* STTraffic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6918833C1DDCA36A0051DAAE /* STTraffic.m */; };
@@ -145,6 +157,12 @@
 		69784D941DE0AB4A007E32C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		69784D971DE0AB4A007E32C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		69784D991DE0AB4A007E32C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69962D7B1F7A33BE006D2B19 /* SocketServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketServer.h; sourceTree = "<group>"; };
+		69962D7C1F7A33BE006D2B19 /* SocketServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocketServer.m; sourceTree = "<group>"; };
+		69962D811F7A34DD006D2B19 /* GCDSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCDSocket.h; sourceTree = "<group>"; };
+		69962D821F7A34DD006D2B19 /* GCDSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCDSocket.m; sourceTree = "<group>"; };
+		69962D871F7A3B7B006D2B19 /* xsocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xsocket.m; sourceTree = "<group>"; };
+		69962D881F7A3B7B006D2B19 /* xsocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xsocket.h; sourceTree = "<group>"; };
 		69B954D81DDF7D3F006AF669 /* DarwinCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DarwinCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B954DA1DDF7D3F006AF669 /* DarwinCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DarwinCore.h; sourceTree = "<group>"; };
 		69B954DB1DDF7D3F006AF669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -276,6 +294,12 @@
 				69E40EF61F467EFE00C1DDC3 /* proinfo.m */,
 				69E40EF71F467EFE00C1DDC3 /* proinfo.h */,
 				690B41151EE13CF800007E26 /* DCIPAddr.h */,
+				69962D7B1F7A33BE006D2B19 /* SocketServer.h */,
+				69962D7C1F7A33BE006D2B19 /* SocketServer.m */,
+				69962D811F7A34DD006D2B19 /* GCDSocket.h */,
+				69962D821F7A34DD006D2B19 /* GCDSocket.m */,
+				69962D871F7A3B7B006D2B19 /* xsocket.m */,
+				69962D881F7A3B7B006D2B19 /* xsocket.h */,
 				69E40EA31F45282800C1DDC3 /* GCDSocketServer.h */,
 				69E40EA41F45282800C1DDC3 /* GCDSocketServer.m */,
 				690B41161EE13CF800007E26 /* DCIPAddr.m */,
@@ -336,15 +360,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				69726D891F6B7E5E003375CA /* XTLS.h in Headers */,
+				69962D7E1F7A33BE006D2B19 /* SocketServer.h in Headers */,
 				69E40F031F46846700C1DDC3 /* proinfo.h in Headers */,
 				690B41181EE13CF800007E26 /* DCIPAddr.h in Headers */,
 				69E40EA61F45282800C1DDC3 /* GCDSocketServer.h in Headers */,
 				69726D8F1F6BA97B003375CA /* QHex.h in Headers */,
 				69E40EA21F45255600C1DDC3 /* common.h in Headers */,
 				69B954E81DDF7D7A006AF669 /* DNSResolver.h in Headers */,
+				69962D841F7A34DD006D2B19 /* GCDSocket.h in Headers */,
 				69B954E51DDF7D62006AF669 /* DNS.h in Headers */,
 				69639C1E1EE1B2EF00893D18 /* IPSum.h in Headers */,
 				69E40E9F1F45251E00C1DDC3 /* shared.h in Headers */,
+				69962D8C1F7A3B7B006D2B19 /* xsocket.h in Headers */,
 				69169BE41F67D8BB00795664 /* Route.h in Headers */,
 				69B954E71DDF7D74006AF669 /* STTraffic.h in Headers */,
 				69726D761F6B5EFD003375CA /* ioSock.h in Headers */,
@@ -356,12 +383,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69962D8B1F7A3B7B006D2B19 /* xsocket.h in Headers */,
 				69726D8E1F6BA97A003375CA /* QHex.h in Headers */,
 				69E40EFA1F467EFF00C1DDC3 /* proinfo.h in Headers */,
 				69FC1ADC1DDBF69300EF8AAC /* Route.h in Headers */,
 				69E40EA11F45255600C1DDC3 /* common.h in Headers */,
 				69639C1D1EE1B2EF00893D18 /* IPSum.h in Headers */,
 				691883411DDD44AB0051DAAE /* DNSResolver.h in Headers */,
+				69962D831F7A34DD006D2B19 /* GCDSocket.h in Headers */,
+				69962D7D1F7A33BE006D2B19 /* SocketServer.h in Headers */,
 				69FC1AD31DDBF27C00EF8AAC /* DNS.h in Headers */,
 				69E40EA51F45282800C1DDC3 /* GCDSocketServer.h in Headers */,
 				69FC1ACB1DDBF25400EF8AAC /* DarwinCore.h in Headers */,
@@ -559,12 +589,15 @@
 				69B954E41DDF7D5E006AF669 /* DNS.m in Sources */,
 				69E40EA81F45282800C1DDC3 /* GCDSocketServer.m in Sources */,
 				69EEA8FB1F6118E500DDFC90 /* Route.m in Sources */,
+				69962D801F7A33BE006D2B19 /* SocketServer.m in Sources */,
 				69639C201EE1B2EF00893D18 /* IPSum.m in Sources */,
+				69962D861F7A34DD006D2B19 /* GCDSocket.m in Sources */,
 				69B954E11DDF7D51006AF669 /* STTraffic.m in Sources */,
 				69B954E01DDF7D4D006AF669 /* DNSResolver.m in Sources */,
 				69E40EF91F467EFF00C1DDC3 /* proinfo.m in Sources */,
 				69EEA8FA1F6118E000DDFC90 /* route.c in Sources */,
 				69726D8B1F6B7F61003375CA /* ioSock.c in Sources */,
+				69962D8A1F7A3B7B006D2B19 /* xsocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,9 +606,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6918833E1DDCA36A0051DAAE /* STTraffic.m in Sources */,
+				69962D851F7A34DD006D2B19 /* GCDSocket.m in Sources */,
 				691883421DDD44AB0051DAAE /* DNSResolver.m in Sources */,
+				69962D7F1F7A33BE006D2B19 /* SocketServer.m in Sources */,
 				69639C1F1EE1B2EF00893D18 /* IPSum.m in Sources */,
 				690B41191EE13CF800007E26 /* DCIPAddr.m in Sources */,
+				69962D891F7A3B7B006D2B19 /* xsocket.m in Sources */,
 				69FC1ADD1DDBF69300EF8AAC /* Route.m in Sources */,
 				69FC1AD41DDBF27C00EF8AAC /* DNS.m in Sources */,
 				69E40EA71F45282800C1DDC3 /* GCDSocketServer.m in Sources */,
