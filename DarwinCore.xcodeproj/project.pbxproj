@@ -49,6 +49,8 @@
 		69962D8A1F7A3B7B006D2B19 /* xsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 69962D871F7A3B7B006D2B19 /* xsocket.m */; };
 		69962D8B1F7A3B7B006D2B19 /* xsocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D881F7A3B7B006D2B19 /* xsocket.h */; };
 		69962D8C1F7A3B7B006D2B19 /* xsocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D881F7A3B7B006D2B19 /* xsocket.h */; };
+		69A000761F7F38F000716122 /* NSData+Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A000741F7F38B600716122 /* NSData+Crypto.m */; };
+		69A000771F7F38F200716122 /* NSData+Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A000741F7F38B600716122 /* NSData+Crypto.m */; };
 		69A684A11DE0AF7D00ED80D1 /* DarwinCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 69B954DA1DDF7D3F006AF669 /* DarwinCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69B954E01DDF7D4D006AF669 /* DNSResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 691883401DDD44AB0051DAAE /* DNSResolver.m */; };
 		69B954E11DDF7D51006AF669 /* STTraffic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6918833C1DDCA36A0051DAAE /* STTraffic.m */; };
@@ -163,6 +165,9 @@
 		69962D821F7A34DD006D2B19 /* GCDSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCDSocket.m; sourceTree = "<group>"; };
 		69962D871F7A3B7B006D2B19 /* xsocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xsocket.m; sourceTree = "<group>"; };
 		69962D881F7A3B7B006D2B19 /* xsocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xsocket.h; sourceTree = "<group>"; };
+		69A000731F7F38B600716122 /* NSData+Crypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Crypto.h"; sourceTree = "<group>"; };
+		69A000741F7F38B600716122 /* NSData+Crypto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+Crypto.m"; sourceTree = "<group>"; };
+		69A000751F7F38C100716122 /* CommonCryptorSPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonCryptorSPI.h; sourceTree = "<group>"; };
 		69B954D81DDF7D3F006AF669 /* DarwinCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DarwinCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B954DA1DDF7D3F006AF669 /* DarwinCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DarwinCore.h; sourceTree = "<group>"; };
 		69B954DB1DDF7D3F006AF669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -288,6 +293,9 @@
 		69FC1AC81DDBF25400EF8AAC /* DarwinCore */ = {
 			isa = PBXGroup;
 			children = (
+				69A000751F7F38C100716122 /* CommonCryptorSPI.h */,
+				69A000731F7F38B600716122 /* NSData+Crypto.h */,
+				69A000741F7F38B600716122 /* NSData+Crypto.m */,
 				69726D731F6B5E56003375CA /* ioSock.c */,
 				69726D741F6B5E57003375CA /* ioSock.h */,
 				69E40EA01F45255600C1DDC3 /* common.h */,
@@ -588,6 +596,7 @@
 				690B411A1EE13CF800007E26 /* DCIPAddr.m in Sources */,
 				69B954E41DDF7D5E006AF669 /* DNS.m in Sources */,
 				69E40EA81F45282800C1DDC3 /* GCDSocketServer.m in Sources */,
+				69A000771F7F38F200716122 /* NSData+Crypto.m in Sources */,
 				69EEA8FB1F6118E500DDFC90 /* Route.m in Sources */,
 				69962D801F7A33BE006D2B19 /* SocketServer.m in Sources */,
 				69639C201EE1B2EF00893D18 /* IPSum.m in Sources */,
@@ -606,6 +615,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6918833E1DDCA36A0051DAAE /* STTraffic.m in Sources */,
+				69A000761F7F38F000716122 /* NSData+Crypto.m in Sources */,
 				69962D851F7A34DD006D2B19 /* GCDSocket.m in Sources */,
 				691883421DDD44AB0051DAAE /* DNSResolver.m in Sources */,
 				69962D7F1F7A33BE006D2B19 /* SocketServer.m in Sources */,
