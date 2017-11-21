@@ -39,7 +39,7 @@
                             dataIn.bytes,
                             dataIn.length,
                             dataOut.mutableBytes,
-                            tag.bytes,
+                            (void*)tag.bytes,
                             &tagLength);
     
     if (ccStatus == kCCSuccess) {

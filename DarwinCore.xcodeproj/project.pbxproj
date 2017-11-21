@@ -67,7 +67,6 @@
 		69E40EA61F45282800C1DDC3 /* GCDSocketServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E40EA31F45282800C1DDC3 /* GCDSocketServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69E40EA71F45282800C1DDC3 /* GCDSocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EA41F45282800C1DDC3 /* GCDSocketServer.m */; };
 		69E40EA81F45282800C1DDC3 /* GCDSocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EA41F45282800C1DDC3 /* GCDSocketServer.m */; };
-		69E40EDA1F454D3C00C1DDC3 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E40ED91F454D3C00C1DDC3 /* CocoaAsyncSocket.framework */; };
 		69E40EDC1F454D5500C1DDC3 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EDB1F454D5500C1DDC3 /* Client.swift */; };
 		69E40EDD1F45538300C1DDC3 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E40ED91F454D3C00C1DDC3 /* CocoaAsyncSocket.framework */; };
 		69E40EDE1F45538300C1DDC3 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69E40ED91F454D3C00C1DDC3 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -208,7 +207,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				69E40EDD1F45538300C1DDC3 /* CocoaAsyncSocket.framework in Frameworks */,
-				69E40EDA1F454D3C00C1DDC3 /* CocoaAsyncSocket.framework in Frameworks */,
 				6949404F1DE0AE2200F67DF0 /* DarwinCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,7 +492,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Kong XiangBo";
 				TargetAttributes = {
 					69784D8D1DE0AB4A007E32C2 = {
