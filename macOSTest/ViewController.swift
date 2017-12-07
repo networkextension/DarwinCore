@@ -34,7 +34,7 @@ class ViewController: NSViewController,ClientDelegate {
     }
 
     func testServer(){
-        if let server = GCDSocketServer.shared(){
+        let server = GCDSocketServer.shared()
             server.accept = { fd,addr,port in
                 let c = Client.init(sfd: fd, delegate: self, q: DispatchQueue.main)
                 //self.clients.append(c);
@@ -58,13 +58,13 @@ class ViewController: NSViewController,ClientDelegate {
 //                    }
 //                }
                 if let c = self.clientTree.search(input: fd){
-                    c.incoming(data: data!)
+                    c.incoming(data: data)
                 }
                 //server.server_write_request(fd, buffer: "wello come\n", total: 11);
             }
             //let q = DispatchQueue.init(label: "dispatch queue")
             server.start(10081, queue: DispatchQueue.main)
-        }
+        
     }
     func test()  {
         DNS.loadSystemDNSServer()

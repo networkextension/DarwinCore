@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @class GCDSocket;
-typedef void (^incomingData)(GCDSocket *socket,NSData *  data);
-typedef void (^didClosedSocket)(GCDSocket *socket);
+typedef void (^socketIncomingData)(GCDSocket *socket,NSData *  data);
+typedef void (^socketDidClosedSocket)(GCDSocket *socket);
 
 @interface GCDSocket : NSObject
 @property (nonatomic) int sfd;
@@ -18,10 +18,10 @@ typedef void (^didClosedSocket)(GCDSocket *socket);
 @property (nonatomic) int port;
 @property (nonatomic) dispatch_queue_t  dispatchQueue;
 @property (nonatomic) dispatch_queue_t  socketQueue;
-@property (nonatomic,copy) incomingData incoming;
-@property (nonatomic,copy) didClosedSocket didClosedSocket;
+@property (nonatomic,copy) socketIncomingData incoming;
+@property (nonatomic,copy) socketDidClosedSocket didClosedSocket;
 @property (nonatomic) dispatch_source_t socketSource;
 -(instancetype)initWithFD:(int)fd remoteaddr:(NSString*)addr port:(int)port;
--(void)startWithIncoming:(incomingData)incoming;
+-(void)startWithIncoming:(socketDidClosedSocket)incoming;
 -(void)close;
 @end

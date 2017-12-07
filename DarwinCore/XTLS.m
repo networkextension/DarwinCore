@@ -37,14 +37,15 @@
     result = MakeServerConnection(hostName, 2195,1, &_socket, &peer);// NSLog(@"MakeServerConnection(): %d", result);
     
     // Create new SSL context.
-    result = SSLNewContext(false, &_contextRef);// NSLog(@"SSLNewContext(): %d", result);
+    _contextRef = SSLCreateContext(kCFAllocatorDefault, kSSLClientSide, kSSLStreamType);
+    //SSLNewContext(false, &_contextRef);// NSLog(@"SSLNewContext(): %d", result);
     
     // Set callback functions for SSL context.
     result = SSLSetIOFuncs(_contextRef, SocketRead, SocketWrite);// NSLog(@"SSLSetIOFuncs(): %d", result);
     
     // Set SSL context connection.
-    result = SSLSetConnection(_contextRef, _socket);// NSLog(@"SSLSetConnection(): %d", result);
-    
+    result = SSLSetConnection(_contextRef, (SSLConnectionRef*)&_socket);// NSLog(@"SSLSetConnection(): %d", result);
+    //??
     // Set server domain name.
     result = SSLSetPeerDomainName(_contextRef, hostName, 30);// NSLog(@"SSLSetPeerDomainName(): %d", result);
     
@@ -90,8 +91,8 @@
     close((int)_socket);
     
     // Delete SSL context.
-    result = SSLDisposeContext(_contextRef);// NSLog(@"SSLDisposeContext(): %d", result);
-    
+    //result = SSLDisposeContext(_contextRef);// NSLog(@"SSLDisposeContext(): %d", result);
+    CFRelease(_contextRef);
 }
 
 //- (IBAction)pickConfiguration:(NSPopUpButton*)sender {

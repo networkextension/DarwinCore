@@ -19,7 +19,7 @@
     }
     return self;
 }
--(void)startWithIncoming:(incomingData)incoming
+-(void)startWithIncoming:(socketDidClosedSocket)incoming
 {
     __block size_t total = 0;
     

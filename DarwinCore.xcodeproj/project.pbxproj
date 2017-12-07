@@ -49,6 +49,7 @@
 		69962D8A1F7A3B7B006D2B19 /* xsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 69962D871F7A3B7B006D2B19 /* xsocket.m */; };
 		69962D8B1F7A3B7B006D2B19 /* xsocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D881F7A3B7B006D2B19 /* xsocket.h */; };
 		69962D8C1F7A3B7B006D2B19 /* xsocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D881F7A3B7B006D2B19 /* xsocket.h */; };
+		69987DAF1FD937B100B41FD6 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69987DAE1FD937B100B41FD6 /* CocoaAsyncSocket.framework */; };
 		69A000761F7F38F000716122 /* NSData+Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A000741F7F38B600716122 /* NSData+Crypto.m */; };
 		69A000771F7F38F200716122 /* NSData+Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A000741F7F38B600716122 /* NSData+Crypto.m */; };
 		69A684A11DE0AF7D00ED80D1 /* DarwinCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 69B954DA1DDF7D3F006AF669 /* DarwinCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -68,8 +69,6 @@
 		69E40EA71F45282800C1DDC3 /* GCDSocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EA41F45282800C1DDC3 /* GCDSocketServer.m */; };
 		69E40EA81F45282800C1DDC3 /* GCDSocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EA41F45282800C1DDC3 /* GCDSocketServer.m */; };
 		69E40EDC1F454D5500C1DDC3 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EDB1F454D5500C1DDC3 /* Client.swift */; };
-		69E40EDD1F45538300C1DDC3 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E40ED91F454D3C00C1DDC3 /* CocoaAsyncSocket.framework */; };
-		69E40EDE1F45538300C1DDC3 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69E40ED91F454D3C00C1DDC3 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69E40EE01F455ED200C1DDC3 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EDF1F455ED200C1DDC3 /* Tree.swift */; };
 		69E40EE21F45669500C1DDC3 /* AVLTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EE11F45669500C1DDC3 /* AVLTree.swift */; };
 		69E40EF91F467EFF00C1DDC3 /* proinfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E40EF61F467EFE00C1DDC3 /* proinfo.m */; };
@@ -116,7 +115,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				69E40EDE1F45538300C1DDC3 /* CocoaAsyncSocket.framework in Embed Frameworks */,
 				694940501DE0AE2200F67DF0 /* DarwinCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -164,6 +162,7 @@
 		69962D821F7A34DD006D2B19 /* GCDSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCDSocket.m; sourceTree = "<group>"; };
 		69962D871F7A3B7B006D2B19 /* xsocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xsocket.m; sourceTree = "<group>"; };
 		69962D881F7A3B7B006D2B19 /* xsocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xsocket.h; sourceTree = "<group>"; };
+		69987DAE1FD937B100B41FD6 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/Mac/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
 		69A000731F7F38B600716122 /* NSData+Crypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Crypto.h"; sourceTree = "<group>"; };
 		69A000741F7F38B600716122 /* NSData+Crypto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+Crypto.m"; sourceTree = "<group>"; };
 		69A000751F7F38C100716122 /* CommonCryptorSPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonCryptorSPI.h; sourceTree = "<group>"; };
@@ -175,7 +174,6 @@
 		69E40EA01F45255600C1DDC3 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		69E40EA31F45282800C1DDC3 /* GCDSocketServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDSocketServer.h; sourceTree = "<group>"; };
 		69E40EA41F45282800C1DDC3 /* GCDSocketServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDSocketServer.m; sourceTree = "<group>"; };
-		69E40ED91F454D3C00C1DDC3 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CocoaAsyncSocket.framework; sourceTree = "<group>"; };
 		69E40EDB1F454D5500C1DDC3 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		69E40EDF1F455ED200C1DDC3 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		69E40EE11F45669500C1DDC3 /* AVLTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVLTree.swift; sourceTree = "<group>"; };
@@ -206,7 +204,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69E40EDD1F45538300C1DDC3 /* CocoaAsyncSocket.framework in Frameworks */,
+				69987DAF1FD937B100B41FD6 /* CocoaAsyncSocket.framework in Frameworks */,
 				6949404F1DE0AE2200F67DF0 /* DarwinCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,7 +241,6 @@
 		69784D8F1DE0AB4A007E32C2 /* macOSTest */ = {
 			isa = PBXGroup;
 			children = (
-				69E40ED91F454D3C00C1DDC3 /* CocoaAsyncSocket.framework */,
 				69784D901DE0AB4A007E32C2 /* AppDelegate.swift */,
 				69E40EE11F45669500C1DDC3 /* AVLTree.swift */,
 				69784D921DE0AB4A007E32C2 /* ViewController.swift */,
@@ -336,6 +333,7 @@
 		69FC1AD51DDBF48F00EF8AAC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				69987DAE1FD937B100B41FD6 /* CocoaAsyncSocket.framework */,
 				69726D871F6B7DE3003375CA /* Security.framework */,
 				69726D701F69208E003375CA /* AVFoundation.framework */,
 				69B954E91DDF7EA6006AF669 /* libresolv.tbd */,
@@ -690,6 +688,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/macOSTest",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = macOSTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -713,6 +712,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/macOSTest",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = macOSTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";

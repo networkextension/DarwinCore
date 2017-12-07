@@ -55,7 +55,7 @@ class Client: NSObject,GCDAsyncSocketDelegate {
     public func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int){
         let s = GCDSocketServer.shared()
         let nsd = data as NSData
-        s?.server_write_request(self.fd, buffer: nsd.bytes, total: data.count)
+        s.server_write_request(self.fd, buffer: nsd.bytes, total: data.count)
         guard let ss = self.socket else {return}
         ss.readData(withTimeout: 10, tag: 1);
     }

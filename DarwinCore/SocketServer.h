@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import  "GCDSocket.h"
 // socket server basic class
-typedef void (^didAcceptSocket)(GCDSocket *socket);
+typedef void (^serverDidAcceptSocket)(GCDSocket *socket);
 
 
 @interface SocketServer : NSObject
@@ -20,7 +20,7 @@ typedef void (^didAcceptSocket)(GCDSocket *socket);
 @property (nonatomic) dispatch_source_t socketSource;
 @property (nonatomic) int sfd;
 @property (nonatomic) NSInteger lport;
-@property (nonatomic, copy) didAcceptSocket accept;
+@property (nonatomic, copy) serverDidAcceptSocket accept;
 @property (nonatomic) bool accepting_requests;
 -(instancetype)initWith:(NSInteger)port queue:(dispatch_queue_t)queue;
 -(void)start;
