@@ -26,10 +26,15 @@ static bool g_accepting_requests = true;
     });
     return server;
 }
-
--(void)startServer:(int)port queue:(dispatch_queue_t)queue
+-(void)pauseRestartServer
 {
-    self.dispatchQueue = queue;
+    //设置状态，这个时候有新来的socket 会直接close掉
+    g_accepting_requests = !g_accepting_requests;
+}
+-(void)startServer:(int)port dispatchQueue:(dispatch_queue_t  _Nonnull)dqueue socketQueue:(dispatch_queue_t  _Nonnull)squeue;
+{
+    self.dispatchQueue = dqueue;
+    self.socketQueue = squeue;
     
     os_log(OS_LOG_DEFAULT, "Server Starting");
     os_log_info(OS_LOG_DEFAULT, "Additional info for troubleshooting.");
@@ -37,7 +42,7 @@ static bool g_accepting_requests = true;
     (void)signal(SIGTERM, SIG_IGN);
     (void)signal(SIGPIPE, SIG_IGN);
     
-    dispatch_source_t sts = dispatch_source_create(DISPATCH_SOURCE_TYPE_SIGNAL, SIGTERM, 0, queue);
+    dispatch_source_t sts = dispatch_source_create(DISPATCH_SOURCE_TYPE_SIGNAL, SIGTERM, 0, self.socketQueue);
     assert(sts != NULL);
     dispatch_source_set_event_handler(sts, ^(void)
                                       {
@@ -51,7 +56,7 @@ static bool g_accepting_requests = true;
     int fd = server_check_in(port);
     
     (void)fcntl(fd, F_SETFL, O_NONBLOCK);
-    dispatch_source_t as = dispatch_source_create(DISPATCH_SOURCE_TYPE_READ, fd, 0, queue);
+    dispatch_source_t as = dispatch_source_create(DISPATCH_SOURCE_TYPE_READ, fd, 0, self.socketQueue);
     assert(as != NULL);
     
     dispatch_source_set_event_handler(as, ^(void){
@@ -94,8 +99,10 @@ static bool g_accepting_requests = true;
                 //[self loadfd:fd];
             
                 NSString *ipaddr = [NSString stringWithUTF8String:ipstr];
-                
-                self.accept(afd, ipaddr, port);
+            dispatch_async(self.dispatchQueue, ^{
+                 self.accept(afd, ipaddr, port);
+            });
+            
                 //server_accept( afd, );
                 [self server_accept:afd q:dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0 ) ];
             }
@@ -116,7 +123,7 @@ static bool g_accepting_requests = true;
                                        });
     
     dispatch_resume( as );
-    os_log_info(OS_LOG_DEFAULT, "server - dispatch_main" );
+    os_log_info(OS_LOG_DEFAULT, "server - dispatch_queue" );
     self.as = as;
     self.sfd = fd;
     
@@ -185,11 +192,12 @@ static bool g_accepting_requests = true;
                                            //dispatch_release( s );
                                            
                                            close( fd );
-                                           //[stack didCloseSocket:fd];
+                                       
+                                      dispatch_async(self.dispatchQueue, ^{
                                            self.colse(fd);
-                                           //GCDSocketServer *server = [GCDSocketServer shared];
-                                           
-                                           //server.colse
+                                       });
+                                       
+                                       
                                        });
     
     dispatch_resume(s);
@@ -199,7 +207,7 @@ static bool g_accepting_requests = true;
     CFDataRef data = CFDataCreateWithBytesNoCopy( NULL, buffer, total, kCFAllocatorNull );
     assert(data != NULL);
     
-    server_send_reply( fd, dispatch_get_main_queue(), data);
+    server_send_reply( fd, self.socketQueue, data);
     
     /* ss_send_reply() copies the data from replyData out, so we can safely
      * release it here. But remember, that's an inefficient design.

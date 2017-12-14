@@ -119,7 +119,7 @@
                                        });
     
     dispatch_resume( as );
-    os_log_info(OS_LOG_DEFAULT, "server - dispatch_main" );
+    os_log_info(OS_LOG_DEFAULT, "server - dispatch_queue" );
     self.socketSource = as;
     self.sfd = fd;
 }
