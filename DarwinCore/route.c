@@ -78,6 +78,7 @@
 #include <net/route_ios.h>
 #include <net/radix.h>
 #else
+//cp /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/net/route.h /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.2.sdk/usr/include/net/
 #include <net/radix.h>
 #include <net/route.h>
 #endif
