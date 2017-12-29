@@ -125,14 +125,18 @@ void server_send_reply(int fd, dispatch_queue_t q, CFDataRef data)
                                               track_buff += nbytes;
                                               track_sz -= nbytes;
                                               
-                                              os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - writing bytes" );
+                                              
                                               
                                               if ( track_sz == 0 )
                                               {
                                                   os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - all bytes written" );
                                                   
                                                   dispatch_source_cancel( s );
+                                              }else {
+                                                  os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE count:%d", nbytes);
                                               }
+                                          }else {
+                                              os_log_debug(OS_LOG_DEFAULT, "write fail:%s",strerror(errno));
                                           }
                                       });
     
