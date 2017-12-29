@@ -13,6 +13,7 @@ class ViewController: NSViewController,ClientDelegate {
     let r = DNSResolver()
     //var clients:[Client] = []
     let que = DispatchQueue.init(label: "server")
+    let socketQueue = DispatchQueue.init(label: "server.socket")
     var clientTree:AVLTree = AVLTree<Int32,Client>()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,12 +64,18 @@ class ViewController: NSViewController,ClientDelegate {
                 //server.server_write_request(fd, buffer: "wello come\n", total: 11);
             }
             //let q = DispatchQueue.init(label: "dispatch queue")
-            server.start(10081, queue: DispatchQueue.main)
+        server.start(10082, dispatchQueue: DispatchQueue.main, socketQueue: socketQueue)
         
     }
     func test()  {
-        DNS.loadSystemDNSServer()
+        
+        guard let dns = DNS.loadSystemDNSServer() else {
+            fatalError("dns get error")
+        }
+        print(dns)
        
+       
+        
         testReolover(host: "www.freebsdchina.org")
         
     }
@@ -84,6 +91,12 @@ class ViewController: NSViewController,ClientDelegate {
         }
     }
 
+    @IBAction func testRouter(_ sender: Any) {
+        for _ in 0..<10000 {
+            let string = Route.currntRouterInet4(true, defaultRouter: false) as String
+            print(string.count)
+        }
+    }
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.

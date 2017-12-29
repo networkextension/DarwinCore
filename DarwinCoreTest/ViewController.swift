@@ -19,9 +19,11 @@ class ViewController: UIViewController {
         print_free_memory()
         // Do any additional setup after loading the view, typically from a nib.
     }
+ 
     
     func test()  {
-        DNS.loadSystemDNSServer()
+        let d = DNS.loadSystemDNSServer()
+        print(d)
         let string = Route.currntRouter() as String
         print(string)
         myUtterance = AVSpeechUtterance(string: "你好,www.freebsdchina.org")

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Route : NSObject
-+ (NSString*) currntRouter;
++ ( NSString* _Nonnull ) currntRouterInet4:(BOOL)isV4 defaultRouter:(BOOL)d;
+
 @end
 

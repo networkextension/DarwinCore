@@ -62,20 +62,30 @@ plural(int n)
 extern void routepr(char *p);
 
 @implementation Route
-+ (NSString*) currntRouter
++ (NSString*) currntRouterInet4:(BOOL)isV4 defaultRouter:(BOOL)d;
 {
     //  #if TARGET_OS_IPHONE
+    if (isV4){
+        //IPV4 router
+        af = AF_INET;
+    }else {
+        //IPV4 router
+        af = AF_INET6;
+    }
     rflag = 1;
     nflag = 1;
     aflag = 1;
-    af = AF_INET;
-    char  buffer[8196*10];
+    
+    //bigger buffer otherwise ,buffer maybe overflow
+    char  *buffer = (char  *)malloc(8196*10);
     memset(buffer, 0, 8196*10);
     routepr(buffer);
-    NSString *result = [NSString stringWithCString:buffer encoding:NSASCIIStringEncoding];
+    NSString *result = [[NSString alloc] initWithUTF8String:buffer];
+    //[NSString stringWithCString:buffer encoding:NSASCIIStringEncoding];
     if (result == nil) {
         result = @"Get Route Failure";
     }
+    free(buffer);
     return result;
     
 }

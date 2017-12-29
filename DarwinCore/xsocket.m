@@ -125,11 +125,11 @@ void server_send_reply(int fd, dispatch_queue_t q, CFDataRef data)
                                               track_buff += nbytes;
                                               track_sz -= nbytes;
                                               
-                                              os_log_info(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - writing bytes" );
+                                              os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - writing bytes" );
                                               
                                               if ( track_sz == 0 )
                                               {
-                                                  os_log_info(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - all bytes written" );
+                                                  os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - all bytes written" );
                                                   
                                                   dispatch_source_cancel( s );
                                               }
@@ -138,7 +138,7 @@ void server_send_reply(int fd, dispatch_queue_t q, CFDataRef data)
     
     dispatch_source_set_cancel_handler(s, ^(void)
                                        {
-                                           os_log_info(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - canceled" );
+                                           os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - canceled" );
                                            free(buff);
                                            //dispatch_release(s);
                                        });

@@ -16,6 +16,11 @@
 		6918833E1DDCA36A0051DAAE /* STTraffic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6918833C1DDCA36A0051DAAE /* STTraffic.m */; };
 		691883411DDD44AB0051DAAE /* DNSResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 6918833F1DDD44AB0051DAAE /* DNSResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		691883421DDD44AB0051DAAE /* DNSResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 691883401DDD44AB0051DAAE /* DNSResolver.m */; };
+		6946504B1FF5DBB5000AFBE3 /* DarwinCoreLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6946504A1FF5DBB5000AFBE3 /* DarwinCoreLogger.m */; };
+		6946504C1FF5DBB5000AFBE3 /* DarwinCoreLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6946504A1FF5DBB5000AFBE3 /* DarwinCoreLogger.m */; };
+		694650511FF5DBF4000AFBE3 /* DarwinCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 694650501FF5DBF4000AFBE3 /* DarwinCore.h */; };
+		694650541FF5DC73000AFBE3 /* DarwinCoreLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 694650531FF5DC73000AFBE3 /* DarwinCoreLogger.h */; };
+		694650551FF5DC73000AFBE3 /* DarwinCoreLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 694650531FF5DC73000AFBE3 /* DarwinCoreLogger.h */; };
 		694674781F5CE58500C011B7 /* route.c in Sources */ = {isa = PBXBuildFile; fileRef = 69FC1AD81DDBF4F800EF8AAC /* route.c */; };
 		6949404F1DE0AE2200F67DF0 /* DarwinCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B954D81DDF7D3F006AF669 /* DarwinCore.framework */; };
 		694940501DE0AE2200F67DF0 /* DarwinCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69B954D81DDF7D3F006AF669 /* DarwinCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -139,6 +144,9 @@
 		6918833C1DDCA36A0051DAAE /* STTraffic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTraffic.m; sourceTree = "<group>"; };
 		6918833F1DDD44AB0051DAAE /* DNSResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNSResolver.h; sourceTree = "<group>"; };
 		691883401DDD44AB0051DAAE /* DNSResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNSResolver.m; sourceTree = "<group>"; };
+		6946504A1FF5DBB5000AFBE3 /* DarwinCoreLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DarwinCoreLogger.m; sourceTree = "<group>"; };
+		694650501FF5DBF4000AFBE3 /* DarwinCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DarwinCore.h; sourceTree = "<group>"; };
+		694650531FF5DC73000AFBE3 /* DarwinCoreLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DarwinCoreLogger.h; sourceTree = "<group>"; };
 		69639C1B1EE1B2EF00893D18 /* IPSum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPSum.h; sourceTree = "<group>"; };
 		69639C1C1EE1B2EF00893D18 /* IPSum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPSum.m; sourceTree = "<group>"; };
 		69726D701F69208E003375CA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -289,6 +297,9 @@
 			isa = PBXGroup;
 			children = (
 				69A000751F7F38C100716122 /* CommonCryptorSPI.h */,
+				6946504A1FF5DBB5000AFBE3 /* DarwinCoreLogger.m */,
+				694650531FF5DC73000AFBE3 /* DarwinCoreLogger.h */,
+				694650501FF5DBF4000AFBE3 /* DarwinCore.h */,
 				69A000731F7F38B600716122 /* NSData+Crypto.h */,
 				69A000741F7F38B600716122 /* NSData+Crypto.m */,
 				69726D731F6B5E56003375CA /* ioSock.c */,
@@ -372,6 +383,7 @@
 				69E40EA21F45255600C1DDC3 /* common.h in Headers */,
 				69B954E81DDF7D7A006AF669 /* DNSResolver.h in Headers */,
 				69962D841F7A34DD006D2B19 /* GCDSocket.h in Headers */,
+				694650551FF5DC73000AFBE3 /* DarwinCoreLogger.h in Headers */,
 				69B954E51DDF7D62006AF669 /* DNS.h in Headers */,
 				69639C1E1EE1B2EF00893D18 /* IPSum.h in Headers */,
 				69E40E9F1F45251E00C1DDC3 /* shared.h in Headers */,
@@ -395,6 +407,8 @@
 				69639C1D1EE1B2EF00893D18 /* IPSum.h in Headers */,
 				691883411DDD44AB0051DAAE /* DNSResolver.h in Headers */,
 				69962D831F7A34DD006D2B19 /* GCDSocket.h in Headers */,
+				694650511FF5DBF4000AFBE3 /* DarwinCore.h in Headers */,
+				694650541FF5DC73000AFBE3 /* DarwinCoreLogger.h in Headers */,
 				69962D7D1F7A33BE006D2B19 /* SocketServer.h in Headers */,
 				69FC1AD31DDBF27C00EF8AAC /* DNS.h in Headers */,
 				69E40EA51F45282800C1DDC3 /* GCDSocketServer.h in Headers */,
@@ -417,6 +431,7 @@
 				69784D8B1DE0AB4A007E32C2 /* Frameworks */,
 				69784D8C1DE0AB4A007E32C2 /* Resources */,
 				694940511DE0AE2200F67DF0 /* Embed Frameworks */,
+				694650461FF5D3C4000AFBE3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -496,15 +511,18 @@
 					69784D8D1DE0AB4A007E32C2 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = 745WQDK4L7;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					69B954D71DDF7D3F006AF669 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = 745WQDK4L7;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					69FC1AC51DDBF25400EF8AAC = {
 						CreatedOnToolsVersion = 8.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					69FC1AE11DDBF77300EF8AAC = {
@@ -571,6 +589,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		694650461FF5D3C4000AFBE3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate\nfpath=\"${SRCROOT}/Carthage/Build/Mac\"\ncd \"$fpath\"\n\ntar -c *.framework |tar -xvC \"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n\nfind . -name '*.framework' -type d | while read -r FRAMEWORK\ndo\necho \"codesign $FRAMEWORK\"\n/usr/bin/codesign --sign  $EXPANDED_CODE_SIGN_IDENTITY --force --preserve-metadata=identifier,entitlements,flags --timestamp=none \"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/$FRAMEWORK/Versions/A\"\ndone\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		69784D8A1DE0AB4A007E32C2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -593,6 +627,7 @@
 				69B954E41DDF7D5E006AF669 /* DNS.m in Sources */,
 				69E40EA81F45282800C1DDC3 /* GCDSocketServer.m in Sources */,
 				69A000771F7F38F200716122 /* NSData+Crypto.m in Sources */,
+				6946504C1FF5DBB5000AFBE3 /* DarwinCoreLogger.m in Sources */,
 				69EEA8FB1F6118E500DDFC90 /* Route.m in Sources */,
 				69962D801F7A33BE006D2B19 /* SocketServer.m in Sources */,
 				69639C201EE1B2EF00893D18 /* IPSum.m in Sources */,
@@ -619,6 +654,7 @@
 				690B41191EE13CF800007E26 /* DCIPAddr.m in Sources */,
 				69962D891F7A3B7B006D2B19 /* xsocket.m in Sources */,
 				69FC1ADD1DDBF69300EF8AAC /* Route.m in Sources */,
+				6946504B1FF5DBB5000AFBE3 /* DarwinCoreLogger.m in Sources */,
 				69FC1AD41DDBF27C00EF8AAC /* DNS.m in Sources */,
 				69E40EA71F45282800C1DDC3 /* GCDSocketServer.m in Sources */,
 				694674781F5CE58500C011B7 /* route.c in Sources */,
@@ -698,7 +734,8 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -721,7 +758,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -729,6 +767,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -756,6 +795,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -890,6 +930,7 @@
 		69FC1ACF1DDBF25400EF8AAC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -903,12 +944,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.DarwinCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		69FC1AD01DDBF25400EF8AAC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -922,6 +966,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.DarwinCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

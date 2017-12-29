@@ -62,7 +62,7 @@ static bool g_accepting_requests = true;
     dispatch_source_set_event_handler(as, ^(void){
         struct sockaddr_storage saddr;
         socklen_t        slen    = sizeof(saddr);
-        os_log_info(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ A" );
+        os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ A" );
         
         int afd = accept( fd, (struct sockaddr *)&saddr, &slen );
         
@@ -70,7 +70,7 @@ static bool g_accepting_requests = true;
         {
             int value = 1;
             setsockopt(afd, SOL_SOCKET, SO_NOSIGPIPE, &value, sizeof(value));
-            os_log_info(OS_LOG_DEFAULT,"DISPATCH_SOURCE_TYPE_READ A - accepted" );
+            os_log_debug(OS_LOG_DEFAULT,"DISPATCH_SOURCE_TYPE_READ A - accepted" );
             
             /* Again, make sure the new connection's descriptor is non-blocking. */
             (void)fcntl( fd, F_SETFL, O_NONBLOCK );
@@ -116,7 +116,7 @@ static bool g_accepting_requests = true;
     
     dispatch_source_set_cancel_handler(as, ^(void)
                                        {
-                                           os_log_info(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ A - canceled" );
+                                           os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ A - canceled" );
                                            
                                            //dispatch_release( as );
                                            (void)close( fd );
@@ -156,7 +156,7 @@ static bool g_accepting_requests = true;
     
     dispatch_source_set_event_handler(s, ^(void)
                                       {
-                                          os_log_info(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ B" );
+                                          os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ B" );
                                           
                                           /* You may be asking yourself, "Doesn't the fact that we're on a concurrent
                                            * queue mean that multiple event handler blocks could be running
@@ -174,7 +174,7 @@ static bool g_accepting_requests = true;
                                           assert(buff != NULL);
                                           if ( server_read( fd, buff, buff_sz, &msgStart, &total) )
                                           {
-                                              os_log_info(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ B - server_read success" );
+                                              os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ B - server_read success" );
                                               
                                               /* After handling the request (which, in this case, means that we've
                                                * scheduled a source to deliver the reply), we no longer need this
@@ -187,7 +187,7 @@ static bool g_accepting_requests = true;
     
     dispatch_source_set_cancel_handler(s, ^(void)
                                        {
-                                           os_log_info(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ B - canceled" );
+                                           os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ B - canceled" );
                                            
                                            //dispatch_release( s );
                                            
