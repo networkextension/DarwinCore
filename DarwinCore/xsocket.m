@@ -116,43 +116,40 @@ void server_send_reply(int fd, dispatch_queue_t q, CFDataRef data, didWrite fini
     
     __block unsigned char*    track_buff    = buff;
     __block size_t            track_sz    = total;
-    
+     GCDSocketServer *server = [GCDSocketServer shared];
     dispatch_source_set_event_handler(s, ^(void)
                                       {
-
-                                          size_t sendlen = MIN(track_sz, 1024);
-                                          while (track_sz > 0) {
-                                              ssize_t nbytes = write(fd, track_buff, sendlen);
-                                              if (nbytes != -1)
+                                          ssize_t nbytes = write(fd, track_buff, track_sz);
+                                          if (nbytes != -1)
+                                          {
+                                              track_buff += nbytes;
+                                              track_sz -= nbytes;
+                                              
+                                              
+                                              
+                                              if ( track_sz == 0 )
                                               {
-                                                  track_buff += nbytes;
-                                                  track_sz -= nbytes;
+                                                  os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - all bytes written" );
                                                   
-                                                  sendlen = MIN(track_sz, 1024);
-                                                  
-                                                  if ( track_sz == 0 )
-                                                  {
-                                                      os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - all bytes written" );
-                                                      
-                                                      dispatch_source_cancel( s );
-                                                      finish(true,fd);
-                                                  }else {
-                                                     // finish(false,fd);
-                                                      os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE count:%d %d %d %d", nbytes,total,sendlen,track_sz);
-                                                  }
+                                                  dispatch_source_cancel( s );
+                                                  //finish(true,fd);
+                                                  dispatch_async(server.dispatchQueue, ^{
+                                                      finish(true,fd,total);
+                                                  });
                                               }else {
-                                                  if (errno == 35){
-                                                       //[NSThread sleepForTimeInterval:1.0]; //等同于sleep(1);
-                                                      //usleep(50);
-                                                      os_log_debug(OS_LOG_DEFAULT, "socket unaviable");
-                                                  }else {
-                                                      
-                                                      //No buffer space available
-                                                      os_log_debug(OS_LOG_DEFAULT, "write fail:%s",strerror(errno));
-                                                      finish(false,fd);
-                                                  }
                                                   
+                                                  os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE count:%d", nbytes);
+                                               //   finish(true,fd);
+//                                                  dispatch_async(server.dispatchQueue, ^{
+//                                                      finish(false,fd,nbytes);
+//                                                  });
                                               }
+                                          }else {
+                                              os_log_debug(OS_LOG_DEFAULT, "write fail:%s",strerror(errno));
+                                             // finish(true,fd);
+//                                              dispatch_async(server.dispatchQueue, ^{
+//                                                  finish(false,fd,0);
+//                                              });
                                           }
                                           
                                           

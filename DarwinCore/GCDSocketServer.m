@@ -99,9 +99,9 @@ static bool g_accepting_requests = true;
                 //[self loadfd:fd];
             
                 NSString *ipaddr = [NSString stringWithUTF8String:ipstr];
-            dispatch_async(self.dispatchQueue, ^{
-                 self.accept(afd, ipaddr, port);
-            });
+                dispatch_async(self.dispatchQueue, ^{
+                   self.accept(afd, ipaddr, port);
+                });
             
                 //server_accept( afd, );
                 [self server_accept:afd q:dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0 ) ];
@@ -193,26 +193,23 @@ static bool g_accepting_requests = true;
                                            
                                            close( fd );
                                        
-                                      dispatch_async(self.dispatchQueue, ^{
-                                           self.colse(fd);
-                                       });
+                                           dispatch_async(self.dispatchQueue, ^{
+                                               self.colse(fd);
+                                           });
                                        
                                        
                                        });
     
     dispatch_resume(s);
 }
--(void)server_write_request:(int)fd buffer:(const void *)buffer total:(size_t)total finish:(didWrite _Nonnull )finish
+-(void)server_write_request:(int)fd  data:(NSData* _Nullable)data finish:(didWrite _Nonnull )finish
 {
-    CFDataRef data = CFDataCreateWithBytesNoCopy( NULL, buffer, total, kCFAllocatorNull );
+    
     assert(data != NULL);
     
-    server_send_reply( fd, self.socketQueue, data,finish);
+    server_send_reply( fd, self.socketQueue, (__bridge CFDataRef)(data),finish);
     
-    /* ss_send_reply() copies the data from replyData out, so we can safely
-     * release it here. But remember, that's an inefficient design.
-     */
-    CFRelease( data );
+
 }
 -(void)stopServer;
 {
