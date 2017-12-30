@@ -202,12 +202,12 @@ static bool g_accepting_requests = true;
     
     dispatch_resume(s);
 }
--(void)server_write_request:(int)fd buffer:(const void *)buffer total:(size_t)total
+-(void)server_write_request:(int)fd buffer:(const void *)buffer total:(size_t)total finish:(didWrite _Nonnull )finish
 {
     CFDataRef data = CFDataCreateWithBytesNoCopy( NULL, buffer, total, kCFAllocatorNull );
     assert(data != NULL);
     
-    server_send_reply( fd, self.socketQueue, data);
+    server_send_reply( fd, self.socketQueue, data,finish);
     
     /* ss_send_reply() copies the data from replyData out, so we can safely
      * release it here. But remember, that's an inefficient design.

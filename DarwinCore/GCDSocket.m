@@ -110,12 +110,12 @@ bool server_readx( GCDSocket *socket, unsigned char *buff, size_t buff_sz, void*
     
     return result;
 }
--(void)write_request_buffer:(const void *)buffer total:(size_t)total
+-(void)write_request_buffer:(const void *)buffer total:(size_t)total  finish:(didWrite)finish
 {
     CFDataRef data = CFDataCreateWithBytesNoCopy( NULL, buffer, total, kCFAllocatorNull );
     assert(data != NULL);
     
-    server_send_reply( self.sfd, self.socketQueue, data);
+    server_send_reply( self.sfd, self.socketQueue, data,finish);
     
     /* ss_send_reply() copies the data from replyData out, so we can safely
      * release it here. But remember, that's an inefficient design.

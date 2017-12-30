@@ -92,7 +92,7 @@ bool server_read( int fd, unsigned char *buff, size_t buff_sz, void** msgStart, 
     
     return result;
 }
-void server_send_reply(int fd, dispatch_queue_t q, CFDataRef data)
+void server_send_reply(int fd, dispatch_queue_t q, CFDataRef data, didWrite finish)
 {
     os_log_info(OS_LOG_DEFAULT, "server_send_reply" );
     
@@ -119,25 +119,44 @@ void server_send_reply(int fd, dispatch_queue_t q, CFDataRef data)
     
     dispatch_source_set_event_handler(s, ^(void)
                                       {
-                                          ssize_t nbytes = write(fd, track_buff, track_sz);
-                                          if (nbytes != -1)
-                                          {
-                                              track_buff += nbytes;
-                                              track_sz -= nbytes;
-                                              
-                                              
-                                              
-                                              if ( track_sz == 0 )
+
+                                          size_t sendlen = MIN(track_sz, 1024);
+                                          while (track_sz > 0) {
+                                              ssize_t nbytes = write(fd, track_buff, sendlen);
+                                              if (nbytes != -1)
                                               {
-                                                  os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - all bytes written" );
+                                                  track_buff += nbytes;
+                                                  track_sz -= nbytes;
                                                   
-                                                  dispatch_source_cancel( s );
+                                                  sendlen = MIN(track_sz, 1024);
+                                                  
+                                                  if ( track_sz == 0 )
+                                                  {
+                                                      os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - all bytes written" );
+                                                      
+                                                      dispatch_source_cancel( s );
+                                                      finish(true,fd);
+                                                  }else {
+                                                     // finish(false,fd);
+                                                      os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE count:%d %d %d %d", nbytes,total,sendlen,track_sz);
+                                                  }
                                               }else {
-                                                  os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE count:%d", nbytes);
+                                                  if (errno == 35){
+                                                       //[NSThread sleepForTimeInterval:1.0]; //等同于sleep(1);
+                                                      //usleep(50);
+                                                      os_log_debug(OS_LOG_DEFAULT, "socket unaviable");
+                                                  }else {
+                                                      
+                                                      //No buffer space available
+                                                      os_log_debug(OS_LOG_DEFAULT, "write fail:%s",strerror(errno));
+                                                      finish(false,fd);
+                                                  }
+                                                  
                                               }
-                                          }else {
-                                              os_log_debug(OS_LOG_DEFAULT, "write fail:%s",strerror(errno));
                                           }
+                                          
+                                          
+                                          
                                       });
     
     dispatch_source_set_cancel_handler(s, ^(void)

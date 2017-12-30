@@ -11,7 +11,7 @@
 typedef void (^didAcceptSocket)(int fd, NSString  * _Nonnull ipaddr,int port);
 typedef void (^didClosedSocket)(int fd);
 typedef void (^incomingData)(int fd,NSData * _Nonnull  data);
-
+typedef void (^didWrite) (Boolean success, int fd);
 @interface GCDSocketServer : NSObject
 
 @property (nonatomic) dispatch_queue_t  _Nonnull  dispatchQueue;
@@ -25,7 +25,7 @@ typedef void (^incomingData)(int fd,NSData * _Nonnull  data);
 
 
 -(void)startServer:(int)port dispatchQueue:(dispatch_queue_t  _Nonnull)dqueue socketQueue:(dispatch_queue_t  _Nonnull)squeue;
--(void)server_write_request:(int)fd buffer:(const void *_Nonnull)buffer total:(size_t)total;
+-(void)server_write_request:(int)fd buffer:(const void *_Nonnull)buffer total:(size_t)total finish:(didWrite _Nonnull )finish;
 -(void)stopServer;
 -(BOOL)running;
 -(void)pauseRestartServer;

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "GCDSocketServer.h"
 @class GCDSocket;
 typedef void (^socketIncomingData)(GCDSocket *socket,NSData *  data);
 typedef void (^socketDidClosedSocket)(GCDSocket *socket);
