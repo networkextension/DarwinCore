@@ -8,122 +8,294 @@
 
 #import "GCDSocket.h"
 #import "xsocket.h"
+#include <sys/socket.h>
+#include "shared.h"
 #include <os/log.h>
 @implementation GCDSocket
--(instancetype)initWithFD:(int)fd remoteaddr:(NSString*)addr port:(int)port;
+-(instancetype _Nonnull )initWithFD:(int)fd remoteaddr:(NSString*_Nonnull)addr port:(int)port
 {
     if(self = [super init]){
         self.sfd = fd;
         self.remote = addr;
         self.port = port;
+        
     }
     return self;
 }
--(void)startWithIncoming:(socketDidClosedSocket)incoming
+-(instancetype _Nonnull )initWithPort:(int)port//create and listen
 {
-    __block size_t total = 0;
+    if(self = [super init]){
+        
+        self.sfd = server_check_in(port);
+        self.remote = @"";
+        self.port = port;
+    }
+    return self;
+}
+
+
+-(void)accept:(newSocket _Nonnull )news
+{
+    assert(self.dispatchQueue != nil);
+    assert(self.socketQueue != nil);
     
-    dispatch_source_t s = dispatch_source_create( DISPATCH_SOURCE_TYPE_READ, self.sfd, 0, self.socketQueue);
+    os_log(OS_LOG_DEFAULT, "Server Starting");
+    os_log_info(OS_LOG_DEFAULT, "Additional info for troubleshooting.");
+    os_log_debug(OS_LOG_DEFAULT, "Debug level messages.");
+    (void)signal(SIGTERM, SIG_IGN);
+    (void)signal(SIGPIPE, SIG_IGN);
     
+    dispatch_source_t sts = dispatch_source_create(DISPATCH_SOURCE_TYPE_SIGNAL, SIGTERM, 0, self.socketQueue);
+    assert(sts != NULL);
+    dispatch_source_set_event_handler(sts, ^(void)
+                                      {
+                                        os_log_info(OS_LOG_DEFAULT,"DISPATCH_SOURCE_TYPE_SIGNAL" );
+                                        _g_accepting_requests = false;
+                                      });
+    
+    dispatch_resume(sts);
+    int fd = self.sfd;
+    
+    (void)fcntl(fd, F_SETFL, O_NONBLOCK);
+    dispatch_source_t as = dispatch_source_create(DISPATCH_SOURCE_TYPE_READ, fd, 0, self.socketQueue);
+    assert(as != NULL);
+    
+    dispatch_source_set_event_handler(as, ^(void){
+        struct sockaddr_storage saddr;
+        socklen_t        slen    = sizeof(saddr);
+        os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ A" );
+        
+        int afd = accept( fd, (struct sockaddr *)&saddr, &slen );
+        
+        if ( afd != -1 )
+            {
+            int value = 1;
+            setsockopt(afd, SOL_SOCKET, SO_NOSIGPIPE, &value, sizeof(value));
+            os_log_debug(OS_LOG_DEFAULT,"DISPATCH_SOURCE_TYPE_READ A - accepted" );
+            
+            /* Again, make sure the new connection's descriptor is non-blocking. */
+            (void)fcntl( fd, F_SETFL, O_NONBLOCK );
+            
+            /* Check to make sure that we're still accepting new requests. */
+            if (_g_accepting_requests)
+            {
+                /* We're going to handle all requests concurrently. This daemon uses an HTTP-style
+                 * model, where each request comes through its own connection. Making a more
+                 * efficient implementation is an exercise left to the reader.
+                 */
+                int  port = 0;
+                char ipstr[INET6_ADDRSTRLEN];
+                    // deal with both IPv4 and IPv6:
+                if (saddr.ss_family == AF_INET) {
+                    struct sockaddr_in *s = (struct sockaddr_in *)&saddr;
+                    port = ntohs(s->sin_port);
+                    inet_ntop(AF_INET, &s->sin_addr, ipstr, sizeof ipstr);
+                } else { // AF_INET6
+                    struct sockaddr_in6 *s = (struct sockaddr_in6 *)&saddr;
+                    port = ntohs(s->sin6_port);
+                    inet_ntop(AF_INET6, &s->sin6_addr, ipstr, sizeof ipstr);
+                }
+                os_log_debug(OS_LOG_DEFAULT, "Peer IP address: %s\n", ipstr);
+                
+                
+                NSString *ipaddr = [NSString stringWithUTF8String:ipstr];
+                GCDSocket *s = [[GCDSocket alloc] initWithFD:afd remoteaddr:ipaddr port:port];
+                dispatch_async(self.dispatchQueue, ^{
+                    //self.accept(afd, ipaddr, port);
+                    news(s);
+                });
+                //should not read here
+                    //server_accept( afd, );
+                
+            }else
+                {
+                /* We're no longer accepting requests. */
+                    (void)close(afd);
+                }
+            }
+    });
+    
+    dispatch_source_set_cancel_handler(as, ^(void)
+                                       {
+                                       os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ A - canceled" );
+                                       
+                                           //dispatch_release( as );
+                                       (void)close( fd );
+                                       });
+    
+    dispatch_resume( as );
+    os_log_info(OS_LOG_DEFAULT, "server - dispatch_queue" );
+    self.readSource = as;
+    
+}
+
+-(void)write:(NSData*_Nonnull)odata completionHandler:(writeCompletionHandler _Nonnull)completionHandler
+{
+    //write to
+    os_log_info(OS_LOG_DEFAULT, "server_send_reply" );
+    CFDataRef data = (__bridge CFDataRef)(odata);
+    size_t            total    = CFDataGetLength( data );
+    unsigned char*    buff    = (unsigned char *)malloc(total);
+    
+    assert(buff != NULL);
+    
+        //struct ss_msg_s *msg = (struct ss_msg_s *)buff;
+    
+        //msg->_len = OSSwapHostToLittleInt32(total - sizeof(struct ss_msg_s));
+    
+    /* Coming up with a more efficient implementation is left as an exercise to
+     * the reader.
+     */
+    (void)memcpy( buff, CFDataGetBytePtr( data ), CFDataGetLength( data ) );
+    
+    
+    dispatch_source_t s = dispatch_source_create(DISPATCH_SOURCE_TYPE_WRITE, self.sfd, 0, self.socketQueue);
+    assert(s != NULL);
+    
+    __block unsigned char*    track_buff    = buff;
+    __block size_t            track_sz    = total;
+   
     dispatch_source_set_event_handler(s, ^(void)
                                       {
-                                          os_log_info(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ B" );
-                                          
-                                          
-                                          
-                                          size_t    buff_sz        = 8 * 1024;
-                                          void*    buff        = malloc( buff_sz );
-                                          void*    msgStart    = buff;
-                                          assert(buff != NULL);
-                                          if ( server_readx( self, buff, buff_sz, &msgStart, &total) )
+                                      self.writing = true;
+                                      ssize_t nbytes = write(self.sfd, track_buff, track_sz);
+                                      if (nbytes != -1)
                                           {
-                                              os_log_info(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ B - server_read success" );
+                                          track_buff += nbytes;
+                                          track_sz -= nbytes;
+                                          
+                                          
+                                          
+                                          if ( track_sz == 0 )
+                                              {
+                                              os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - all bytes written" );
                                               
-                                             
-                                              dispatch_source_cancel(s);
+                                              dispatch_source_cancel( s );
+                                                  //finish(true,fd);
+                                              
+                                              }else {
+                                                  
+                                                  os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE count:%d", nbytes);
+                                                  
+                                              }
+                                          }else {
+                                              os_log_debug(OS_LOG_DEFAULT, "write fail:%s",strerror(errno));
+                                              
                                           }
-                                          free( buff );
+                                      
+                                      
+                                      
                                       });
     
     dispatch_source_set_cancel_handler(s, ^(void)
                                        {
-                                           os_log_info(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ B - canceled" );
-                                           
-                                           //dispatch_release( s );
-                                           
-                                           close( self.sfd );
-                                           dispatch_async(self.dispatchQueue, ^{
-                                               self.didClosedSocket(self);
-                                           });
-                                           
+                                         os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - canceled" );
+                                         free(buff);
+                                         self.writing = false;
+//                                         dispatch_async(self.dispatchQueue, ^{
+//                                             //writeCompletionHandler(NULL);
+//                                         });
+                                           //dispatch_release(s);
                                        });
-                                       
     
     dispatch_resume(s);
-    self.socketSource = s;
-    
+    self.writeSource = s;
 }
-bool server_readx( GCDSocket *socket, unsigned char *buff, size_t buff_sz, void** msgStart, size_t *total )
+-(void)readCompletionHandler:(completionHandler _Nonnull)completionHandler
 {
-    os_log_info(OS_LOG_DEFAULT, "server_read" );
     
-    bool result = false;
     
-    //    struct ss_msg_s *msg = (struct ss_msg_s *)buff;
-    //
-    //    size_t            headerSize    = sizeof( struct ss_msg_s );
-    //    unsigned char*    track_buff    = buff + *total;
-    //    size_t            track_sz    = buff_sz - *total;
-    ssize_t            nbytes        = read( socket.sfd, buff, 8 * 1024 );
+    dispatch_source_t s = dispatch_source_create( DISPATCH_SOURCE_TYPE_READ, self.sfd, 0, self.socketQueue);
+    self.readError = nil;
+    dispatch_source_set_event_handler(s, ^(void)
+                                      {
+                                      self.reading = true;
+                                      os_log_info(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ B" );
+                                      
+                                      
+                                      
+                                      size_t    buff_sz        = 8 * 1024;
+                                      void*    buff        = malloc( buff_sz );
+                                      
+                                      assert(buff != NULL);
+                                      ssize_t            nbytes        = read( self.sfd, buff, buff_sz );
+                                      dispatch_source_cancel(s);
+                                      if (nbytes == 0){
+                                          //remote closed
+                                          os_log_info(OS_LOG_DEFAULT, "all bytes read" );
+                                          
+                                          dispatch_async(self.dispatchQueue, ^{
+                                                  //socket.incoming(socket, data);
+                                              
+                                              completionHandler(nil,nil);
+                                          });
+                                      }else if (nbytes == -1 ){
+                                          //read error
+                                          os_log_info(OS_LOG_DEFAULT, "server_read: error on read!" );
+                                          NSString *str = [NSString stringWithFormat:@"%s",strerror(errno)];
+                                          NSError *e = [[NSError alloc] initWithDomain:@"com.socket.error" code:errno userInfo:@{NSLocalizedDescriptionKey:str}];
+                                          
+                                          dispatch_async(self.dispatchQueue, ^{
+                                                  //socket.incoming(socket, data);
+                                              
+                                              completionHandler(nil,e);
+                                          });
+                                      }else {
+                                          //success
+                                          os_log_info(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ B - server_read success" );
+                                          /* We do this swap on every read(2), which is wasteful. But there is a
+                                           * way to avoid doing this every time and not introduce an extra
+                                           * parameter. See if you can find it.
+                                           */
+                                          NSData *data = [NSData dataWithBytes:buff length:nbytes];
+                                          
+                                          
+                                          dispatch_async(self.dispatchQueue, ^{
+                                                  //socket.incoming(socket, data);
+                                              completionHandler(data,nil);
+                                          });
+                                          
+                                      }
+                                      
+                                      free( buff );
+                                      });
     
-    os_log_info(OS_LOG_DEFAULT, "nbytes: %lu", nbytes );
+    dispatch_source_set_cancel_handler(s, ^(void)
+                                       {
+                                       os_log_info(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ B - canceled" );
+                                       //cancel 1 somedata 2 error 3 close
+                                           //dispatch_release( s )
+                                       self.reading = false;
+                                       });
     
-    if ( nbytes == 0 )
-    {
-        os_log_info(OS_LOG_DEFAULT, "all bytes read" );
-        
-        return true;
-    }
-    else if ( nbytes == -1 )
-    {
-        os_log_info(OS_LOG_DEFAULT, "server_read: error on read!" );
-        
-        return true;
-    }
-    else
-    {
-        *total += nbytes;
-        
-        /* We do this swap on every read(2), which is wasteful. But there is a
-         * way to avoid doing this every time and not introduce an extra
-         * parameter. See if you can find it.
-         */
-        NSData *data = [NSData dataWithBytes:buff length:nbytes];
-        
-        
-        dispatch_async(socket.dispatchQueue, ^{
-            socket.incoming(socket, data);
-        });
-        
-        
-    }
     
-    return result;
+    dispatch_resume(s);
+    self.readSource = s;
 }
--(void)write_request_buffer:(const void *)buffer total:(size_t)total  finish:(didWrite)finish
+
+//什么时候关闭掉socket
+//raw socket close??
+-(void)closeReadWithError:(NSError*_Nullable)e
 {
-    CFDataRef data = CFDataCreateWithBytesNoCopy( NULL, buffer, total, kCFAllocatorNull );
-    assert(data != NULL);
+    //close( self.sfd );
+    if (self.reading){
+        dispatch_cancel(self.readSource);
+    }else {
+        
+    }
     
-    server_send_reply( self.sfd, self.socketQueue, data,finish);
-    
-    /* ss_send_reply() copies the data from replyData out, so we can safely
-     * release it here. But remember, that's an inefficient design.
-     */
-    CFRelease( data );
 }
+-(void)closeWriteWithError:(NSError*_Nullable)e
+{
+    if (self.writing){
+        dispatch_cancel(self.writeSource);
+    }else {
+        
+    }
+}
+
 -(void)close
 {
-    dispatch_cancel(self.socketSource);
+    
 }
 @end

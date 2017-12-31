@@ -38,6 +38,7 @@
 		69726D8B1F6B7F61003375CA /* ioSock.c in Sources */ = {isa = PBXBuildFile; fileRef = 69726D731F6B5E56003375CA /* ioSock.c */; };
 		69726D8E1F6BA97A003375CA /* QHex.h in Headers */ = {isa = PBXBuildFile; fileRef = 69726D8D1F6BA960003375CA /* QHex.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69726D8F1F6BA97B003375CA /* QHex.h in Headers */ = {isa = PBXBuildFile; fileRef = 69726D8D1F6BA960003375CA /* QHex.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6974B5D51FF8E1EE00925831 /* ioSock.c in Sources */ = {isa = PBXBuildFile; fileRef = 69726D731F6B5E56003375CA /* ioSock.c */; };
 		69784D911DE0AB4A007E32C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69784D901DE0AB4A007E32C2 /* AppDelegate.swift */; };
 		69784D931DE0AB4A007E32C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69784D921DE0AB4A007E32C2 /* ViewController.swift */; };
 		69784D951DE0AB4A007E32C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69784D941DE0AB4A007E32C2 /* Assets.xcassets */; };
@@ -656,6 +657,7 @@
 				69FC1ADD1DDBF69300EF8AAC /* Route.m in Sources */,
 				6946504B1FF5DBB5000AFBE3 /* DarwinCoreLogger.m in Sources */,
 				69FC1AD41DDBF27C00EF8AAC /* DNS.m in Sources */,
+				6974B5D51FF8E1EE00925831 /* ioSock.c in Sources */,
 				69E40EA71F45282800C1DDC3 /* GCDSocketServer.m in Sources */,
 				694674781F5CE58500C011B7 /* route.c in Sources */,
 			);
