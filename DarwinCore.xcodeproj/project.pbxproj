@@ -16,6 +16,7 @@
 		6918833E1DDCA36A0051DAAE /* STTraffic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6918833C1DDCA36A0051DAAE /* STTraffic.m */; };
 		691883411DDD44AB0051DAAE /* DNSResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 6918833F1DDD44AB0051DAAE /* DNSResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		691883421DDD44AB0051DAAE /* DNSResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 691883401DDD44AB0051DAAE /* DNSResolver.m */; };
+		69348EE71FF9419D007C841C /* TServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69348EE61FF9419D007C841C /* TServer.swift */; };
 		6946504B1FF5DBB5000AFBE3 /* DarwinCoreLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6946504A1FF5DBB5000AFBE3 /* DarwinCoreLogger.m */; };
 		6946504C1FF5DBB5000AFBE3 /* DarwinCoreLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6946504A1FF5DBB5000AFBE3 /* DarwinCoreLogger.m */; };
 		694650511FF5DBF4000AFBE3 /* DarwinCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 694650501FF5DBF4000AFBE3 /* DarwinCore.h */; };
@@ -144,6 +145,7 @@
 		6918833C1DDCA36A0051DAAE /* STTraffic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTraffic.m; sourceTree = "<group>"; };
 		6918833F1DDD44AB0051DAAE /* DNSResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNSResolver.h; sourceTree = "<group>"; };
 		691883401DDD44AB0051DAAE /* DNSResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNSResolver.m; sourceTree = "<group>"; };
+		69348EE61FF9419D007C841C /* TServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TServer.swift; sourceTree = "<group>"; };
 		6946504A1FF5DBB5000AFBE3 /* DarwinCoreLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DarwinCoreLogger.m; sourceTree = "<group>"; };
 		694650501FF5DBF4000AFBE3 /* DarwinCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DarwinCore.h; sourceTree = "<group>"; };
 		694650531FF5DC73000AFBE3 /* DarwinCoreLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DarwinCoreLogger.h; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				69784D901DE0AB4A007E32C2 /* AppDelegate.swift */,
 				69E40EE11F45669500C1DDC3 /* AVLTree.swift */,
 				69784D921DE0AB4A007E32C2 /* ViewController.swift */,
+				69348EE61FF9419D007C841C /* TServer.swift */,
 				69E40EDF1F455ED200C1DDC3 /* Tree.swift */,
 				69E40EDB1F454D5500C1DDC3 /* Client.swift */,
 				69784D941DE0AB4A007E32C2 /* Assets.xcassets */,
@@ -614,6 +617,7 @@
 				69784D911DE0AB4A007E32C2 /* AppDelegate.swift in Sources */,
 				69E40EDC1F454D5500C1DDC3 /* Client.swift in Sources */,
 				69E40EE21F45669500C1DDC3 /* AVLTree.swift in Sources */,
+				69348EE71FF9419D007C841C /* TServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

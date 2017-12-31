@@ -39,6 +39,7 @@
         
         self.sfd = server_check_in(port);
         self.remote = @"";
+        self.g_accepting_requests = true;
         self.port = port;
     }
     return self;

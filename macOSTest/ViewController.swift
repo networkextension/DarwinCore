@@ -16,8 +16,10 @@ class ViewController: NSViewController,ClientDelegate {
     let socketQueue = DispatchQueue.init(label: "server.socket")
     var clientTree:AVLTree = AVLTree<Int32,Client>()
     let s = GCDSocket.init(remoteaddr: "www.baidu.com", port: "80")
+    var manager:TManager!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.manager  = TManager.init(dq: self.que, sq: self.socketQueue)
         test()
         testServer()
         
@@ -100,6 +102,7 @@ class ViewController: NSViewController,ClientDelegate {
         }
     }
     @IBAction func testSocketRW(_ sender: Any) {
+        manager.start()
         s.dispatchQueue = self.que
         s.socketQueue = self.socketQueue
         let getStr = """
