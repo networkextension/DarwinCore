@@ -54,10 +54,13 @@ class Client: NSObject,GCDAsyncSocketDelegate {
     }
     public func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int){
         let s = GCDSocketServer.shared()
-        let nsd = data as NSData
-        s.server_write_request(self.fd, buffer: nsd.bytes, total: data.count)
-        guard let ss = self.socket else {return}
-        ss.readData(withTimeout: 10, tag: 1);
+        
+        
+        s.server_write_request(self.fd, data: data) { (t, x, i) in
+            self.socket!.readData(withTimeout: 10, tag: 1);
+        }
+       
+        
     }
     public func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?){
         if let e = err {

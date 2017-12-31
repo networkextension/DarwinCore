@@ -700,6 +700,17 @@
                                     <action selector="testRouter:" target="XfG-lQ-9wD" id="41G-i2-ieb"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="njh-yC-zCk">
+                                <rect key="frame" x="183" y="65" width="74" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="baidu" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="H7D-Ta-IOy">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="testSocketRW:" target="XfG-lQ-9wD" id="rsw-Gq-N9b"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                 </viewController>

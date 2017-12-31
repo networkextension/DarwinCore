@@ -17,13 +17,12 @@ typedef void (^serverDidAcceptSocket)(GCDSocket *socket);
 
 @property (nonatomic) dispatch_queue_t  dispatchQueue;
 //@property (nonatomic) dispatch_queue_t  socketQueue;
-@property (nonatomic) dispatch_source_t socketSource;
-@property (nonatomic) int sfd;
-@property (nonatomic) NSInteger lport;
-@property (nonatomic, copy) serverDidAcceptSocket accept;
-@property (nonatomic) bool accepting_requests;
--(instancetype)initWith:(NSInteger)port queue:(dispatch_queue_t)queue;
--(void)start;
--(void)stop;
 
+@property (nonatomic) GCDSocket *socket;
+
+
+-(instancetype)initWith:(int)port dispatchQueue:(dispatch_queue_t)queue socketQueue:(dispatch_queue_t)squeue;
+-(void)startWith:(serverDidAcceptSocket)block;
+-(void)stop;
+-(void)pause;
 @end

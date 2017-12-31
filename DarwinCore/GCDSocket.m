@@ -5,13 +5,24 @@
 //  Created by yarshure on 2017/9/26.
 //  Copyright © 2017年 Kong XiangBo. All rights reserved.
 //
-
+#include <netdb.h>
 #import "GCDSocket.h"
 #import "xsocket.h"
 #include <sys/socket.h>
 #include "shared.h"
 #include <os/log.h>
 @implementation GCDSocket
+-(instancetype _Nonnull )initWithRemoteaddr:(NSString*_Nonnull)addr port:(NSString*)port
+{
+    if(self = [super init]){
+        
+        self.remote = addr;
+        self.port = (int)port.integerValue;
+        
+        [self connectRemote:self.remote.UTF8String service:port.UTF8String];
+    }
+    return self;
+}
 -(instancetype _Nonnull )initWithFD:(int)fd remoteaddr:(NSString*_Nonnull)addr port:(int)port
 {
     if(self = [super init]){
@@ -129,7 +140,7 @@
     
 }
 
--(void)write:(NSData*_Nonnull)odata completionHandler:(writeCompletionHandler _Nonnull)completionHandler
+-(void)write:(NSData*_Nonnull)odata completionHandler:(writeCompletionHandler _Nonnull) completionHandler
 {
     //write to
     os_log_info(OS_LOG_DEFAULT, "server_send_reply" );
@@ -171,7 +182,9 @@
                                               os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - all bytes written" );
                                               
                                               dispatch_source_cancel( s );
-                                                  //finish(true,fd);
+                                                  dispatch_async(self.dispatchQueue, ^{
+                                                      completionHandler(nil);
+                                                  });
                                               
                                               }else {
                                                   
@@ -192,16 +205,14 @@
                                          os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - canceled" );
                                          free(buff);
                                          self.writing = false;
-//                                         dispatch_async(self.dispatchQueue, ^{
-//                                             //writeCompletionHandler(NULL);
-//                                         });
+                                         
                                            //dispatch_release(s);
                                        });
     
     dispatch_resume(s);
     self.writeSource = s;
 }
--(void)readCompletionHandler:(completionHandler _Nonnull)completionHandler
+-(void)readWithCompletionHandler:(completionHandler _Nonnull)completionHandler
 {
     
     
@@ -275,27 +286,68 @@
 
 //什么时候关闭掉socket
 //raw socket close??
+//todo test
 -(void)closeReadWithError:(NSError*_Nullable)e
 {
     //close( self.sfd );
     if (self.reading){
         dispatch_cancel(self.readSource);
-    }else {
-        
     }
+    if (self.writing){
+        dispatch_cancel(self.writeSource);
+    }
+    close(self.sfd);
     
 }
 -(void)closeWriteWithError:(NSError*_Nullable)e
 {
     if (self.writing){
         dispatch_cancel(self.writeSource);
-    }else {
-        
     }
 }
 
 -(void)close
 {
     
+}
+-(void)connectRemote:(const char *)hostname service:(const char *)service
+{
+    int err;
+    int sock;
+    struct addrinfo hints, *res, *res0;
+    const char *cause = NULL;
+    
+    memset(&hints, 0, sizeof(hints));
+    hints.ai_family = PF_INET; // For udp, hint to ipv4
+    hints.ai_socktype = SOCK_STREAM;
+    err = getaddrinfo(hostname, service, &hints, &res0);
+    if (err) {
+        fprintf(stderr, "%s", gai_strerror(err));
+        return ;
+    }
+    sock = -1;
+    for (res = res0; res; res = res->ai_next) {
+        sock = socket(res->ai_family, res->ai_socktype,
+                      res->ai_protocol);
+        if (sock < 0) {
+            cause = "socket";
+            continue;
+        }
+        
+        if (connect(sock, res->ai_addr, res->ai_addrlen) < 0) {
+            cause = "connect";
+            close(sock);
+            sock = -1;
+            continue;
+        }
+        
+        break;  /* okay we got one */
+    }
+    if (sock < 0) {
+        fprintf(stderr, "%s", cause);
+    }
+    freeaddrinfo(res0);
+    
+    self.sfd = sock;
 }
 @end

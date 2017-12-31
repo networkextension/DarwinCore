@@ -82,7 +82,6 @@
 		69E40F031F46846700C1DDC3 /* proinfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E40EF71F467EFE00C1DDC3 /* proinfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69EEA8FA1F6118E000DDFC90 /* route.c in Sources */ = {isa = PBXBuildFile; fileRef = 69FC1AD81DDBF4F800EF8AAC /* route.c */; };
 		69EEA8FB1F6118E500DDFC90 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FC1ADB1DDBF69300EF8AAC /* Route.m */; };
-		69FC1ACB1DDBF25400EF8AAC /* DarwinCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1AC91DDBF25400EF8AAC /* DarwinCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69FC1AD31DDBF27C00EF8AAC /* DNS.h in Headers */ = {isa = PBXBuildFile; fileRef = 69FC1AD11DDBF27C00EF8AAC /* DNS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69FC1AD41DDBF27C00EF8AAC /* DNS.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FC1AD21DDBF27C00EF8AAC /* DNS.m */; };
 		69FC1AD71DDBF48F00EF8AAC /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 69FC1AD61DDBF48F00EF8AAC /* libresolv.tbd */; };
@@ -413,7 +412,6 @@
 				69962D7D1F7A33BE006D2B19 /* SocketServer.h in Headers */,
 				69FC1AD31DDBF27C00EF8AAC /* DNS.h in Headers */,
 				69E40EA51F45282800C1DDC3 /* GCDSocketServer.h in Headers */,
-				69FC1ACB1DDBF25400EF8AAC /* DarwinCore.h in Headers */,
 				6918833D1DDCA36A0051DAAE /* STTraffic.h in Headers */,
 				690B41171EE13CF800007E26 /* DCIPAddr.h in Headers */,
 				69726D751F6B5EF0003375CA /* ioSock.h in Headers */,
@@ -506,7 +504,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Kong XiangBo";
 				TargetAttributes = {
 					69784D8D1DE0AB4A007E32C2 = {
