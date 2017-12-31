@@ -37,11 +37,11 @@ class TManager {
                     socket.closeReadWithError(nil)
                     return
                 }
-                self.writ(socket: socket, data: d)
+                self.write(socket: socket, data: d)
             }
         })
     }
-    func writ(socket:GCDSocket,data:Data){
+    func write(socket:GCDSocket,data:Data){
         socket.write(data) { (e) in
             if let e = e {
                 print(e)
