@@ -19,7 +19,7 @@
 		69348EE71FF9419D007C841C /* TServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69348EE61FF9419D007C841C /* TServer.swift */; };
 		6946504B1FF5DBB5000AFBE3 /* DarwinCoreLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6946504A1FF5DBB5000AFBE3 /* DarwinCoreLogger.m */; };
 		6946504C1FF5DBB5000AFBE3 /* DarwinCoreLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6946504A1FF5DBB5000AFBE3 /* DarwinCoreLogger.m */; };
-		694650511FF5DBF4000AFBE3 /* DarwinCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 694650501FF5DBF4000AFBE3 /* DarwinCore.h */; };
+		694650511FF5DBF4000AFBE3 /* DarwinCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 694650501FF5DBF4000AFBE3 /* DarwinCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		694650541FF5DC73000AFBE3 /* DarwinCoreLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 694650531FF5DC73000AFBE3 /* DarwinCoreLogger.h */; };
 		694650551FF5DC73000AFBE3 /* DarwinCoreLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 694650531FF5DC73000AFBE3 /* DarwinCoreLogger.h */; };
 		694674781F5CE58500C011B7 /* route.c in Sources */ = {isa = PBXBuildFile; fileRef = 69FC1AD81DDBF4F800EF8AAC /* route.c */; };
