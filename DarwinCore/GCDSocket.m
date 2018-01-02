@@ -217,6 +217,9 @@
 {
     
     
+    if (self.reading) {
+        return;
+    }
     dispatch_source_t s = dispatch_source_create( DISPATCH_SOURCE_TYPE_READ, self.sfd, 0, self.socketQueue);
     self.readError = nil;
     dispatch_source_set_event_handler(s, ^(void)

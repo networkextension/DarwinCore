@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var myUtterance = AVSpeechUtterance(string: "")
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         test()
         print_free_memory()
         // Do any additional setup after loading the view, typically from a nib.
