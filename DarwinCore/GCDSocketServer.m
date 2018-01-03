@@ -29,6 +29,7 @@ static bool g_accepting_requests = true;
 -(void)pauseRestartServer
 {
     //设置状态，这个时候有新来的socket 会直接close掉
+    
     g_accepting_requests = !g_accepting_requests;
 }
 -(void)startServer:(int)port dispatchQueue:(dispatch_queue_t  _Nonnull)dqueue socketQueue:(dispatch_queue_t  _Nonnull)squeue;

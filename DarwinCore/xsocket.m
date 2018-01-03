@@ -34,7 +34,7 @@ int server_check_in(int port)
     (void)bzero(&saddr, sizeof(saddr));
     saddr.sin_family = AF_INET;
     saddr.sin_port = htons(port);
-    saddr.sin_addr.s_addr = INADDR_ANY;
+    saddr.sin_addr.s_addr = inet_addr("127.0.0.1");//INADDR_ANY;
     
     int result = bind(sockfd, (struct sockaddr *)&saddr, sizeof(saddr));
     assert(result == 0);

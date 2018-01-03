@@ -67,6 +67,8 @@
 		69B954E71DDF7D74006AF669 /* STTraffic.h in Headers */ = {isa = PBXBuildFile; fileRef = 6918833B1DDCA36A0051DAAE /* STTraffic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69B954E81DDF7D7A006AF669 /* DNSResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 6918833F1DDD44AB0051DAAE /* DNSResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69B954EA1DDF7EA6006AF669 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B954E91DDF7EA6006AF669 /* libresolv.tbd */; };
+		69BE2E781FFD222F0078845A /* ServerUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 69BE2E761FFD222F0078845A /* ServerUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69BE2E791FFD222F0078845A /* ServerUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BE2E771FFD222F0078845A /* ServerUtils.m */; };
 		69E40E9E1F45251E00C1DDC3 /* shared.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E40E9D1F45251E00C1DDC3 /* shared.h */; };
 		69E40E9F1F45251E00C1DDC3 /* shared.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E40E9D1F45251E00C1DDC3 /* shared.h */; };
 		69E40EA11F45255600C1DDC3 /* common.h in Headers */ = {isa = PBXBuildFile; fileRef = 69E40EA01F45255600C1DDC3 /* common.h */; };
@@ -180,6 +182,8 @@
 		69B954DA1DDF7D3F006AF669 /* DarwinCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DarwinCore.h; sourceTree = "<group>"; };
 		69B954DB1DDF7D3F006AF669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69B954E91DDF7EA6006AF669 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/lib/libresolv.tbd; sourceTree = DEVELOPER_DIR; };
+		69BE2E761FFD222F0078845A /* ServerUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerUtils.h; sourceTree = "<group>"; };
+		69BE2E771FFD222F0078845A /* ServerUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerUtils.m; sourceTree = "<group>"; };
 		69E40E9D1F45251E00C1DDC3 /* shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shared.h; sourceTree = "<group>"; };
 		69E40EA01F45255600C1DDC3 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		69E40EA31F45282800C1DDC3 /* GCDSocketServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDSocketServer.h; sourceTree = "<group>"; };
@@ -340,6 +344,8 @@
 				69E40E9D1F45251E00C1DDC3 /* shared.h */,
 				69E40EFD1F46830400C1DDC3 /* libproc.c */,
 				69E40EFE1F46830400C1DDC3 /* libproc.h */,
+				69BE2E761FFD222F0078845A /* ServerUtils.h */,
+				69BE2E771FFD222F0078845A /* ServerUtils.m */,
 			);
 			path = DarwinCore;
 			sourceTree = "<group>";
@@ -394,6 +400,7 @@
 				69169BE41F67D8BB00795664 /* Route.h in Headers */,
 				69B954E71DDF7D74006AF669 /* STTraffic.h in Headers */,
 				69726D761F6B5EFD003375CA /* ioSock.h in Headers */,
+				69BE2E781FFD222F0078845A /* ServerUtils.h in Headers */,
 				69A684A11DE0AF7D00ED80D1 /* DarwinCore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -525,7 +532,7 @@
 					69FC1AC51DDBF25400EF8AAC = {
 						CreatedOnToolsVersion = 8.2;
 						LastSwiftMigration = 0920;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					69FC1AE11DDBF77300EF8AAC = {
 						CreatedOnToolsVersion = 8.2;
@@ -638,6 +645,7 @@
 				69B954E11DDF7D51006AF669 /* STTraffic.m in Sources */,
 				69B954E01DDF7D4D006AF669 /* DNSResolver.m in Sources */,
 				69E40EF91F467EFF00C1DDC3 /* proinfo.m in Sources */,
+				69BE2E791FFD222F0078845A /* ServerUtils.m in Sources */,
 				69EEA8FA1F6118E000DDFC90 /* route.c in Sources */,
 				69726D8B1F6B7F61003375CA /* ioSock.c in Sources */,
 				69962D8A1F7A3B7B006D2B19 /* xsocket.m in Sources */,
@@ -936,7 +944,9 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -947,6 +957,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.DarwinCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -958,7 +969,9 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -969,6 +982,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.DarwinCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};

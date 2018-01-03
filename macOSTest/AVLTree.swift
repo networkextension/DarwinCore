@@ -358,7 +358,7 @@ extension AVLTree {
 
 extension TreeNode: CustomDebugStringConvertible {
   public var debugDescription: String {
-    var s = "key: \(key), payload: \(payload), height: \(height)"
+    var s = "key: \(key), payload: \(String(describing: payload)), height: \(height)"
     if let parent = parent {
       s += ", parent: \(parent.key)"
     }
