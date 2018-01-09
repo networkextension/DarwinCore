@@ -57,7 +57,6 @@
 		69962D8B1F7A3B7B006D2B19 /* xsocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D881F7A3B7B006D2B19 /* xsocket.h */; };
 		69962D8C1F7A3B7B006D2B19 /* xsocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D881F7A3B7B006D2B19 /* xsocket.h */; };
 		69987DAF1FD937B100B41FD6 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69987DAE1FD937B100B41FD6 /* CocoaAsyncSocket.framework */; };
-		69A000761F7F38F000716122 /* NSData+Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A000741F7F38B600716122 /* NSData+Crypto.m */; };
 		69A000771F7F38F200716122 /* NSData+Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A000741F7F38B600716122 /* NSData+Crypto.m */; };
 		69A684A11DE0AF7D00ED80D1 /* DarwinCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 69B954DA1DDF7D3F006AF669 /* DarwinCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69B954E01DDF7D4D006AF669 /* DNSResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 691883401DDD44AB0051DAAE /* DNSResolver.m */; };
@@ -657,7 +656,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6918833E1DDCA36A0051DAAE /* STTraffic.m in Sources */,
-				69A000761F7F38F000716122 /* NSData+Crypto.m in Sources */,
 				69962D851F7A34DD006D2B19 /* GCDSocket.m in Sources */,
 				691883421DDD44AB0051DAAE /* DNSResolver.m in Sources */,
 				69962D7F1F7A33BE006D2B19 /* SocketServer.m in Sources */,
