@@ -10,7 +10,7 @@ import UIKit
 import DarwinCore
 import AVFoundation
 class ViewController: UIViewController {
-    //let r = DNSResolver()
+    let r = DNSResolver()
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
     override func viewDidLoad() {
@@ -24,17 +24,15 @@ class ViewController: UIViewController {
     
     func test()  {
         let d = DNS.loadSystemDNSServer()
-        print(d)
-        let string = Route.currntRouter() as String
+        print(d as Any)
+        let string = Route.currntRouterInet4(true, defaultRouter: false)
         print(string)
-        myUtterance = AVSpeechUtterance(string: "你好,www.freebsdchina.org")
-        myUtterance.rate = AVSpeechUtteranceMaximumSpeechRate * 0.5
-        synth.speak(myUtterance)
-        for _ in 0..<2{
-            testReolover(host: "www.freebsdchina.org",r:DNSResolver())
-        }
+//        myUtterance = AVSpeechUtterance(string: "你好,www.freebsdchina.org")
+//        myUtterance.rate = AVSpeechUtteranceMaximumSpeechRate * 0.5
+//        synth.speak(myUtterance)
+     
         
-        
+        testReolover(host: "www.freebsdchina.org",r:DNSResolver())
     }
     func testReolover(host:String,r:DNSResolver) {
         r.hostname = host

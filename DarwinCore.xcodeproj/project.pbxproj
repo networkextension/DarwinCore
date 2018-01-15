@@ -44,6 +44,14 @@
 		69784D931DE0AB4A007E32C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69784D921DE0AB4A007E32C2 /* ViewController.swift */; };
 		69784D951DE0AB4A007E32C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69784D941DE0AB4A007E32C2 /* Assets.xcassets */; };
 		69784D981DE0AB4A007E32C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69784D961DE0AB4A007E32C2 /* Main.storyboard */; };
+		69801C8B200C2B8B00A214D6 /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 69801C89200C2B8A00A214D6 /* util.h */; };
+		69801C8C200C2B8B00A214D6 /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 69801C89200C2B8A00A214D6 /* util.h */; };
+		69801C8D200C2B8B00A214D6 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 69801C8A200C2B8B00A214D6 /* util.c */; };
+		69801C8E200C2B8B00A214D6 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 69801C8A200C2B8B00A214D6 /* util.c */; };
+		69801C90200C2B9600A214D6 /* tls_client.c in Sources */ = {isa = PBXBuildFile; fileRef = 69801C8F200C2B9600A214D6 /* tls_client.c */; };
+		69801C91200C2B9600A214D6 /* tls_client.c in Sources */ = {isa = PBXBuildFile; fileRef = 69801C8F200C2B9600A214D6 /* tls_client.c */; };
+		69801C93200C2B9C00A214D6 /* tls_server.c in Sources */ = {isa = PBXBuildFile; fileRef = 69801C92200C2B9C00A214D6 /* tls_server.c */; };
+		69801C94200C2B9C00A214D6 /* tls_server.c in Sources */ = {isa = PBXBuildFile; fileRef = 69801C92200C2B9C00A214D6 /* tls_server.c */; };
 		69962D7D1F7A33BE006D2B19 /* SocketServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D7B1F7A33BE006D2B19 /* SocketServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69962D7E1F7A33BE006D2B19 /* SocketServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D7B1F7A33BE006D2B19 /* SocketServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69962D7F1F7A33BE006D2B19 /* SocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69962D7C1F7A33BE006D2B19 /* SocketServer.m */; };
@@ -167,6 +175,10 @@
 		69784D941DE0AB4A007E32C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		69784D971DE0AB4A007E32C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		69784D991DE0AB4A007E32C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69801C89200C2B8A00A214D6 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		69801C8A200C2B8B00A214D6 /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = util.c; sourceTree = "<group>"; };
+		69801C8F200C2B9600A214D6 /* tls_client.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tls_client.c; sourceTree = "<group>"; };
+		69801C92200C2B9C00A214D6 /* tls_server.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tls_server.c; sourceTree = "<group>"; };
 		69962D7B1F7A33BE006D2B19 /* SocketServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketServer.h; sourceTree = "<group>"; };
 		69962D7C1F7A33BE006D2B19 /* SocketServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocketServer.m; sourceTree = "<group>"; };
 		69962D811F7A34DD006D2B19 /* GCDSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCDSocket.h; sourceTree = "<group>"; };
@@ -310,6 +322,10 @@
 				69A000741F7F38B600716122 /* NSData+Crypto.m */,
 				69726D731F6B5E56003375CA /* ioSock.c */,
 				69726D741F6B5E57003375CA /* ioSock.h */,
+				69801C8F200C2B9600A214D6 /* tls_client.c */,
+				69801C92200C2B9C00A214D6 /* tls_server.c */,
+				69801C8A200C2B8B00A214D6 /* util.c */,
+				69801C89200C2B8A00A214D6 /* util.h */,
 				69E40EA01F45255600C1DDC3 /* common.h */,
 				69E40EF61F467EFE00C1DDC3 /* proinfo.m */,
 				69E40EF71F467EFE00C1DDC3 /* proinfo.h */,
@@ -392,6 +408,7 @@
 				69B954E81DDF7D7A006AF669 /* DNSResolver.h in Headers */,
 				69962D841F7A34DD006D2B19 /* GCDSocket.h in Headers */,
 				694650551FF5DC73000AFBE3 /* DarwinCoreLogger.h in Headers */,
+				69801C8C200C2B8B00A214D6 /* util.h in Headers */,
 				69B954E51DDF7D62006AF669 /* DNS.h in Headers */,
 				69639C1E1EE1B2EF00893D18 /* IPSum.h in Headers */,
 				69E40E9F1F45251E00C1DDC3 /* shared.h in Headers */,
@@ -408,6 +425,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69801C8B200C2B8B00A214D6 /* util.h in Headers */,
 				69962D8B1F7A3B7B006D2B19 /* xsocket.h in Headers */,
 				69726D8E1F6BA97A003375CA /* QHex.h in Headers */,
 				69E40EFA1F467EFF00C1DDC3 /* proinfo.h in Headers */,
@@ -641,13 +659,16 @@
 				69962D801F7A33BE006D2B19 /* SocketServer.m in Sources */,
 				69639C201EE1B2EF00893D18 /* IPSum.m in Sources */,
 				69962D861F7A34DD006D2B19 /* GCDSocket.m in Sources */,
+				69801C94200C2B9C00A214D6 /* tls_server.c in Sources */,
 				69B954E11DDF7D51006AF669 /* STTraffic.m in Sources */,
 				69B954E01DDF7D4D006AF669 /* DNSResolver.m in Sources */,
+				69801C91200C2B9600A214D6 /* tls_client.c in Sources */,
 				69E40EF91F467EFF00C1DDC3 /* proinfo.m in Sources */,
 				69BE2E791FFD222F0078845A /* ServerUtils.m in Sources */,
 				69EEA8FA1F6118E000DDFC90 /* route.c in Sources */,
 				69726D8B1F6B7F61003375CA /* ioSock.c in Sources */,
 				69962D8A1F7A3B7B006D2B19 /* xsocket.m in Sources */,
+				69801C8E200C2B8B00A214D6 /* util.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,11 +680,14 @@
 				69962D851F7A34DD006D2B19 /* GCDSocket.m in Sources */,
 				691883421DDD44AB0051DAAE /* DNSResolver.m in Sources */,
 				69962D7F1F7A33BE006D2B19 /* SocketServer.m in Sources */,
+				69801C90200C2B9600A214D6 /* tls_client.c in Sources */,
 				69639C1F1EE1B2EF00893D18 /* IPSum.m in Sources */,
+				69801C93200C2B9C00A214D6 /* tls_server.c in Sources */,
 				690B41191EE13CF800007E26 /* DCIPAddr.m in Sources */,
 				69962D891F7A3B7B006D2B19 /* xsocket.m in Sources */,
 				69FC1ADD1DDBF69300EF8AAC /* Route.m in Sources */,
 				6946504B1FF5DBB5000AFBE3 /* DarwinCoreLogger.m in Sources */,
+				69801C8D200C2B8B00A214D6 /* util.c in Sources */,
 				69FC1AD41DDBF27C00EF8AAC /* DNS.m in Sources */,
 				6974B5D51FF8E1EE00925831 /* ioSock.c in Sources */,
 				69E40EA71F45282800C1DDC3 /* GCDSocketServer.m in Sources */,
