@@ -276,7 +276,7 @@ OSStatus SocketWrite(
 }
 
 
-int main(int argc, char **argv)
+int dtls_client(int argc, char **argv)
 {
     int fd;
     struct sockaddr_in sa;
@@ -327,11 +327,13 @@ int main(int argc, char **argv)
     /*
      * Set up a SecureTransport session.
      */
+#if !TARGET_OS_IPHONE && !TARGET_OS_SIMULATOR && !TARGET_OS_EMBEDDED
     ortn = SSLNewDatagramContext(false, &ctx);
     if(ortn) {
         printSslErrStr("SSLNewDatagramContext", ortn);
         return ortn;
     }
+#endif
     ortn = SSLSetIOFuncs(ctx, SocketRead, SocketWrite);
     if(ortn) {
         printSslErrStr("SSLSetIOFuncs", ortn);
@@ -349,13 +351,15 @@ int main(int argc, char **argv)
         printSslErrStr("SSLSetMaxDatagramRecordSize", ortn);
         return ortn;
     }
-    
+#if !TARGET_OS_IPHONE && !TARGET_OS_SIMULATOR && !TARGET_OS_EMBEDDED
     /* Lets not verify the cert, which is a random test cert */
-    ortn = SSLSetEnableCertVerify(ctx, false);
+    //ortn = SSLSetEnableCertVerify(ctx, false);
+    ortn = SSLSetSessionOption(ctx, kSSLSessionOptionBreakOnServerAuth, true);
     if(ortn) {
         printSslErrStr("SSLSetEnableCertVerify", ortn);
         return ortn;
     }
+#endif
     //disable
 //
 //    ortn = SSLSetCertificate(ctx, chain_from_der(false, ServerRSA_Key_der, sizeof(ServerRSA_Key_der),
@@ -415,8 +419,8 @@ int main(int argc, char **argv)
     }
     
     SSLClose(ctx);
-    
-    SSLDisposeContext(ctx);
-    
+
+    CFRelease(ctx);
+
     return ortn;
 }

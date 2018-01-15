@@ -13,9 +13,11 @@
 
 #include <MacTypes.h>
 #include <Security/Security.h>
+#include <Security/CipherSuite.h>
+#include <Security/SecureTransport.h>
 #include <CoreFoundation/CoreFoundation.h>
 CFArrayRef chain_from_der(bool ecdsa, const unsigned char *pkey_der, size_t pkey_der_len, const unsigned char *cert_der, size_t cert_der_len);
-void sslOutputDot();
+void sslOutputDot(void);
 const char *sslGetCipherSuiteString(SSLCipherSuite cs);
-//void printSslErrStr(const char *op, OSStatus err);
+void printSslErrStr(const char *op, OSStatus err);
 #endif /* util_h */
