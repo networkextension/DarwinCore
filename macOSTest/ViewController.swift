@@ -19,6 +19,12 @@ class ViewController: NSViewController,ClientDelegate {
     var manager:TManager!
     override func viewDidLoad() {
         super.viewDidLoad()
+        que.async {
+           
+        }
+        que.async {
+            dtls_client()
+        }
         let s = GCDSocket.init(remoteaddr: "www.apple.com", port: "443")
         print(s)
         self.manager  = TManager.init(dq: self.que, sq: self.socketQueue)

@@ -10,35 +10,59 @@
 #include <sys/time.h>
 #include <Security/SecKey.h>
 void printSslErrStr(const char *op, OSStatus err){
-    
+    printf("%s:%d",op,err);
 }
+/* print a '.' every few seconds to keep UI alive while connecting */
+static time_t lastTime = (time_t)0;
+#define TIME_INTERVAL        3
+
 void sslOutputDot()
 {
-//    time_t thisTime = time(0);
-//    
-//    if((thisTime - lastTime) >= TIME_INTERVAL) {
-//        printf("."); fflush(stdout);
-//        lastTime = thisTime;
-//    }
+    time_t thisTime = time(0);
+    
+    if((thisTime - lastTime) >= TIME_INTERVAL) {
+        printf("."); fflush(stdout);
+        lastTime = thisTime;
+    }
 }
-//CFArrayRef chain_from_der(bool ecdsa, const unsigned char *pkey_der, size_t pkey_der_len, const unsigned char *cert_der, size_t cert_der_len)
-//{
-//    SecKeyRef pkey = NULL;
-//    SecCertificateRef cert = NULL;
-//    SecIdentityRef ident = NULL;
-//    CFArrayRef items = NULL;
-//    
-//    require(pkey = create_private_key_from_der(ecdsa, pkey_der, pkey_der_len), errOut);
-//    require(cert = SecCertificateCreateWithBytes(kCFAllocatorDefault, cert_der, cert_der_len), errOut);
-//    require(ident = SecIdentityCreate(kCFAllocatorDefault, cert, pkey), errOut);
-//    require(items = CFArrayCreate(kCFAllocatorDefault, (const void **)&ident, 1, &kCFTypeArrayCallBacks), errOut);
-//    
+
+SecKeyRef create_private_key_from_der(bool ecdsa, const unsigned char *pkey_der, size_t pkey_der_len)
+{
+    SecKeyRef privKey;
+    CFErrorRef error = NULL;
+    CFDataRef keyData = CFDataCreate(kCFAllocatorDefault, pkey_der, pkey_der_len);
+    CFMutableDictionaryRef parameters = CFDictionaryCreateMutable(kCFAllocatorDefault, 0, NULL, NULL);
+    CFDictionarySetValue(parameters, kSecAttrKeyType, ecdsa?kSecAttrKeyTypeECSECPrimeRandom:kSecAttrKeyTypeRSA);
+    CFDictionarySetValue(parameters, kSecAttrKeyClass, kSecAttrKeyClassPrivate);
+    privKey = SecKeyCreateWithData(keyData, parameters, &error);
+    CFRelease(keyData);
+    CFRelease(parameters);
+    
+    return privKey;
+}
+CFArrayRef chain_from_der(bool ecdsa, const unsigned char *pkey_der, size_t pkey_der_len, const unsigned char *cert_der, size_t cert_der_len)
+{
+    SecKeyRef pkey = NULL;
+    SecCertificateRef cert = NULL;
+    SecIdentityRef ident = NULL;
+    CFArrayRef items = NULL;
+    
+//    pkey = create_private_key_from_der(ecdsa, pkey_der, pkey_der_len);
+//    cert = SecCertificateCreateWithBytes(kCFAllocatorDefault, cert_der, cert_der_len);
+//    //result = SecIdentityCreateWithCertificate(kCFAllocatorDefault, cert,
+//    //                                          &pkey);
+//
+//    //SecIdentityCreateWithCertificate(nil, cert, &ident);
+//    ident = SecIdentityCreate(kCFAllocatorDefault, cert, pkey);
+//    items = CFArrayCreate(kCFAllocatorDefault, (const void **)&ident, 1, &kCFTypeArrayCallBacks);
+//   
+    
 //errOut:
 //    CFReleaseSafe(pkey);
 //    CFReleaseSafe(cert);
 //    CFReleaseSafe(ident);
-//    return items;
-//}
+    return items;
+}
 
 const char *sslGetCipherSuiteString(SSLCipherSuite cs)
 {

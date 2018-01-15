@@ -20,4 +20,6 @@ CFArrayRef chain_from_der(bool ecdsa, const unsigned char *pkey_der, size_t pkey
 void sslOutputDot(void);
 const char *sslGetCipherSuiteString(SSLCipherSuite cs);
 void printSslErrStr(const char *op, OSStatus err);
+int dtls_server(void);
+int dtls_client(void);
 #endif /* util_h */

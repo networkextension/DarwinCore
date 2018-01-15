@@ -40,18 +40,24 @@
 		69726D8E1F6BA97A003375CA /* QHex.h in Headers */ = {isa = PBXBuildFile; fileRef = 69726D8D1F6BA960003375CA /* QHex.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69726D8F1F6BA97B003375CA /* QHex.h in Headers */ = {isa = PBXBuildFile; fileRef = 69726D8D1F6BA960003375CA /* QHex.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6974B5D51FF8E1EE00925831 /* ioSock.c in Sources */ = {isa = PBXBuildFile; fileRef = 69726D731F6B5E56003375CA /* ioSock.c */; };
+		6974B5EA200C43FA00925831 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6974B5E9200C43FA00925831 /* main.m */; };
+		6974B5F6200C449200925831 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6974B5F5200C449200925831 /* main.m */; };
+		6974B5FB200C478F00925831 /* tls_server.m in Sources */ = {isa = PBXBuildFile; fileRef = 69801C92200C2B9C00A214D6 /* tls_server.m */; };
+		6974B5FC200C479700925831 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 69801C8A200C2B8B00A214D6 /* util.c */; };
+		6974B5FD200C479E00925831 /* tls_client.m in Sources */ = {isa = PBXBuildFile; fileRef = 69801C8F200C2B9600A214D6 /* tls_client.m */; };
+		6974B5FE200C47A400925831 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 69801C8A200C2B8B00A214D6 /* util.c */; };
 		69784D911DE0AB4A007E32C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69784D901DE0AB4A007E32C2 /* AppDelegate.swift */; };
 		69784D931DE0AB4A007E32C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69784D921DE0AB4A007E32C2 /* ViewController.swift */; };
 		69784D951DE0AB4A007E32C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69784D941DE0AB4A007E32C2 /* Assets.xcassets */; };
 		69784D981DE0AB4A007E32C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69784D961DE0AB4A007E32C2 /* Main.storyboard */; };
-		69801C8B200C2B8B00A214D6 /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 69801C89200C2B8A00A214D6 /* util.h */; };
-		69801C8C200C2B8B00A214D6 /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 69801C89200C2B8A00A214D6 /* util.h */; };
+		69801C8B200C2B8B00A214D6 /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 69801C89200C2B8A00A214D6 /* util.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69801C8C200C2B8B00A214D6 /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 69801C89200C2B8A00A214D6 /* util.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69801C8D200C2B8B00A214D6 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 69801C8A200C2B8B00A214D6 /* util.c */; };
 		69801C8E200C2B8B00A214D6 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 69801C8A200C2B8B00A214D6 /* util.c */; };
-		69801C90200C2B9600A214D6 /* tls_client.c in Sources */ = {isa = PBXBuildFile; fileRef = 69801C8F200C2B9600A214D6 /* tls_client.c */; };
-		69801C91200C2B9600A214D6 /* tls_client.c in Sources */ = {isa = PBXBuildFile; fileRef = 69801C8F200C2B9600A214D6 /* tls_client.c */; };
-		69801C93200C2B9C00A214D6 /* tls_server.c in Sources */ = {isa = PBXBuildFile; fileRef = 69801C92200C2B9C00A214D6 /* tls_server.c */; };
-		69801C94200C2B9C00A214D6 /* tls_server.c in Sources */ = {isa = PBXBuildFile; fileRef = 69801C92200C2B9C00A214D6 /* tls_server.c */; };
+		69801C90200C2B9600A214D6 /* tls_client.m in Sources */ = {isa = PBXBuildFile; fileRef = 69801C8F200C2B9600A214D6 /* tls_client.m */; };
+		69801C91200C2B9600A214D6 /* tls_client.m in Sources */ = {isa = PBXBuildFile; fileRef = 69801C8F200C2B9600A214D6 /* tls_client.m */; };
+		69801C93200C2B9C00A214D6 /* tls_server.m in Sources */ = {isa = PBXBuildFile; fileRef = 69801C92200C2B9C00A214D6 /* tls_server.m */; };
+		69801C94200C2B9C00A214D6 /* tls_server.m in Sources */ = {isa = PBXBuildFile; fileRef = 69801C92200C2B9C00A214D6 /* tls_server.m */; };
 		69962D7D1F7A33BE006D2B19 /* SocketServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D7B1F7A33BE006D2B19 /* SocketServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69962D7E1F7A33BE006D2B19 /* SocketServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D7B1F7A33BE006D2B19 /* SocketServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69962D7F1F7A33BE006D2B19 /* SocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69962D7C1F7A33BE006D2B19 /* SocketServer.m */; };
@@ -135,6 +141,24 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6974B5E5200C43FA00925831 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		6974B5F1200C449200925831 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		69FC1AF71DDBF7D400EF8AAC /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -169,6 +193,10 @@
 		69726D871F6B7DE3003375CA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		69726D8C1F6BA95F003375CA /* QHex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QHex.m; sourceTree = "<group>"; };
 		69726D8D1F6BA960003375CA /* QHex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QHex.h; sourceTree = "<group>"; };
+		6974B5E7200C43FA00925831 /* TestTLSServer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TestTLSServer; sourceTree = BUILT_PRODUCTS_DIR; };
+		6974B5E9200C43FA00925831 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6974B5F3200C449200925831 /* TestTLSClient */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TestTLSClient; sourceTree = BUILT_PRODUCTS_DIR; };
+		6974B5F5200C449200925831 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		69784D8E1DE0AB4A007E32C2 /* macOSTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macOSTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69784D901DE0AB4A007E32C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69784D921DE0AB4A007E32C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -177,8 +205,8 @@
 		69784D991DE0AB4A007E32C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69801C89200C2B8A00A214D6 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
 		69801C8A200C2B8B00A214D6 /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = util.c; sourceTree = "<group>"; };
-		69801C8F200C2B9600A214D6 /* tls_client.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tls_client.c; sourceTree = "<group>"; };
-		69801C92200C2B9C00A214D6 /* tls_server.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tls_server.c; sourceTree = "<group>"; };
+		69801C8F200C2B9600A214D6 /* tls_client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tls_client.m; sourceTree = "<group>"; };
+		69801C92200C2B9C00A214D6 /* tls_server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tls_server.m; sourceTree = "<group>"; };
 		69962D7B1F7A33BE006D2B19 /* SocketServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketServer.h; sourceTree = "<group>"; };
 		69962D7C1F7A33BE006D2B19 /* SocketServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocketServer.m; sourceTree = "<group>"; };
 		69962D811F7A34DD006D2B19 /* GCDSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCDSocket.h; sourceTree = "<group>"; };
@@ -225,6 +253,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6974B5E4200C43FA00925831 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6974B5F0200C449200925831 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69784D8B1DE0AB4A007E32C2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -263,6 +305,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6974B5E8200C43FA00925831 /* TestTLSServer */ = {
+			isa = PBXGroup;
+			children = (
+				6974B5E9200C43FA00925831 /* main.m */,
+			);
+			path = TestTLSServer;
+			sourceTree = "<group>";
+		};
+		6974B5F4200C449200925831 /* TestTLSClient */ = {
+			isa = PBXGroup;
+			children = (
+				6974B5F5200C449200925831 /* main.m */,
+			);
+			path = TestTLSClient;
+			sourceTree = "<group>";
+		};
 		69784D8F1DE0AB4A007E32C2 /* macOSTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +353,8 @@
 				69FC1AE31DDBF77300EF8AAC /* DarwinCoreTest */,
 				69B954D91DDF7D3F006AF669 /* DarwinCoreOSX */,
 				69784D8F1DE0AB4A007E32C2 /* macOSTest */,
+				6974B5E8200C43FA00925831 /* TestTLSServer */,
+				6974B5F4200C449200925831 /* TestTLSClient */,
 				69FC1AC71DDBF25400EF8AAC /* Products */,
 				69FC1AD51DDBF48F00EF8AAC /* Frameworks */,
 			);
@@ -307,6 +367,8 @@
 				69FC1AE21DDBF77300EF8AAC /* DarwinCoreTest.app */,
 				69B954D81DDF7D3F006AF669 /* DarwinCore.framework */,
 				69784D8E1DE0AB4A007E32C2 /* macOSTest.app */,
+				6974B5E7200C43FA00925831 /* TestTLSServer */,
+				6974B5F3200C449200925831 /* TestTLSClient */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -322,8 +384,8 @@
 				69A000741F7F38B600716122 /* NSData+Crypto.m */,
 				69726D731F6B5E56003375CA /* ioSock.c */,
 				69726D741F6B5E57003375CA /* ioSock.h */,
-				69801C8F200C2B9600A214D6 /* tls_client.c */,
-				69801C92200C2B9C00A214D6 /* tls_server.c */,
+				69801C8F200C2B9600A214D6 /* tls_client.m */,
+				69801C92200C2B9C00A214D6 /* tls_server.m */,
 				69801C8A200C2B8B00A214D6 /* util.c */,
 				69801C89200C2B8A00A214D6 /* util.h */,
 				69E40EA01F45255600C1DDC3 /* common.h */,
@@ -449,6 +511,40 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		6974B5E6200C43FA00925831 /* TestTLSServer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6974B5EB200C43FA00925831 /* Build configuration list for PBXNativeTarget "TestTLSServer" */;
+			buildPhases = (
+				6974B5E3200C43FA00925831 /* Sources */,
+				6974B5E4200C43FA00925831 /* Frameworks */,
+				6974B5E5200C43FA00925831 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestTLSServer;
+			productName = TestTLSServer;
+			productReference = 6974B5E7200C43FA00925831 /* TestTLSServer */;
+			productType = "com.apple.product-type.tool";
+		};
+		6974B5F2200C449200925831 /* TestTLSClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6974B5F7200C449200925831 /* Build configuration list for PBXNativeTarget "TestTLSClient" */;
+			buildPhases = (
+				6974B5EF200C449200925831 /* Sources */,
+				6974B5F0200C449200925831 /* Frameworks */,
+				6974B5F1200C449200925831 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestTLSClient;
+			productName = TestTLSClient;
+			productReference = 6974B5F3200C449200925831 /* TestTLSClient */;
+			productType = "com.apple.product-type.tool";
+		};
 		69784D8D1DE0AB4A007E32C2 /* macOSTest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 69784D9C1DE0AB4A007E32C2 /* Build configuration list for PBXNativeTarget "macOSTest" */;
@@ -534,6 +630,16 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Kong XiangBo";
 				TargetAttributes = {
+					6974B5E6200C43FA00925831 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 745WQDK4L7;
+						ProvisioningStyle = Automatic;
+					};
+					6974B5F2200C449200925831 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 745WQDK4L7;
+						ProvisioningStyle = Automatic;
+					};
 					69784D8D1DE0AB4A007E32C2 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = 745WQDK4L7;
@@ -575,6 +681,8 @@
 				69FC1AE11DDBF77300EF8AAC /* DarwinCoreTest */,
 				69B954D71DDF7D3F006AF669 /* DarwinCoreOSX */,
 				69784D8D1DE0AB4A007E32C2 /* macOSTest */,
+				6974B5E6200C43FA00925831 /* TestTLSServer */,
+				6974B5F2200C449200925831 /* TestTLSClient */,
 			);
 		};
 /* End PBXProject section */
@@ -632,6 +740,26 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6974B5E3200C43FA00925831 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6974B5FB200C478F00925831 /* tls_server.m in Sources */,
+				6974B5EA200C43FA00925831 /* main.m in Sources */,
+				6974B5FC200C479700925831 /* util.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6974B5EF200C449200925831 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6974B5FD200C479E00925831 /* tls_client.m in Sources */,
+				6974B5F6200C449200925831 /* main.m in Sources */,
+				6974B5FE200C47A400925831 /* util.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69784D8A1DE0AB4A007E32C2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -659,10 +787,10 @@
 				69962D801F7A33BE006D2B19 /* SocketServer.m in Sources */,
 				69639C201EE1B2EF00893D18 /* IPSum.m in Sources */,
 				69962D861F7A34DD006D2B19 /* GCDSocket.m in Sources */,
-				69801C94200C2B9C00A214D6 /* tls_server.c in Sources */,
+				69801C94200C2B9C00A214D6 /* tls_server.m in Sources */,
 				69B954E11DDF7D51006AF669 /* STTraffic.m in Sources */,
 				69B954E01DDF7D4D006AF669 /* DNSResolver.m in Sources */,
-				69801C91200C2B9600A214D6 /* tls_client.c in Sources */,
+				69801C91200C2B9600A214D6 /* tls_client.m in Sources */,
 				69E40EF91F467EFF00C1DDC3 /* proinfo.m in Sources */,
 				69BE2E791FFD222F0078845A /* ServerUtils.m in Sources */,
 				69EEA8FA1F6118E000DDFC90 /* route.c in Sources */,
@@ -680,9 +808,9 @@
 				69962D851F7A34DD006D2B19 /* GCDSocket.m in Sources */,
 				691883421DDD44AB0051DAAE /* DNSResolver.m in Sources */,
 				69962D7F1F7A33BE006D2B19 /* SocketServer.m in Sources */,
-				69801C90200C2B9600A214D6 /* tls_client.c in Sources */,
+				69801C90200C2B9600A214D6 /* tls_client.m in Sources */,
 				69639C1F1EE1B2EF00893D18 /* IPSum.m in Sources */,
-				69801C93200C2B9C00A214D6 /* tls_server.c in Sources */,
+				69801C93200C2B9C00A214D6 /* tls_server.m in Sources */,
 				690B41191EE13CF800007E26 /* DCIPAddr.m in Sources */,
 				69962D891F7A3B7B006D2B19 /* xsocket.m in Sources */,
 				69FC1ADD1DDBF69300EF8AAC /* Route.m in Sources */,
@@ -748,6 +876,70 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6974B5EC200C43FA00925831 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 745WQDK4L7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6974B5ED200C43FA00925831 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 745WQDK4L7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		6974B5F8200C449200925831 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 745WQDK4L7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6974B5F9200C449200925831 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 745WQDK4L7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		69784D9A1DE0AB4A007E32C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1046,6 +1238,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6974B5EB200C43FA00925831 /* Build configuration list for PBXNativeTarget "TestTLSServer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6974B5EC200C43FA00925831 /* Debug */,
+				6974B5ED200C43FA00925831 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6974B5F7200C449200925831 /* Build configuration list for PBXNativeTarget "TestTLSClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6974B5F8200C449200925831 /* Debug */,
+				6974B5F9200C449200925831 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		69784D9C1DE0AB4A007E32C2 /* Build configuration list for PBXNativeTarget "macOSTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

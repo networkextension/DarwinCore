@@ -6,8 +6,8 @@
 //  Copyright © 2016 Kong XiangBo. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-    //#import <Foundation/Foundation.h>
+//#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for DarwinCore.
 FOUNDATION_EXPORT double DarwinCoreVersionNumber;

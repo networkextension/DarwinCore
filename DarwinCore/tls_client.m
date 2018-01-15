@@ -24,6 +24,7 @@
 
 #include <Security/Security.h>
 #include <Security/SecBase.h>
+#import <Foundation/Foundation.h>
 #include "util.h"
 //#include "../sslViewer/sslAppUtils.h"
 
@@ -42,8 +43,6 @@
 #ifdef NO_SERVER
 #include <securityd/spi.h>
 #endif
-
-#define PORT 23232
 
 static
 unsigned char ServerRSA_Key_der[] = {
@@ -157,6 +156,13 @@ unsigned char ServerRSA_Cert_CA_RSA_der[] = {
 };
 
 
+#define SERVER "127.0.0.1"
+//#define SERVER "17.201.58.114"
+#define PORT 23232
+#define BUFLEN 128
+#define COUNT 10
+
+#if 0
 static void dumppacket(const unsigned char *data, unsigned long len)
 {
     unsigned long i;
@@ -168,7 +174,7 @@ static void dumppacket(const unsigned char *data, unsigned long len)
     }
     printf("\n");
 }
-
+#endif
 
 /* 2K should be enough for everybody */
 #define MTU 2048
@@ -195,11 +201,12 @@ OSStatus SocketRead(
             readLeft=(size_t) len;
             printf("SocketRead: %ld bytes... epoch: %02x seq=%02x%02x\n",
                    len, d[4], d[9], d[10]);
+            
         } else {
             int theErr = errno;
             switch(theErr) {
                 case EAGAIN:
-                    // printf("SocketRead: EAGAIN\n");
+                    //printf("SocketRead: EAGAIN\n");
                     *dataLength=0;
                     /* nonblocking, no data */
                     return errSSLWouldBlock;
@@ -218,11 +225,9 @@ OSStatus SocketRead(
     readLeft-=*dataLength;
     readOff+=*dataLength;
     
-    
     return errSecSuccess;
     
 }
-
 
 static
 OSStatus SocketWrite(
@@ -237,10 +242,12 @@ OSStatus SocketWrite(
     
 #if 0
     if((rand()&3)==1) {
-        /* drop 1/8 packets */
+        
+        /* drop 1/8th packets */
         printf("SocketWrite: Drop %ld bytes... epoch: %02x seq=%02x%02x\n",
                *dataLength, d[4], d[9], d[10]);
         return errSecSuccess;
+        
     }
 #endif
     
@@ -248,10 +255,8 @@ OSStatus SocketWrite(
     
     if(len>0) {
         *dataLength=(size_t)len;
-        
         printf("SocketWrite: Sent %ld bytes... epoch: %02x seq=%02x%02x\n",
                len, d[4], d[9], d[10]);
-        
         return err;
     }
     
@@ -272,12 +277,15 @@ OSStatus SocketWrite(
 }
 
 
-int dtls_server(int argc, char **argv)
+int dtls_client()
 {
-    struct sockaddr_in sa; /* server address for bind */
-    struct sockaddr_in ca; /* client address for connect */
     int fd;
-    ssize_t l;
+    struct sockaddr_in sa;
+    
+    if ((fd=socket(AF_INET, SOCK_DGRAM, 0))==-1) {
+        perror("socket");
+        exit(-1);
+    }
     
 #ifdef NO_SERVER
 # if DEBUG
@@ -285,48 +293,27 @@ int dtls_server(int argc, char **argv)
 # endif
 #endif
     
-    if ((fd=socket(AF_INET, SOCK_DGRAM, 0))==-1) {
-        perror("socket");
-        return errno;
-    }
-    
-    time_t seed=time(NULL);
-    //    time_t seed=1298952496;
-    srand((unsigned)seed);
-    printf("Random drop initialized with seed = %lu\n", seed);
-    
     memset((char *) &sa, 0, sizeof(sa));
     sa.sin_family = AF_INET;
     sa.sin_port = htons(PORT);
-    sa.sin_addr.s_addr = htonl(INADDR_ANY);
-    
-    if(bind (fd, (struct sockaddr *)&sa, sizeof(sa))==-1)
-    {
-        perror("bind");
-        return errno;
+    if (inet_aton(SERVER, &sa.sin_addr)==0) {
+        fprintf(stderr, "inet_aton() failed\n");
+        exit(1);
     }
     
-    printf("Waiting for first packet...\n");
-    /* PEEK only... */
-    socklen_t slen=sizeof(ca);
-    char b;
-    if((l=recvfrom(fd, &b, 1, MSG_PEEK, (struct sockaddr *)&ca, &slen))==-1)
-    {
-        perror("recvfrom");
-        return errno;
-    }
+    time_t seed=time(NULL);
+    //    time_t seed=1298952499;
+    srand((unsigned)seed);
+    printf("Random drop initialized with seed = %lu\n", seed);
     
-    printf("Received packet from %s (%ld), connecting...\n", inet_ntoa(ca.sin_addr), l);
-    
-    if(connect(fd, (struct sockaddr *)&ca, sizeof(ca))==-1)
+    if(connect(fd, (struct sockaddr *)&sa, sizeof(sa))==-1)
     {
         perror("connect");
         return errno;
     }
     
-    /* Change to non blocking */
+    /* Change to non blocking io */
     fcntl(fd, F_SETFL, O_NONBLOCK);
-    
     
     SSLConnectionRef c=(SSLConnectionRef)(intptr_t)fd;
     
@@ -336,17 +323,12 @@ int dtls_server(int argc, char **argv)
     
     SSLClientCertificateState certState;
     SSLCipherSuite negCipher;
+    SSLProtocol negVersion;
     
     /*
      * Set up a SecureTransport session.
      */
-#if !TARGET_OS_IPHONE && !TARGET_OS_SIMULATOR && !TARGET_OS_EMBEDDED
-    ortn = SSLNewDatagramContext(true, &ctx);
-    if(ortn) {
-        printSslErrStr("SSLNewDatagramContext", ortn);
-        return ortn;
-    }
-#endif
+    ctx = SSLCreateContext(kCFAllocatorDefault, kSSLServerSide, kSSLDatagramType);
     ortn = SSLSetIOFuncs(ctx, SocketRead, SocketWrite);
     if(ortn) {
         printSslErrStr("SSLSetIOFuncs", ortn);
@@ -359,28 +341,22 @@ int dtls_server(int argc, char **argv)
         return ortn;
     }
     
-    ortn = SSLSetDatagramHelloCookie(ctx, &ca, 32);
-    if(ortn) {
-        printSslErrStr("SSLSetDatagramHelloCookie", ortn);
-        return ortn;
-    }
-    
     ortn = SSLSetMaxDatagramRecordSize(ctx, 400);
     if(ortn) {
         printSslErrStr("SSLSetMaxDatagramRecordSize", ortn);
         return ortn;
     }
-    
-    
-    
+
     /* Lets not verify the cert, which is a random test cert */
     //ortn = SSLSetEnableCertVerify(ctx, false);
-    ortn = SSLSetSessionOption(ctx, kSSLSessionOptionBreakOnServerAuth, true);
+    //ortn = SSLSetSessionOption(ctx, kSSLSessionOptionBreakOnServerAuth, true);
     if(ortn) {
         printSslErrStr("SSLSetEnableCertVerify", ortn);
         return ortn;
     }
+
     //disable
+//
 //    ortn = SSLSetCertificate(ctx, chain_from_der(false, ServerRSA_Key_der, sizeof(ServerRSA_Key_der),
 //                                                 ServerRSA_Cert_CA_RSA_der, sizeof(ServerRSA_Cert_CA_RSA_der)));
 //    if(ortn) {
@@ -388,13 +364,31 @@ int dtls_server(int argc, char **argv)
 //        return ortn;
 //    }
     
-    ortn = SSLSetClientSideAuthenticate(ctx, kAlwaysAuthenticate);
+    NSData *data = [NSData dataWithContentsOfFile:@"/Users/yarshure/Desktop/Certificates.cer"];
+    SecCertificateRef cert = SecCertificateCreateWithData(nil, (CFDataRef )data);
+    
+    SecIdentityRef identity;
+    
+    //ortn = SecIdentityCreateWithCertificate(nil, cert,
+    //                                        &identity);
+    if(ortn) {
+        printSslErrStr("SSLSetCertificate", ortn);
+        return ortn;
+    }
+    CFArrayRef certificates = CFArrayCreate(NULL,
+                                            (const void **)&identity, 1, NULL);
+    ortn = SSLSetCertificate(ctx,certificates);
     if(ortn) {
         printSslErrStr("SSLSetCertificate", ortn);
         return ortn;
     }
     
-    printf("Server Handshake...\n");
+    ortn = SSLSetClientSideAuthenticate(ctx, kTryAuthenticate);
+    if(ortn) {
+        printSslErrStr("SSLSetCertificate", ortn);
+        return ortn;
+    }
+    
     do {
         ortn = SSLHandshake(ctx);
         if(ortn == errSSLWouldBlock) {
@@ -403,41 +397,50 @@ int dtls_server(int argc, char **argv)
         }
     } while (ortn == errSSLWouldBlock);
     
-    if(ortn) {
-        printSslErrStr("SSLHandshake", ortn);
-        return ortn;
-    }
     
     SSLGetClientCertificateState(ctx, &certState);
     SSLGetNegotiatedCipher(ctx, &negCipher);
+    SSLGetNegotiatedProtocolVersion(ctx, &negVersion);
     
-    printf("Server Handshake done. Cipher is %s\n", sslGetCipherSuiteString(negCipher));
+    int count;
+    size_t len, readLen, writeLen;
+    char buffer[BUFLEN];
     
-    unsigned char buffer[MTU];
-    size_t len, readLen;
-    
-    while(1) {
-        while((ortn=SSLRead(ctx, buffer, MTU, &readLen))==errSSLWouldBlock);
+    count = 0;
+    while(count<COUNT) {
+        int timeout = 10000;
+        
+        snprintf(buffer, BUFLEN, "Message %d", count);
+        len = strlen(buffer);
+        
+        ortn=SSLWrite(ctx, buffer, len, &writeLen);
+        if(ortn) {
+            printSslErrStr("SSLWrite", ortn);
+            break;
+        }
+        printf("Wrote %lu bytes\n", writeLen);
+        
+        count++;
+        
+        do {
+            ortn=SSLRead(ctx, buffer, BUFLEN, &readLen);
+        } while((ortn==errSSLWouldBlock) && (timeout--));
+        if(ortn==errSSLWouldBlock) {
+            printf("Echo timeout...\n");
+            continue;
+        }
         if(ortn) {
             printSslErrStr("SSLRead", ortn);
             break;
         }
         buffer[readLen]=0;
-        printf("Received %lu bytes:\n", readLen);
-        dumppacket(buffer, readLen);
+        printf("Received %lu bytes: %s\n", readLen, buffer);
         
-        ortn=SSLWrite(ctx, buffer, readLen, &len);
-        if(ortn) {
-            printSslErrStr("SSLRead", ortn);
-            break;
-        }
-        printf("Echoing %lu bytes\n", len);
     }
     
-    //SSLDisposeContext(ctx);
+    SSLClose(ctx);
+
     CFRelease(ctx);
+
     return ortn;
 }
-
-
-
