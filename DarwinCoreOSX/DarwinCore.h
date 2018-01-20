@@ -32,3 +32,4 @@ FOUNDATION_EXPORT const unsigned char DarwinCoreOSXVersionString[];
 #import <DarwinCore/XTLS.h>
 #import <DarwinCore/SocketServer.h>
 #import <DarwinCore/ioSock.h>
+#import <DarwinCore/TLSToolCommon.h>

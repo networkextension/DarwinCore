@@ -56,7 +56,7 @@ bool server_read( int fd, unsigned char *buff, size_t buff_sz, void** msgStart, 
     //    size_t            track_sz    = buff_sz - *total;
     ssize_t            nbytes        = read( fd, buff, 8 * 1024 );
     
-    os_log_info(OS_LOG_DEFAULT, "nbytes: %lu", nbytes );
+    
     
     if ( nbytes == 0 )
     {
@@ -66,12 +66,14 @@ bool server_read( int fd, unsigned char *buff, size_t buff_sz, void** msgStart, 
     }
     else if ( nbytes == -1 )
     {
-        os_log_info(OS_LOG_DEFAULT, "server_read: error on read!" );
+        perror(strerror(errno));
+        os_log_info(OS_LOG_DEFAULT, "server_read: error on read! %d",errno );
         
         return true;
     }
     else
     {
+        os_log_info(OS_LOG_DEFAULT, "nbytes: %lu", nbytes );
         *total += nbytes;
         
         /* We do this swap on every read(2), which is wasteful. But there is a
