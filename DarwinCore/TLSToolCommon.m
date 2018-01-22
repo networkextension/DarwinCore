@@ -131,7 +131,37 @@
     (void) fprintf(stdout, "%s", [lines componentsJoinedByString:@""].UTF8String);
     (void) fflush(stdout);
 }
-
+-(void)importCertificateToKeychain:(NSData *)data
+                      withPassword:(NSString *)password
+                              name:(NSString *)name {
+    CFArrayRef importedItems = NULL;
+    OSStatus err;
+  
+    err = SecPKCS12Import(
+                          (__bridge CFDataRef) data,
+                          (__bridge CFDictionaryRef) [NSDictionary dictionaryWithObjectsAndKeys:
+                                                      password, kSecImportExportPassphrase,
+                                                      nil
+                                                      ],
+                          &importedItems
+                          );
+    if (err == noErr) {
+        
+        for (NSDictionary * itemDict in (__bridge id) importedItems) {
+            SecIdentityRef  identity;
+            
+            identity = (__bridge SecIdentityRef) [itemDict objectForKey:(__bridge NSString *) kSecImportItemIdentity];
+            
+            NSMutableDictionary *addItemDictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                                      (__bridge id)identity, kSecValueRef,
+                                                      nil
+                                                      ];
+            [addItemDictionary setValue:name forKey:(__bridge NSString *)kSecAttrLabel];
+            
+            err = SecItemAdd((__bridge CFDictionaryRef)addItemDictionary, NULL);
+        }
+    }
+}
 @end
 /*! Searches the keychain and returns an identity for the specified name.
  *  \details It first looks for an exact match, then looks for a fuzzy
@@ -229,3 +259,4 @@ static int ParseAndAddCertificate(const char * arg, NSMutableArray * certificate
     }
     return certificate != NULL ? EXIT_SUCCESS : EXIT_FAILURE;
 }
+

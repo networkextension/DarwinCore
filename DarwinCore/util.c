@@ -47,21 +47,18 @@ CFArrayRef chain_from_der(bool ecdsa, const unsigned char *pkey_der, size_t pkey
     SecIdentityRef ident = NULL;
     CFArrayRef items = NULL;
     
-//    pkey = create_private_key_from_der(ecdsa, pkey_der, pkey_der_len);
-//    cert = SecCertificateCreateWithBytes(kCFAllocatorDefault, cert_der, cert_der_len);
-//    //result = SecIdentityCreateWithCertificate(kCFAllocatorDefault, cert,
-//    //                                          &pkey);
-//
-//    //SecIdentityCreateWithCertificate(nil, cert, &ident);
-//    ident = SecIdentityCreate(kCFAllocatorDefault, cert, pkey);
-//    items = CFArrayCreate(kCFAllocatorDefault, (const void **)&ident, 1, &kCFTypeArrayCallBacks);
-//   
+    //pkey = SecKeyCreateRSAPrivateKey(kCFAllocatorDefault, pkey_der, pkey_der_len, kSecKeyEncodingPkcs1);
+    pkey = create_private_key_from_der(ecdsa, cert_der, cert_der_len);
+    cert = SecCertificateCreateWithBytes(kCFAllocatorDefault, cert_der, cert_der_len);
+    ident = SecIdentityCreate(kCFAllocatorDefault, cert, pkey);
+    items = CFArrayCreate(kCFAllocatorDefault, (const void **)&ident, 1, &kCFTypeArrayCallBacks);
     
-//errOut:
-//    CFReleaseSafe(pkey);
-//    CFReleaseSafe(cert);
-//    CFReleaseSafe(ident);
+
+    CFRelease(pkey);
+    CFRelease(cert);
+    CFRelease(ident);
     return items;
+   
 }
 
 const char *sslGetCipherSuiteString(SSLCipherSuite cs)

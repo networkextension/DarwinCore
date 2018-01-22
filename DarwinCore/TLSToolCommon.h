@@ -13,6 +13,9 @@
 - (void)logCertificateInfoForTrust:(SecTrustRef)trust context:(SSLContextRef)context;
 -(NSMutableArray<NSData*>*)logCertificateDataForTrust:(SecTrustRef)trust ;
 - (void)logTrustDetails:(SecTrustRef)trust context:(SSLContextRef)context ;
+-(void)importCertificateToKeychain:(NSURL *)url
+                      withPassword:(NSString *)password
+                              name:(NSString *)name;
 @end
 static int ParseIdentityNamed(const char * arg, SecIdentityRef * identityPtr);
 static int ParseAndAddCertificate(const char * arg, NSMutableArray * certificates);
