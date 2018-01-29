@@ -31,18 +31,14 @@
     CFArrayRef      contextCertificates;
     
     result = nil;
-    
-   
-    
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    
-    err = SSLCopyPeerCertificates(context, &contextCertificates);
-    
-#pragma clang diagnostic pop
+    SecTrustRef  trust;
+//   To get peer certificates, call SSLCopyPeerTrust to obtain the SecTrustRef for the peer certificate chain, then use the SecTrustGetCertificateCount and SecTrustGetCertificateAtIndex functions to retrieve individual certificates in the chain (see the Trust section of Certificate, Key, and Trust Services).
+    err = SSLCopyPeerTrust(context, &trust);
+    NSArray *certs = [self logCertificateDataForTrust:trust];
+
     
     if (err == errSecSuccess) {
-        result = [NSSet setWithArray:(__bridge NSArray *) contextCertificates];
+        result = [NSSet setWithArray:certs];
         
         CFRelease(contextCertificates);
     }
@@ -57,7 +53,7 @@
     NSSet *             handshakeCertificates;
     CFIndex             certificateCount;
     CFIndex             certificateIndex;
-    
+
     [self logWithFormat:@"certificate info:"];
     handshakeCertificates = [self certificatesFromHandshake:context];
     certificateCount = SecTrustGetCertificateCount(trust);
@@ -78,6 +74,7 @@
          CFBridgingRelease( SecCertificateCopySubjectSummary( certificate ) )
          ];
     }
+
 }
 - (NSMutableArray<NSData*>*)logCertificateDataForTrust:(SecTrustRef)trust{
     CFIndex             certificateCount;
@@ -106,6 +103,7 @@
         if (err != errSecSuccess) {
             [self logWithFormat:@"trust evaluation failed: %d", (int) err];
         } else {
+
             [self logWithFormat:@"trust result: %@", [TLSUtilities stringForTrustResult:trustResult]];
             [self logCertificateInfoForTrust:trust context:context];
             [self logCertificateDataForTrust:trust];

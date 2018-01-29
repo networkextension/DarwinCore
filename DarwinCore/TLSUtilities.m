@@ -242,7 +242,8 @@
     #pragma clang diagnostic ignored "-Wdeprecated-declarations"
     
     result = @"n/a";
-    err = SecCertificateCopyPublicKey(certificate, &key);
+#if !TARGET_OS_IPHONE && !TARGET_OS_SIMULATOR && !TARGET_OS_EMBEDDED
+    key = SecCertificateCopyPublicKey(certificate);
     if (err == errSecSuccess) {
         const CSSM_KEY * cssmKeyPtr;
         
@@ -252,7 +253,7 @@
         }
         CFRelease(key);
     }
-
+#endif
     #pragma clang diagnostic pop
     
     return result;
@@ -263,7 +264,7 @@
     NSDictionary *  certValues;
     
     keyAlgorithm = @"n/a";
-    
+#if !TARGET_OS_IPHONE && !TARGET_OS_SIMULATOR && !TARGET_OS_EMBEDDED
     certValues = CFBridgingRelease( SecCertificateCopyValues(certificate, (__bridge CFArrayRef) @[
         @"2.16.840.1.113741.2.1.1.1.9"
     ], NULL) );
@@ -279,7 +280,7 @@
             keyAlgorithm = keyOID;
         }
     }
-    
+#endif
     return keyAlgorithm;
 }
 
@@ -288,7 +289,7 @@
     NSDictionary *  certValues;
     
     sigAlgorithm = nil;
-    
+#if !TARGET_OS_IPHONE && !TARGET_OS_SIMULATOR && !TARGET_OS_EMBEDDED
     certValues = CFBridgingRelease( SecCertificateCopyValues(certificate, (__bridge CFArrayRef) @[
         @"2.16.840.1.113741.2.1.3.2.1"
     ], NULL) );
@@ -313,7 +314,7 @@
             sigAlgorithm = sigOID;
         }
     }
-    
+#endif
     return sigAlgorithm;
 }
 
