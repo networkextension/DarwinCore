@@ -243,7 +243,7 @@
     
     result = @"n/a";
 #if !TARGET_OS_IPHONE && !TARGET_OS_SIMULATOR && !TARGET_OS_EMBEDDED
-    key = SecCertificateCopyPublicKey(certificate);
+    err = SecCertificateCopyPublicKey(certificate,&key);
     if (err == errSecSuccess) {
         const CSSM_KEY * cssmKeyPtr;
         
