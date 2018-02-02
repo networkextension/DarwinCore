@@ -17,6 +17,7 @@ class ViewController: NSViewController,ClientDelegate {
     var clientTree:AVLTree = AVLTree<Int32,Client>()
     let s = GCDSocket.init(remoteaddr: "www.baidu.com", port: "80")
     var manager:TManager!
+    let server = GCDSocketServer.init()
     override func viewDidLoad() {
         super.viewDidLoad()
         que.async {
@@ -47,7 +48,7 @@ class ViewController: NSViewController,ClientDelegate {
     }
 
     func testServer(){
-        let server = GCDSocketServer.shared()
+        
             server.accept = { fd,addr,port in
                 let c = Client.init(sfd: fd, delegate: self, q: DispatchQueue.main)
                 //self.clients.append(c);
@@ -80,10 +81,10 @@ class ViewController: NSViewController,ClientDelegate {
         
     }
     @IBAction func startServer(_ sender:Any){
-        GCDSocketServer.shared().start(10082, dispatchQueue: DispatchQueue.main, socketQueue: socketQueue, share: false)
+       server.start(10082, dispatchQueue: DispatchQueue.main, socketQueue: socketQueue, share: false)
     }
     @IBAction func stop(_ sender:Any){
-        GCDSocketServer.shared().stop()
+        server.stop()
     }
     func test()  {
         

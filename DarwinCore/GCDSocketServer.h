@@ -21,7 +21,7 @@ typedef void (^didWrite) (Boolean success, int fd,size_t count);
 @property (nonatomic, copy) didClosedSocket _Nonnull colse;
 @property (nonatomic, copy) incomingData _Nonnull incoming;
 @property (nonatomic) dispatch_source_t _Nonnull as;
-+(GCDSocketServer*_Nonnull)shared;
+//+(GCDSocketServer*_Nonnull)shared;
 
 
 -(void)startServer:(int)port dispatchQueue:(dispatch_queue_t  _Nonnull)dqueue socketQueue:(dispatch_queue_t  _Nonnull)squeue share:(BOOL)share;
@@ -29,4 +29,6 @@ typedef void (^didWrite) (Boolean success, int fd,size_t count);
 -(void)stopServer;
 -(BOOL)running;
 -(void)pauseRestartServer;
+-(bool)server_read:(int)fd buff:(unsigned char *_Nullable)buff size:(size_t)buff_sz start:(void  * _Nullable *_Nullable)msgStart total:(size_t *_Nullable)total;
+-(void)server_send_reply:(int)fd queue:(dispatch_queue_t _Nullable )q  data:(CFDataRef _Nullable )data finish:(didWrite _Nullable )finish;
 @end

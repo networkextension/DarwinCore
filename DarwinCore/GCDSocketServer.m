@@ -173,7 +173,8 @@ static bool g_accepting_requests = true;
                                           void*    buff        = malloc( buff_sz );
                                           void*    msgStart    = buff;
                                           assert(buff != NULL);
-                                          if ( server_read( fd, buff, buff_sz, &msgStart, &total) )
+                                          if ([self server_read:fd buff:buff size:buff_sz start:&msgStart total:&total])
+                                         
                                           {
                                               os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ B - server_read success" );
                                               
@@ -208,8 +209,8 @@ static bool g_accepting_requests = true;
     
     assert(data != NULL);
     
-    server_send_reply( fd, self.socketQueue, (__bridge CFDataRef)(data),finish);
     
+    [self server_send_reply:fd queue:self.socketQueue data:(__bridge CFDataRef)(data) finish:finish];
 
 }
 -(void)stopServer;
@@ -224,4 +225,126 @@ static bool g_accepting_requests = true;
     }
     return false;
 }
+-(bool)server_read:(int)fd buff:(unsigned char *_Nullable)buff size:(size_t)buff_sz start:(void  * _Nullable *_Nullable)msgStart total:(size_t *_Nullable)total
+    {
+        os_log_info(OS_LOG_DEFAULT, "server_read" );
+        
+        bool result = false;
+        
+        //    struct ss_msg_s *msg = (struct ss_msg_s *)buff;
+        //
+        //    size_t            headerSize    = sizeof( struct ss_msg_s );
+        //    unsigned char*    track_buff    = buff + *total;
+        //    size_t            track_sz    = buff_sz - *total;
+        ssize_t            nbytes        = read( fd, buff, 8 * 1024 );
+        
+        
+        
+        if ( nbytes == 0 )
+        {
+            os_log_info(OS_LOG_DEFAULT, "all bytes read" );
+            
+            return true;
+        }
+        else if ( nbytes == -1 )
+        {
+            perror(strerror(errno));
+            os_log_info(OS_LOG_DEFAULT, "server_read: error on read! %d",errno );
+            
+            return true;
+        }
+        else
+        {
+            os_log_info(OS_LOG_DEFAULT, "nbytes: %lu", nbytes );
+            *total += nbytes;
+            
+            /* We do this swap on every read(2), which is wasteful. But there is a
+             * way to avoid doing this every time and not introduce an extra
+             * parameter. See if you can find it.
+             */
+            NSData *data = [NSData dataWithBytes:buff length:nbytes];
+            __weak GCDSocketServer *server = self;
+            dispatch_async(self.dispatchQueue, ^{
+                server.incoming(fd, data);
+            });
+            
+        }
+        
+        return result;
+    }
+    
+-(void)server_send_reply:(int)fd queue:(dispatch_queue_t)q  data:(CFDataRef)data finish:(didWrite)finish
+    {
+        os_log_info(OS_LOG_DEFAULT, "server_send_reply" );
+        
+        size_t            total    = CFDataGetLength( data );
+        unsigned char*    buff    = (unsigned char *)malloc(total);
+        
+        assert(buff != NULL);
+        
+        //struct ss_msg_s *msg = (struct ss_msg_s *)buff;
+        
+        //msg->_len = OSSwapHostToLittleInt32(total - sizeof(struct ss_msg_s));
+        
+        /* Coming up with a more efficient implementation is left as an exercise to
+         * the reader.
+         */
+        (void)memcpy( buff, CFDataGetBytePtr( data ), CFDataGetLength( data ) );
+        
+        
+        dispatch_source_t s = dispatch_source_create(DISPATCH_SOURCE_TYPE_WRITE, fd, 0, q);
+        assert(s != NULL);
+        
+        __block unsigned char*    track_buff    = buff;
+        __block size_t            track_sz    = total;
+        
+        dispatch_source_set_event_handler(s, ^(void)
+                                          {
+                                              ssize_t nbytes = write(fd, track_buff, track_sz);
+                                              if (nbytes != -1)
+                                              {
+                                                  track_buff += nbytes;
+                                                  track_sz -= nbytes;
+                                                  
+                                                  
+                                                  
+                                                  if ( track_sz == 0 )
+                                                  {
+                                                      os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - all bytes written" );
+                                                      
+                                                      dispatch_source_cancel( s );
+                                                      //finish(true,fd);
+                                                      dispatch_async(self.dispatchQueue, ^{
+                                                          finish(true,fd,total);
+                                                      });
+                                                  }else {
+                                                      
+                                                      os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE count:%d", nbytes);
+                                                      //   finish(true,fd);
+                                                      //                                                  dispatch_async(server.dispatchQueue, ^{
+                                                      //                                                      finish(false,fd,nbytes);
+                                                      //                                                  });
+                                                  }
+                                              }else {
+                                                  os_log_debug(OS_LOG_DEFAULT, "write fail:%s",strerror(errno));
+                                                  // finish(true,fd);
+                                                  //                                              dispatch_async(server.dispatchQueue, ^{
+                                                  //                                                  finish(false,fd,0);
+                                                  //                                              });
+                                              }
+                                              
+                                              
+                                              
+                                          });
+        
+        dispatch_source_set_cancel_handler(s, ^(void)
+                                           {
+                                               os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - canceled" );
+                                               free(buff);
+                                               //dispatch_release(s);
+                                           });
+        
+        dispatch_resume(s);
+    }
+
 @end

@@ -53,12 +53,12 @@ class Client: NSObject,GCDAsyncSocketDelegate {
         s.readData(withTimeout: 10, tag: -1);
     }
     public func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int){
-        let s = GCDSocketServer.shared()
-        
-        
-        s.server_write_request(self.fd, data: data) { (t, x, i) in
-            self.socket!.readData(withTimeout: 10, tag: 1);
-        }
+//        let s = GCDSocketServer.shared()
+//        
+//        
+//        s.server_write_request(self.fd, data: data) { (t, x, i) in
+//            self.socket!.readData(withTimeout: 10, tag: 1);
+//        }
        
         
     }
