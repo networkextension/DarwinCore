@@ -14,7 +14,7 @@
 #include <libkern/OSAtomic.h>
 #import "GCDSocketServer.h"
 //#define SNOW(format, ...)  os_log_info(OS_LOG_DEFAULT, format, ...)
-int server_check_in(int port)
+int server_check_in(int port,bool share)
 {
     int sockfd = -1;
     CFShow( CFSTR( "server_check_in - not managed" ) );
@@ -34,7 +34,12 @@ int server_check_in(int port)
     (void)bzero(&saddr, sizeof(saddr));
     saddr.sin_family = AF_INET;
     saddr.sin_port = htons(port);
-    saddr.sin_addr.s_addr = inet_addr("127.0.0.1");//INADDR_ANY;
+    if(share){
+        saddr.sin_addr.s_addr = INADDR_ANY;
+    }else {
+        saddr.sin_addr.s_addr = inet_addr("127.0.0.1");//INADDR_ANY;
+    }
+    
     
     int result = bind(sockfd, (struct sockaddr *)&saddr, sizeof(saddr));
     assert(result == 0);

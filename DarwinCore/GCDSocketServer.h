@@ -24,7 +24,7 @@ typedef void (^didWrite) (Boolean success, int fd,size_t count);
 +(GCDSocketServer*_Nonnull)shared;
 
 
--(void)startServer:(int)port dispatchQueue:(dispatch_queue_t  _Nonnull)dqueue socketQueue:(dispatch_queue_t  _Nonnull)squeue;
+-(void)startServer:(int)port dispatchQueue:(dispatch_queue_t  _Nonnull)dqueue socketQueue:(dispatch_queue_t  _Nonnull)squeue share:(BOOL)share;
 -(void)server_write_request:(int)fd  data:(NSData*_Nullable)data  finish:(didWrite _Nonnull )finish;
 -(void)stopServer;
 -(BOOL)running;

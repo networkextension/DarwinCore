@@ -32,7 +32,7 @@ static bool g_accepting_requests = true;
     
     g_accepting_requests = !g_accepting_requests;
 }
--(void)startServer:(int)port dispatchQueue:(dispatch_queue_t  _Nonnull)dqueue socketQueue:(dispatch_queue_t  _Nonnull)squeue;
+-(void)startServer:(int)port dispatchQueue:(dispatch_queue_t  _Nonnull)dqueue socketQueue:(dispatch_queue_t  _Nonnull)squeue share:(BOOL)share;
 {
     self.dispatchQueue = dqueue;
     self.socketQueue = squeue;
@@ -54,7 +54,7 @@ static bool g_accepting_requests = true;
                                       });
     
     dispatch_resume(sts);
-    int fd = server_check_in(port);
+    int fd = server_check_in(port,share);
     
     (void)fcntl(fd, F_SETFL, O_NONBLOCK);
     dispatch_source_t as = dispatch_source_create(DISPATCH_SOURCE_TYPE_READ, fd, 0, self.socketQueue);
@@ -215,9 +215,13 @@ static bool g_accepting_requests = true;
 -(void)stopServer;
 {
     dispatch_source_cancel(self.as);
+    
 }
 -(BOOL)running
 {
+    if(self.sfd != 0){
+        return true;
+    }
     return false;
 }
 @end

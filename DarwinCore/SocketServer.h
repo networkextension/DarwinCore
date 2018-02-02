@@ -19,9 +19,9 @@ typedef void (^serverDidAcceptSocket)(GCDSocket *socket);
 //@property (nonatomic) dispatch_queue_t  socketQueue;
 
 @property (nonatomic) GCDSocket *socket;
+@property (nonatomic) BOOL share;
 
-
--(instancetype)initWith:(int)port dispatchQueue:(dispatch_queue_t)queue socketQueue:(dispatch_queue_t)squeue;
+-(instancetype)initWith:(int)port dispatchQueue:(dispatch_queue_t)queue socketQueue:(dispatch_queue_t)squeue share:(BOOL)share;
 -(void)startWith:(serverDidAcceptSocket)block;
 -(void)stop;
 -(void)pause;

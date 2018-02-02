@@ -33,11 +33,11 @@
     }
     return self;
 }
--(instancetype _Nonnull )initWithPort:(int)port//create and listen
+-(instancetype _Nonnull )initWithPort:(int)port share:(BOOL)share//create and listen
 {
     if(self = [super init]){
         
-        self.sfd = server_check_in(port);
+        self.sfd = server_check_in(port,share);
         self.remote = @"";
         self.g_accepting_requests = true;
         self.port = port;

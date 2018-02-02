@@ -23,11 +23,11 @@ class ViewController: NSViewController,ClientDelegate {
            
         }
         que.async {
-            dtls_client()
+            //dtls_client()
         }
         let s = GCDSocket.init(remoteaddr: "www.apple.com", port: "443")
         print(s)
-        self.manager  = TManager.init(dq: self.que, sq: self.socketQueue)
+        self.manager  = TManager.init(dq: self.que, sq: self.socketQueue,share: true)
         test()
         testServer()
         
@@ -76,8 +76,14 @@ class ViewController: NSViewController,ClientDelegate {
                 //server.server_write_request(fd, buffer: "wello come\n", total: 11);
             }
             //let q = DispatchQueue.init(label: "dispatch queue")
-        server.start(10082, dispatchQueue: DispatchQueue.main, socketQueue: socketQueue)
         
+        
+    }
+    @IBAction func startServer(_ sender:Any){
+        GCDSocketServer.shared().start(10082, dispatchQueue: DispatchQueue.main, socketQueue: socketQueue, share: false)
+    }
+    @IBAction func stop(_ sender:Any){
+        GCDSocketServer.shared().stop()
     }
     func test()  {
         

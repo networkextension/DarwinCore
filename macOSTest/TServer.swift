@@ -13,10 +13,10 @@ class TManager {
     var dq:DispatchQueue!
     var s:SocketServer!
     var ss:[GCDSocket] = []
-    init(dq:DispatchQueue, sq:DispatchQueue) {
+    init(dq:DispatchQueue, sq:DispatchQueue,share:Bool) {
         self.sq = sq
         self.dq = dq
-        s = SocketServer.init(5000, dispatchQueue: self.dq, socketQueue: self.sq)
+        s = SocketServer.init(5000, dispatchQueue: self.dq, socketQueue: self.sq, share: share)
     }
     func start() {
         s?.start({ (socket) in

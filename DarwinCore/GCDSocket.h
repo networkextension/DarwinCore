@@ -30,7 +30,7 @@ typedef void (^newSocket)(GCDSocket * _Nonnull s);
 @property (nonatomic) dispatch_source_t _Nullable writeSource;
 -(instancetype _Nonnull )initWithRemoteaddr:(NSString*_Nonnull)addr port:(NSString*_Nonnull)port;
 -(instancetype _Nonnull )initWithFD:(int)fd remoteaddr:(NSString*_Nonnull)addr port:(int)port;
--(instancetype _Nonnull )initWithPort:(int)port;//create and listen
+-(instancetype _Nonnull )initWithPort:(int)port share:(bool)share;//create and listen
 -(void)accept:(newSocket _Nonnull )news;
 
 -(void)write:(NSData*_Nonnull)data completionHandler:(writeCompletionHandler _Nonnull )completionHandler;
