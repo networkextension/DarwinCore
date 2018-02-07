@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface DCIPAddr : NSObject
-+(NSDictionary *)cellAddress;
++(NSDictionary <NSString*,NSString*> * _Nonnull )cellAddress;
 @end

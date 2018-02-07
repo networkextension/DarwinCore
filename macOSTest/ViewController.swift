@@ -18,8 +18,13 @@ class ViewController: NSViewController,ClientDelegate {
     let s = GCDSocket.init(remoteaddr: "www.baidu.com", port: "80")
     var manager:TManager!
     let server = GCDSocketServer.init()
+    func testIpaddr(){
+        let x = DCIPAddr.cellAddress()
+        print(x)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        testIpaddr()
         que.async {
            
         }

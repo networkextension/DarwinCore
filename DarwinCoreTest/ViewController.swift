@@ -23,13 +23,14 @@ class ViewController: UIViewController {
  
     
     func test()  {
+        
         let d = DNS.loadSystemDNSServer()
         print(d as Any)
         let string = Route.currntRouterInet4(true, defaultRouter: false)
         print(string)
-//        myUtterance = AVSpeechUtterance(string: "你好,www.freebsdchina.org")
-//        myUtterance.rate = AVSpeechUtteranceMaximumSpeechRate * 0.5
-//        synth.speak(myUtterance)
+        myUtterance = AVSpeechUtterance(string: "你好,www.freebsdchina.org")
+        myUtterance.rate = AVSpeechUtteranceMaximumSpeechRate * 0.5
+        synth.speak(myUtterance)
      
         
         testReolover(host: "www.freebsdchina.org",r:DNSResolver())
