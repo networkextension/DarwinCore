@@ -30,5 +30,5 @@ typedef void (^didWrite) (Boolean success, int fd,size_t count);
 -(BOOL)running;
 -(void)pauseRestartServer;
 -(bool)server_read:(int)fd buff:(unsigned char *_Nullable)buff size:(size_t)buff_sz start:(void  * _Nullable *_Nullable)msgStart total:(size_t *_Nullable)total;
--(void)server_send_reply:(int)fd queue:(dispatch_queue_t _Nullable )q  data:(CFDataRef _Nullable )data finish:(didWrite _Nullable )finish;
+
 @end

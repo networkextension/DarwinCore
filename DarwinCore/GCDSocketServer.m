@@ -204,15 +204,8 @@ static bool g_accepting_requests = true;
     
     dispatch_resume(s);
 }
--(void)server_write_request:(int)fd  data:(NSData* _Nullable)data finish:(didWrite _Nonnull )finish
-{
-    
-    assert(data != NULL);
-    
-    
-    [self server_send_reply:fd queue:self.socketQueue data:(__bridge CFDataRef)(data) finish:finish];
 
-}
+
 -(void)stopServer;
 {
     dispatch_source_cancel(self.as);
@@ -272,11 +265,12 @@ static bool g_accepting_requests = true;
         
         return result;
     }
-    
--(void)server_send_reply:(int)fd queue:(dispatch_queue_t)q  data:(CFDataRef)data finish:(didWrite)finish
-    {
+-(void)server_write_request:(int)fd  data:(NSData* _Nullable)odata finish:(didWrite _Nonnull )finish
+{
+//-(void)server_send_reply:(int)fd queue:(dispatch_queue_t)q  data:(CFDataRef)data finish:(didWrite)finish
+ //    [self server_send_reply:fd queue:self.socketQueue data: finish:finish];
         os_log_info(OS_LOG_DEFAULT, "server_send_reply" );
-        
+        CFDataRef data =  (__bridge CFDataRef)(odata);
         size_t            total    = CFDataGetLength( data );
         unsigned char*    buff    = (unsigned char *)malloc(total);
         
@@ -292,12 +286,12 @@ static bool g_accepting_requests = true;
         (void)memcpy( buff, CFDataGetBytePtr( data ), CFDataGetLength( data ) );
         
         
-        dispatch_source_t s = dispatch_source_create(DISPATCH_SOURCE_TYPE_WRITE, fd, 0, q);
+        dispatch_source_t s = dispatch_source_create(DISPATCH_SOURCE_TYPE_WRITE, fd, 0, self.socketQueue);
         assert(s != NULL);
         
         __block unsigned char*    track_buff    = buff;
         __block size_t            track_sz    = total;
-        
+       __weak GCDSocketServer *server = self;
         dispatch_source_set_event_handler(s, ^(void)
                                           {
                                               ssize_t nbytes = write(fd, track_buff, track_sz);
@@ -314,23 +308,23 @@ static bool g_accepting_requests = true;
                                                       
                                                       dispatch_source_cancel( s );
                                                       //finish(true,fd);
-                                                      dispatch_async(self.dispatchQueue, ^{
+                                                      
+                                                      dispatch_async(server.dispatchQueue, ^{
                                                           finish(true,fd,total);
                                                       });
                                                   }else {
                                                       
                                                       os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE count:%d", nbytes);
-                                                      //   finish(true,fd);
-                                                      //                                                  dispatch_async(server.dispatchQueue, ^{
-                                                      //                                                      finish(false,fd,nbytes);
-                                                      //                                                  });
+                                                      
                                                   }
                                               }else {
                                                   os_log_debug(OS_LOG_DEFAULT, "write fail:%s",strerror(errno));
-                                                  // finish(true,fd);
-                                                  //                                              dispatch_async(server.dispatchQueue, ^{
-                                                  //                                                  finish(false,fd,0);
-                                                  //                                              });
+                                                  
+                                                  dispatch_source_cancel( s );
+                                                  dispatch_async(server.dispatchQueue, ^{
+                                                      finish(false,fd,total);
+                                                  });
+                                                
                                               }
                                               
                                               
