@@ -43,7 +43,6 @@
 		69726D781F6B5F53003375CA /* TestTLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69726D771F6B5F53003375CA /* TestTLS.swift */; };
 		69726D881F6B7DE3003375CA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69726D871F6B7DE3003375CA /* Security.framework */; };
 		69726D891F6B7E5E003375CA /* XTLS.h in Headers */ = {isa = PBXBuildFile; fileRef = 69726D831F6B7CD4003375CA /* XTLS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		69726D8A1F6B7E6E003375CA /* XTLS.m in Sources */ = {isa = PBXBuildFile; fileRef = 69726D841F6B7CD5003375CA /* XTLS.m */; };
 		69726D8B1F6B7F61003375CA /* ioSock.c in Sources */ = {isa = PBXBuildFile; fileRef = 69726D731F6B5E56003375CA /* ioSock.c */; };
 		69726D8E1F6BA97A003375CA /* QHex.h in Headers */ = {isa = PBXBuildFile; fileRef = 69726D8D1F6BA960003375CA /* QHex.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69726D8F1F6BA97B003375CA /* QHex.h in Headers */ = {isa = PBXBuildFile; fileRef = 69726D8D1F6BA960003375CA /* QHex.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -60,9 +59,6 @@
 		69784D981DE0AB4A007E32C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69784D961DE0AB4A007E32C2 /* Main.storyboard */; };
 		69801C8B200C2B8B00A214D6 /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 69801C89200C2B8A00A214D6 /* util.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69801C8C200C2B8B00A214D6 /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 69801C89200C2B8A00A214D6 /* util.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		69801C8E200C2B8B00A214D6 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 69801C8A200C2B8B00A214D6 /* util.c */; };
-		69801C91200C2B9600A214D6 /* dtls_client.m in Sources */ = {isa = PBXBuildFile; fileRef = 69801C8F200C2B9600A214D6 /* dtls_client.m */; };
-		69801C94200C2B9C00A214D6 /* dtls_server.m in Sources */ = {isa = PBXBuildFile; fileRef = 69801C92200C2B9C00A214D6 /* dtls_server.m */; };
 		69962D7D1F7A33BE006D2B19 /* SocketServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D7B1F7A33BE006D2B19 /* SocketServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69962D7E1F7A33BE006D2B19 /* SocketServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 69962D7B1F7A33BE006D2B19 /* SocketServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69962D7F1F7A33BE006D2B19 /* SocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69962D7C1F7A33BE006D2B19 /* SocketServer.m */; };
@@ -794,7 +790,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69726D8A1F6B7E6E003375CA /* XTLS.m in Sources */,
 				690B411A1EE13CF800007E26 /* DCIPAddr.m in Sources */,
 				69B954E41DDF7D5E006AF669 /* DNS.m in Sources */,
 				69E40EA81F45282800C1DDC3 /* GCDSocketServer.m in Sources */,
@@ -805,17 +800,14 @@
 				695FE1CC201EEC8500DFA617 /* TLSUtilities.m in Sources */,
 				69639C201EE1B2EF00893D18 /* IPSum.m in Sources */,
 				69962D861F7A34DD006D2B19 /* GCDSocket.m in Sources */,
-				69801C94200C2B9C00A214D6 /* dtls_server.m in Sources */,
 				69B954E11DDF7D51006AF669 /* STTraffic.m in Sources */,
 				69B954E01DDF7D4D006AF669 /* DNSResolver.m in Sources */,
-				69801C91200C2B9600A214D6 /* dtls_client.m in Sources */,
 				69521156201393610038E62B /* TLSToolCommon.m in Sources */,
 				69E40EF91F467EFF00C1DDC3 /* proinfo.m in Sources */,
 				69BE2E791FFD222F0078845A /* ServerUtils.m in Sources */,
 				69EEA8FA1F6118E000DDFC90 /* route.c in Sources */,
 				69726D8B1F6B7F61003375CA /* ioSock.c in Sources */,
 				69962D8A1F7A3B7B006D2B19 /* xsocket.m in Sources */,
-				69801C8E200C2B8B00A214D6 /* util.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
