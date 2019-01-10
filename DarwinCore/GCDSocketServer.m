@@ -12,6 +12,25 @@
 #import "GCDSocketServer.h"
 #include "shared.h"
 #import "xsocket.h"
+
+#ifdef DEBUG
+
+// Something to log your sensitive data here
+#define kos_log(log, format, ...) \
+    os_log_with_type(log, OS_LOG_TYPE_DEFAULT, format, ##__VA_ARGS__)
+#define kos_log_info(log, format, ...) \
+    os_log_with_type(log, OS_LOG_TYPE_INFO, format, ##__VA_ARGS__)
+#define kos_log_debug(log, format, ...) \
+    os_log_with_type(log, OS_LOG_TYPE_DEBUG, format, ##__VA_ARGS__)
+#else
+
+#define kos_log(log, format, ...)
+
+#define kos_log_info(log, format, ...)
+
+#define kos_log_debug(log, format, ...)
+
+#endif
 static bool g_accepting_requests = true;
 
 
@@ -37,9 +56,9 @@ static bool g_accepting_requests = true;
     self.dispatchQueue = dqueue;
     self.socketQueue = squeue;
     
-    os_log(OS_LOG_DEFAULT, "Server Starting");
-    os_log_info(OS_LOG_DEFAULT, "Additional info for troubleshooting.");
-    os_log_debug(OS_LOG_DEFAULT, "Debug level messages.");
+    kos_log(OS_LOG_DEFAULT, "Server Starting");
+    kos_log_info(OS_LOG_DEFAULT, "Additional info for troubleshooting.");
+    kos_log_debug(OS_LOG_DEFAULT, "Debug level messages.");
     (void)signal(SIGTERM, SIG_IGN);
     (void)signal(SIGPIPE, SIG_IGN);
     
@@ -47,7 +66,7 @@ static bool g_accepting_requests = true;
     assert(sts != NULL);
     dispatch_source_set_event_handler(sts, ^(void)
                                       {
-                                          os_log_info(OS_LOG_DEFAULT,"DISPATCH_SOURCE_TYPE_SIGNAL" );
+                                          kos_log_info(OS_LOG_DEFAULT,"DISPATCH_SOURCE_TYPE_SIGNAL" );
                                           
                                          
                                           g_accepting_requests = false;
@@ -63,7 +82,7 @@ static bool g_accepting_requests = true;
     dispatch_source_set_event_handler(as, ^(void){
         struct sockaddr_storage saddr;
         socklen_t        slen    = sizeof(saddr);
-        os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ A" );
+        kos_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ A" );
         
         int afd = accept( fd, (struct sockaddr *)&saddr, &slen );
         
@@ -71,7 +90,7 @@ static bool g_accepting_requests = true;
         {
             int value = 1;
             setsockopt(afd, SOL_SOCKET, SO_NOSIGPIPE, &value, sizeof(value));
-            os_log_debug(OS_LOG_DEFAULT,"DISPATCH_SOURCE_TYPE_READ A - accepted" );
+            kos_log_debug(OS_LOG_DEFAULT,"DISPATCH_SOURCE_TYPE_READ A - accepted" );
             
             /* Again, make sure the new connection's descriptor is non-blocking. */
             (void)fcntl( fd, F_SETFL, O_NONBLOCK );
@@ -117,7 +136,7 @@ static bool g_accepting_requests = true;
     
     dispatch_source_set_cancel_handler(as, ^(void)
                                        {
-                                           os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ A - canceled" );
+                                           kos_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ A - canceled" );
                                            
                                            //dispatch_release( as );
                                            (void)close( fd );
@@ -157,7 +176,7 @@ static bool g_accepting_requests = true;
     
     dispatch_source_set_event_handler(s, ^(void)
                                       {
-                                          os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ B" );
+                                          kos_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ B" );
                                           
                                           /* You may be asking yourself, "Doesn't the fact that we're on a concurrent
                                            * queue mean that multiple event handler blocks could be running
@@ -176,7 +195,7 @@ static bool g_accepting_requests = true;
                                           if ([self server_read:fd buff:buff size:buff_sz start:&msgStart total:&total])
                                          
                                           {
-                                              os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ B - server_read success" );
+                                              kos_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ B - server_read success" );
                                               
                                               /* After handling the request (which, in this case, means that we've
                                                * scheduled a source to deliver the reply), we no longer need this
@@ -189,7 +208,7 @@ static bool g_accepting_requests = true;
     
     dispatch_source_set_cancel_handler(s, ^(void)
                                        {
-                                           os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ B - canceled" );
+                                           kos_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_READ B - canceled" );
                                            
                                            //dispatch_release( s );
                                            
@@ -218,9 +237,18 @@ static bool g_accepting_requests = true;
     }
     return false;
 }
+-(void)pauseReading
+{
+    self.pauseRead = YES;
+}
+-(void)resumeReading;
+{
+    self.pauseRead = NO;
+    
+}
 -(bool)server_read:(int)fd buff:(unsigned char *_Nullable)buff size:(size_t)buff_sz start:(void  * _Nullable *_Nullable)msgStart total:(size_t *_Nullable)total
     {
-        os_log_info(OS_LOG_DEFAULT, "server_read" );
+        kos_log_info(OS_LOG_DEFAULT, "server_read" );
         
         bool result = false;
         
@@ -235,20 +263,20 @@ static bool g_accepting_requests = true;
         
         if ( nbytes == 0 )
         {
-            os_log_info(OS_LOG_DEFAULT, "all bytes read" );
+            kos_log_info(OS_LOG_DEFAULT, "all bytes read" );
             
             return true;
         }
         else if ( nbytes == -1 )
         {
             perror(strerror(errno));
-            os_log_info(OS_LOG_DEFAULT, "server_read: error on read! %d",errno );
+            kos_log_info(OS_LOG_DEFAULT, "server_read: error on read! %s",strerror(errno) );
             
             return true;
         }
         else
         {
-            os_log_info(OS_LOG_DEFAULT, "nbytes: %lu", nbytes );
+            kos_log_info(OS_LOG_DEFAULT, "nbytes: %lu", nbytes );
             *total += nbytes;
             
             /* We do this swap on every read(2), which is wasteful. But there is a
@@ -269,7 +297,7 @@ static bool g_accepting_requests = true;
 {
 //-(void)server_send_reply:(int)fd queue:(dispatch_queue_t)q  data:(CFDataRef)data finish:(didWrite)finish
  //    [self server_send_reply:fd queue:self.socketQueue data: finish:finish];
-        os_log_info(OS_LOG_DEFAULT, "server_send_reply" );
+        kos_log_info(OS_LOG_DEFAULT, "server_send_reply" );
         CFDataRef data =  (__bridge CFDataRef)(odata);
         size_t            total    = CFDataGetLength( data );
         unsigned char*    buff    = (unsigned char *)malloc(total);
@@ -304,7 +332,7 @@ static bool g_accepting_requests = true;
                                                   
                                                   if ( track_sz == 0 )
                                                   {
-                                                      os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - all bytes written" );
+                                                      kos_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - all bytes written" );
                                                       
                                                       dispatch_source_cancel( s );
                                                       //finish(true,fd);
@@ -314,11 +342,11 @@ static bool g_accepting_requests = true;
                                                       });
                                                   }else {
                                                       
-                                                      os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE count:%d", nbytes);
+                                                      kos_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE count:%d", nbytes);
                                                       
                                                   }
                                               }else {
-                                                  os_log_debug(OS_LOG_DEFAULT, "write fail:%s",strerror(errno));
+                                                  kos_log_debug(OS_LOG_DEFAULT, "write fail:%s",strerror(errno));
                                                   
                                                   dispatch_source_cancel( s );
                                                   dispatch_async(server.dispatchQueue, ^{
@@ -333,7 +361,7 @@ static bool g_accepting_requests = true;
         
         dispatch_source_set_cancel_handler(s, ^(void)
                                            {
-                                               os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - canceled" );
+                                               kos_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE - canceled" );
                                                free(buff);
                                                //dispatch_release(s);
                                            });
