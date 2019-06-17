@@ -5,7 +5,7 @@
 //  Created by yarshure on 2017/8/17.
 //  Copyright © 2017年 Kong XiangBo. All rights reserved.
 //
-#include <asl.h>
+//#include <asl.h>
 #include <os/log.h>
 #include <stdatomic.h>
 #include <libkern/OSAtomic.h>
