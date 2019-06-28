@@ -74,7 +74,7 @@
 #include <net/route.h>
 #include <Kernel/net/radix.h>
 #else
-#if !(TARGET_IPHONE_SIMULATOR)
+#if !(TARGET_IPHONE_SIMULATOR) && !(TARGET_OS_UIKITFORMAC)
 #include <net/route_ios.h>
 #include <net/radix.h>
 #else

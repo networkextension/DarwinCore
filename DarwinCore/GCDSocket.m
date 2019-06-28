@@ -189,7 +189,7 @@
                                               
                                               }else {
                                                   
-                                                  os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE count:%d", nbytes);
+                                                  os_log_debug(OS_LOG_DEFAULT, "DISPATCH_SOURCE_TYPE_WRITE count:%zd", nbytes);
                                                   
                                               }
                                           }else {
